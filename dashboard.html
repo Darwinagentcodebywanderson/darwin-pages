@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Darwin — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#060d1a;--surface:#0d1829;--border:#1a2740;--border2:#243352;
+  --text:#e2e8f0;--muted:#64748b;--green:#22c55e;--yellow:#fbbf24;
+  --blue:#3b82f6;--mono:'DM Mono',monospace;--sans:'DM Sans',system-ui,sans-serif;
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:100vh}
+.shell{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.sidebar{background:var(--surface);border-right:1px solid var(--border);
+         padding:28px 16px;display:flex;flex-direction:column;gap:4px}
+.logo{font-size:19px;font-weight:700;color:#fff;letter-spacing:-.03em;
+      padding:0 8px 24px;display:flex;align-items:center;gap:8px}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;
+          border-radius:8px;font-size:14px;color:var(--muted)}
+.nav-item.active{background:#0f2d1a;color:var(--green);font-weight:500}
+.main{padding:36px 32px}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
+.page-title{font-size:22px;font-weight:700;letter-spacing:-.02em}
+.btn-refresh{display:flex;align-items:center;gap:7px;background:var(--surface);
+             border:1px solid var(--border2);color:var(--text);padding:8px 16px;
+             border-radius:8px;font-size:13px;font-family:var(--sans);cursor:pointer}
+.btn-refresh:hover{border-color:var(--green);color:var(--green)}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);
+            animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+.metric{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
+.metric-label{font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.metric-value{font-size:28px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.metric-sub{font-size:12px;color:var(--muted);margin-top:6px}
+.up{color:var(--green)}.warn{color:var(--yellow)}
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+.chart-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.chart-title{font-size:14px;font-weight:600;margin-bottom:16px}
+.bar-group{display:flex;flex-direction:column;gap:10px}
+.bar-row{display:flex;align-items:center;gap:12px}
+.bar-label{font-size:13px;color:var(--muted);min-width:90px;text-align:right}
+.bar-track{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:width .6s ease}
+.bar-count{font-size:12px;font-family:var(--mono);color:var(--text);min-width:36px}
+.donut-wrap{display:flex;align-items:center;gap:20px}
+.donut-legend{display:flex;flex-direction:column;gap:8px}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:13px}
+.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.table-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:28px}
+.section-title{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+table{width:100%;border-collapse:collapse}
+th{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;padding:0 12px 12px;text-align:left}
+td{padding:12px;font-size:13px;border-top:1px solid var(--border);vertical-align:middle}
+tr:hover td{background:#0d1f2d}
+.badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;letter-spacing:.04em;text-transform:uppercase}
+.badge-descoberta{background:#0c2a4a;color:#60a5fa}
+.badge-erro{background:#3b1f03;color:#fbbf24}
+.badge-acao{background:#052e16;color:#4ade80}
+.badge-light{background:#1e1b4b;color:#a5b4fc}
+.badge-minimal{background:#1a1a1a;color:#94a3b8}
+.clicks-bar{display:flex;align-items:center;gap:8px}
+.clicks-mini{height:4px;border-radius:2px;background:var(--green);min-width:4px}
+.page-id-cell{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.state-msg{text-align:center;padding:48px;color:var(--muted);font-size:14px}
+.spinner{width:20px;height:20px;border:2px solid var(--border2);border-top-color:var(--green);
+         border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 12px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:900px){.shell{grid-template-columns:1fr}.sidebar{display:none}.metrics{grid-template-columns:repeat(2,1fr)}.charts-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="logo"><span class="logo-dot"></span>Darwin</div>
+    <div class="nav-item active">Overview</div>
+    <div class="nav-item">Páginas</div>
+    <div class="nav-item">Analytics</div>
+    <div class="nav-item">Produtos</div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <h1 class="page-title">Overview</h1>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="status-dot"></span>
+        <button class="btn-refresh" onclick="loadData()">Atualizar</button>
+      </div>
+    </div>
+    <div class="metrics" id="metrics">
+      <div class="state-msg" style="grid-column:1/-1"><div class="spinner"></div>Carregando...</div>
+    </div>
+    <div class="charts-row">
+      <div class="chart-card">
+        <div class="chart-title">Cliques por tipo de página</div>
+        <div class="bar-group" id="bar-chart"><div class="state-msg"><div class="spinner"></div></div></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Distribuição de cliques</div>
+        <div class="donut-wrap">
+          <canvas id="donut" width="120" height="120"></canvas>
+          <div class="donut-legend" id="donut-legend"></div>
+        </div>
+      </div>
+    </div>
+    <div class="table-card">
+      <div class="section-title">Top páginas por cliques</div>
+      <div id="table-wrap"><div class="state-msg"><div class="spinner"></div>Carregando...</div></div>
+    </div>
+  </div>
+</div>
+<script>
+const SUPABASE_URL = "https://cmykqkytjhiqarcginfs.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteWtxa3l0amhpcWFyY2dpbmZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NDY0MTMsImV4cCI6MjA5MjAyMjQxM30.5navVvq_NuPAF-Xv8Pk39QdNE80JwEzpuHZ6hgU1gWU";
+
+const TYPE_COLORS = {descoberta:"#3b82f6",erro:"#fbbf24",acao:"#22c55e",light:"#a5b4fc",minimal:"#94a3b8"};
+const TYPE_LABELS = {descoberta:"Descoberta",erro:"Erro",acao:"Ação",light:"Light",minimal:"Minimal"};
+
+async function query(table, params="") {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`, {
+    headers:{"apikey":SUPABASE_KEY,"Authorization":`Bearer ${SUPABASE_KEY}`}
+  });
+  return res.json();
+}
+
+function badgeHtml(type) {
+  return `<span class="badge badge-${type}">${TYPE_LABELS[type]||type}</span>`;
+}
+
+function renderMetrics(pages) {
+  const total   = pages.length;
+  const clicks  = pages.reduce((s,p)=>s+(p.clicks||0),0);
+  const products = new Set(pages.map(p=>p.product_name)).size;
+  const top     = [...pages].sort((a,b)=>b.clicks-a.clicks)[0];
+  const ctr     = total ? (clicks/total).toFixed(1) : "0";
+  document.getElementById("metrics").innerHTML = `
+    <div class="metric"><div class="metric-label">Páginas geradas</div>
+      <div class="metric-value">${total}</div><div class="metric-sub">${products} produto(s)</div></div>
+    <div class="metric"><div class="metric-label">Total de cliques</div>
+      <div class="metric-value up">${clicks.toLocaleString("pt-BR")}</div><div class="metric-sub">todos os templates</div></div>
+    <div class="metric"><div class="metric-label">Média por página</div>
+      <div class="metric-value warn">${ctr}</div><div class="metric-sub">cliques / página</div></div>
+    <div class="metric"><div class="metric-label">Melhor página</div>
+      <div class="metric-value" style="font-size:16px;color:#f1f5f9;">${top?top.clicks:0} cliques</div>
+      <div class="metric-sub">${top?badgeHtml(top.page_type):"—"}</div></div>`;
+}
+
+function renderBarChart(pages) {
+  const totals={};
+  for(const p of pages) totals[p.page_type]=(totals[p.page_type]||0)+(p.clicks||0);
+  const max=Math.max(...Object.values(totals),1);
+  const rows=Object.entries(totals).sort((a,b)=>b[1]-a[1]).map(([type,count])=>{
+    const pct=Math.round((count/max)*100);
+    return `<div class="bar-row">
+      <span class="bar-label">${TYPE_LABELS[type]||type}</span>
+      <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${TYPE_COLORS[type]||'#64748b'};"></div></div>
+      <span class="bar-count">${count}</span></div>`;
+  }).join("");
+  document.getElementById("bar-chart").innerHTML=rows||'<div class="state-msg">Sem dados</div>';
+}
+
+function renderDonut(pages) {
+  const totals={};
+  for(const p of pages) totals[p.page_type]=(totals[p.page_type]||0)+(p.clicks||0);
+  const total=Object.values(totals).reduce((s,v)=>s+v,0)||1;
+  const entries=Object.entries(totals);
+  const canvas=document.getElementById("donut");
+  const ctx=canvas.getContext("2d");
+  let angle=-Math.PI/2;
+  ctx.clearRect(0,0,120,120);
+  for(const [type,count] of entries){
+    const a=(count/total)*2*Math.PI;
+    ctx.beginPath();ctx.moveTo(60,60);ctx.arc(60,60,50,angle,angle+a);
+    ctx.closePath();ctx.fillStyle=TYPE_COLORS[type]||"#64748b";ctx.fill();
+    angle+=a;
+  }
+  ctx.beginPath();ctx.arc(60,60,28,0,2*Math.PI);ctx.fillStyle="#0d1829";ctx.fill();
+  document.getElementById("donut-legend").innerHTML=entries.map(([type,count])=>
+    `<div class="legend-item"><div class="legend-dot" style="background:${TYPE_COLORS[type]||'#64748b'}"></div>
+    <span style="color:var(--muted)">${TYPE_LABELS[type]||type}</span>
+    <span style="font-family:var(--mono);font-size:12px;">${count}</span></div>`).join("");
+}
+
+function renderTable(pages) {
+  const sorted=[...pages].sort((a,b)=>b.clicks-a.clicks).slice(0,20);
+  const maxC=sorted[0]?.clicks||1;
+  if(!sorted.length){document.getElementById("table-wrap").innerHTML='<div class="state-msg">Nenhuma página encontrada</div>';return;}
+  const rows=sorted.map(p=>{
+    const bw=Math.max(4,Math.round((p.clicks/maxC)*80));
+    const date=new Date(p.created_at).toLocaleDateString("pt-BR",{day:"2-digit",month:"short"});
+    return `<tr>
+      <td class="page-id-cell">${p.page_id}</td>
+      <td style="font-weight:500;color:#f1f5f9;">${p.product_name}</td>
+      <td>${badgeHtml(p.page_type)}</td>
+      <td><div class="clicks-bar"><div class="clicks-mini" style="width:${bw}px"></div>
+        <span style="font-family:var(--mono);font-size:13px;">${p.clicks}</span></div></td>
+      <td style="color:var(--muted);font-size:12px;">${date}</td></tr>`;
+  }).join("");
+  document.getElementById("table-wrap").innerHTML=`
+    <table><thead><tr>
+      <th>Page ID</th><th>Produto</th><th>Tipo</th><th>Cliques</th><th>Criado em</th>
+    </tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+async function loadData() {
+  try {
+    const pages=await query("pages","select=*&order=clicks.desc&limit=200");
+    renderMetrics(pages);renderBarChart(pages);renderDonut(pages);renderTable(pages);
+  } catch(err) {
+    document.getElementById("metrics").innerHTML=
+      `<div class="state-msg" style="grid-column:1/-1;color:#f87171;">
+        Erro ao carregar dados.<br><small>Verifique as configurações no topo do script.</small></div>`;
+  }
+}
+
+loadData();
+</script>
+</body>
+</html>
