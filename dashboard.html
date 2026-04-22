@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Darwin — Dashboard</title>
+<title>Darwin — Central de Comando</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -11,215 +11,674 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#060d1a;--surface:#0d1829;--border:#1a2740;--border2:#243352;
-  --text:#e2e8f0;--muted:#64748b;--green:#22c55e;--yellow:#fbbf24;
-  --blue:#3b82f6;--mono:'DM Mono',monospace;--sans:'DM Sans',system-ui,sans-serif;
+  --text:#e2e8f0;--muted:#64748b;--green:#22c55e;--green-bg:#052e16;
+  --yellow:#fbbf24;--yellow-bg:#3b1f03;--blue:#3b82f6;--blue-bg:#0c2a4a;
+  --red:#f87171;--purple:#a78bfa;--purple-bg:#1e1b4b;
+  --mono:'DM Mono',monospace;--sans:'DM Sans',system-ui,sans-serif;
 }
 html{font-size:16px;-webkit-font-smoothing:antialiased}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:100vh}
 .shell{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+
+/* ── Sidebar ── */
 .sidebar{background:var(--surface);border-right:1px solid var(--border);
-         padding:28px 16px;display:flex;flex-direction:column;gap:4px}
+         padding:28px 16px;display:flex;flex-direction:column;gap:4px;
+         position:sticky;top:0;height:100vh}
 .logo{font-size:19px;font-weight:700;color:#fff;letter-spacing:-.03em;
       padding:0 8px 24px;display:flex;align-items:center;gap:8px}
-.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--green);
+          box-shadow:0 0 8px #22c55e88;animation:pulse 2s infinite}
 .nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;
-          border-radius:8px;font-size:14px;color:var(--muted)}
+          border-radius:8px;font-size:14px;color:var(--muted);cursor:pointer;
+          border:none;background:none;width:100%;text-align:left;transition:all .15s}
+.nav-item:hover{background:var(--border);color:var(--text)}
 .nav-item.active{background:#0f2d1a;color:var(--green);font-weight:500}
-.main{padding:36px 32px}
-.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
+.nav-badge{margin-left:auto;background:var(--yellow-bg);color:var(--yellow);
+           font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px}
+
+/* ── Main ── */
+.main{padding:36px 32px;overflow-y:auto}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
 .page-title{font-size:22px;font-weight:700;letter-spacing:-.02em}
-.btn-refresh{display:flex;align-items:center;gap:7px;background:var(--surface);
-             border:1px solid var(--border2);color:var(--text);padding:8px 16px;
-             border-radius:8px;font-size:13px;font-family:var(--sans);cursor:pointer}
-.btn-refresh:hover{border-color:var(--green);color:var(--green)}
-.status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);
-            animation:pulse 2s infinite}
+.topbar-right{display:flex;align-items:center;gap:10px}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--surface);
+     border:1px solid var(--border2);color:var(--text);padding:8px 16px;
+     border-radius:8px;font-size:13px;font-family:var(--sans);cursor:pointer;
+     transition:all .15s;text-decoration:none}
+.btn:hover{border-color:var(--green);color:var(--green)}
+.btn-green{background:var(--green);color:#000;border-color:var(--green);font-weight:600}
+.btn-green:hover{opacity:.88;color:#000}
+.btn-yellow{background:var(--yellow);color:#000;border-color:var(--yellow);font-weight:600}
+.btn-yellow:hover{opacity:.88;color:#000}
+.btn-sm{padding:6px 12px;font-size:12px}
+.btn-ghost{background:transparent;border-color:var(--border);color:var(--muted)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn-loading{opacity:.6;pointer-events:none}
+
+/* ── Panels ── */
+.panel{display:none}
+.panel.active{display:block}
+
+/* ── Metrics ── */
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
 .metric{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
-.metric-label{font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
-.metric-value{font-size:28px;font-weight:700;letter-spacing:-.03em;line-height:1}
-.metric-sub{font-size:12px;color:var(--muted);margin-top:6px}
-.up{color:var(--green)}.warn{color:var(--yellow)}
-.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+.metric-label{font-size:11px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
+.metric-value{font-size:26px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.metric-sub{font-size:12px;color:var(--muted);margin-top:5px}
+.c-green{color:var(--green)}.c-yellow{color:var(--yellow)}.c-blue{color:var(--blue)}.c-purple{color:var(--purple)}
+
+/* ── Sub tabs ── */
+.sub-tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--border);
+          border-radius:10px;padding:4px;width:fit-content}
+.sub-tab{padding:8px 20px;font-size:13px;font-weight:500;color:var(--muted);
+         cursor:pointer;border-radius:7px;border:none;background:none;
+         font-family:var(--sans);transition:all .15s;display:flex;align-items:center;gap:7px}
+.sub-tab:hover{color:var(--text)}
+.sub-tab.active{background:var(--bg);color:var(--text);box-shadow:0 1px 3px #00000044}
+.sub-tab .count{font-size:11px;font-weight:700;padding:1px 6px;border-radius:20px}
+.count-af{background:var(--border);color:var(--muted)}
+.count-drop{background:var(--border);color:var(--muted)}
+.sub-tab.active .count-af{background:var(--green-bg);color:var(--green)}
+.sub-tab.active .count-drop{background:var(--yellow-bg);color:var(--yellow)}
+
+/* ── Filtros ── */
+.filtros{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
+.filtro-btn{padding:5px 14px;font-size:12px;font-weight:500;border-radius:20px;
+            border:1px solid var(--border2);background:transparent;color:var(--muted);
+            cursor:pointer;font-family:var(--sans);transition:all .15s}
+.filtro-btn:hover{border-color:var(--text);color:var(--text)}
+.filtro-btn.active{border-color:var(--green);color:var(--green);background:var(--green-bg)}
+
+/* ── Produto card ── */
+.pcard{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+       padding:16px 18px;margin-bottom:10px;transition:border-color .15s}
+.pcard:hover{border-color:var(--border2)}
+.pcard-top{display:flex;align-items:flex-start;gap:12px}
+.pcard-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;
+            justify-content:center;font-size:18px;flex-shrink:0}
+.icon-af{background:var(--green-bg)}
+.icon-drop{background:var(--yellow-bg)}
+.pcard-body{flex:1;min-width:0}
+.pcard-nome{font-size:14px;font-weight:600;color:#f1f5f9;margin-bottom:5px;
+            white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pcard-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.plat{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;
+      text-transform:uppercase;letter-spacing:.04em}
+.plat-hotmart{background:#ff6b0022;color:#ff8c42;border:1px solid #ff6b0033}
+.plat-monetizze{background:#6366f122;color:#818cf8;border:1px solid #6366f133}
+.plat-eduzz{background:#0ea5e922;color:#38bdf8;border:1px solid #0ea5e933}
+.plat-braip{background:#22c55e22;color:#4ade80;border:1px solid #22c55e33}
+.plat-aliexpress{background:#ff6a0022;color:#fb923c;border:1px solid #ff6a0033}
+.plat-shopee{background:#f9731622;color:#f97316;border:1px solid #f9731633}
+.score{font-size:12px;font-weight:700;color:var(--yellow)}
+.nicho{font-size:11px;color:var(--muted)}
+.pcard-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.status-pill{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase}
+.sp-pendente{background:var(--yellow-bg);color:var(--yellow)}
+.sp-ativo{background:var(--green-bg);color:var(--green)}
+.sp-pausado{background:#1a1a2e;color:var(--muted)}
+
+/* ── Expansão ── */
+.pcard-expand{margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:none}
+.pcard-expand.open{display:block}
+.link-row{display:flex;gap:8px;align-items:center}
+.link-input{flex:1;background:#0a1628;border:1px solid var(--border2);color:var(--text);
+            font-size:13px;font-family:var(--mono);padding:9px 14px;border-radius:8px;
+            outline:none;transition:border-color .15s}
+.link-input:focus{border-color:var(--green)}
+.link-input::placeholder{color:var(--muted)}
+.link-ativo{font-size:12px;font-family:var(--mono);color:var(--muted);
+            padding:8px 12px;background:#0a1628;border-radius:8px;word-break:break-all}
+.hint{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5}
+
+/* ── Charts ── */
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
 .chart-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
-.chart-title{font-size:14px;font-weight:600;margin-bottom:16px}
+.chart-title{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-bottom:16px}
 .bar-group{display:flex;flex-direction:column;gap:10px}
 .bar-row{display:flex;align-items:center;gap:12px}
-.bar-label{font-size:13px;color:var(--muted);min-width:90px;text-align:right}
-.bar-track{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
-.bar-fill{height:100%;border-radius:4px;transition:width .6s ease}
-.bar-count{font-size:12px;font-family:var(--mono);color:var(--text);min-width:36px}
+.bar-label{font-size:12px;color:var(--muted);min-width:90px;text-align:right}
+.bar-track{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px;transition:width .8s ease}
+.bar-val{font-size:12px;font-family:var(--mono);min-width:24px}
 .donut-wrap{display:flex;align-items:center;gap:20px}
 .donut-legend{display:flex;flex-direction:column;gap:8px}
-.legend-item{display:flex;align-items:center;gap:8px;font-size:13px}
-.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.table-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:28px}
-.section-title{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.legend-row{display:flex;align-items:center;gap:8px;font-size:12px}
+.legend-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+/* ── Table ── */
+.tcard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:24px}
+.tcard-title{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-bottom:16px}
 table{width:100%;border-collapse:collapse}
-th{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;padding:0 12px 12px;text-align:left}
-td{padding:12px;font-size:13px;border-top:1px solid var(--border);vertical-align:middle}
-tr:hover td{background:#0d1f2d}
-.badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;letter-spacing:.04em;text-transform:uppercase}
-.badge-descoberta{background:#0c2a4a;color:#60a5fa}
-.badge-erro{background:#3b1f03;color:#fbbf24}
-.badge-acao{background:#052e16;color:#4ade80}
-.badge-light{background:#1e1b4b;color:#a5b4fc}
-.badge-minimal{background:#1a1a1a;color:#94a3b8}
-.clicks-bar{display:flex;align-items:center;gap:8px}
-.clicks-mini{height:4px;border-radius:2px;background:var(--green);min-width:4px}
-.page-id-cell{font-family:var(--mono);font-size:11px;color:var(--muted)}
-.state-msg{text-align:center;padding:48px;color:var(--muted);font-size:14px}
-.spinner{width:20px;height:20px;border:2px solid var(--border2);border-top-color:var(--green);
+th{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;padding:0 10px 10px;text-align:left}
+td{padding:11px 10px;font-size:13px;border-top:1px solid var(--border);vertical-align:middle}
+tr:hover td{background:#0d1f2d44}
+.tbadge{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;text-transform:uppercase}
+.tbadge-descoberta{background:var(--blue-bg);color:#60a5fa}
+.tbadge-erro{background:var(--yellow-bg);color:var(--yellow)}
+.tbadge-acao{background:var(--green-bg);color:var(--green)}
+.mono{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.clicks-wrap{display:flex;align-items:center;gap:8px}
+.clicks-bar{height:3px;border-radius:2px;background:var(--green);min-width:3px}
+
+/* ── Log box ── */
+.log-box{background:#020817;border:1px solid var(--border);border-radius:8px;
+         padding:14px;font-family:var(--mono);font-size:12px;color:#4ade80;
+         max-height:200px;overflow-y:auto;margin-top:12px;line-height:1.7;
+         white-space:pre-wrap;display:none}
+.log-box.show{display:block}
+
+/* ── Empty / Loading ── */
+.empty{text-align:center;padding:48px 24px;color:var(--muted);font-size:14px;line-height:1.8}
+.spinner{width:18px;height:18px;border:2px solid var(--border2);border-top-color:var(--green);
          border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 12px}
 @keyframes spin{to{transform:rotate(360deg)}}
-@media(max-width:900px){.shell{grid-template-columns:1fr}.sidebar{display:none}.metrics{grid-template-columns:repeat(2,1fr)}.charts-row{grid-template-columns:1fr}}
+
+/* ── Toast ── */
+.toast{position:fixed;bottom:24px;right:24px;background:#1e293b;
+       border:1px solid var(--border2);color:var(--text);padding:12px 20px;
+       border-radius:10px;font-size:14px;transform:translateY(80px);opacity:0;
+       transition:all .3s;z-index:999;max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.ok{border-color:var(--green);color:var(--green)}
+.toast.err{border-color:var(--red);color:var(--red)}
+
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}.sidebar{display:none}
+  .metrics{grid-template-columns:repeat(2,1fr)}.charts-row{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 <div class="shell">
+
+  <!-- Sidebar -->
   <aside class="sidebar">
     <div class="logo"><span class="logo-dot"></span>Darwin</div>
-    <div class="nav-item active">Overview</div>
-    <div class="nav-item">Páginas</div>
-    <div class="nav-item">Analytics</div>
-    <div class="nav-item">Produtos</div>
+    <button class="nav-item active" onclick="nav('overview',this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      Overview
+    </button>
+    <button class="nav-item" onclick="nav('produtos',this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      Produtos
+      <span class="nav-badge" id="nb-pendente">0</span>
+    </button>
+    <button class="nav-item" onclick="nav('paginas',this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Páginas
+    </button>
+    <button class="nav-item" onclick="nav('analytics',this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Analytics
+    </button>
   </aside>
+
+  <!-- Main -->
   <div class="main">
     <div class="topbar">
-      <h1 class="page-title">Overview</h1>
-      <div style="display:flex;align-items:center;gap:12px;">
+      <h1 class="page-title" id="ptitle">Overview</h1>
+      <div class="topbar-right">
         <span class="status-dot"></span>
-        <button class="btn-refresh" onclick="loadData()">Atualizar</button>
+        <button class="btn" onclick="loadAll()">↺ Atualizar</button>
       </div>
     </div>
-    <div class="metrics" id="metrics">
-      <div class="state-msg" style="grid-column:1/-1"><div class="spinner"></div>Carregando...</div>
-    </div>
-    <div class="charts-row">
-      <div class="chart-card">
-        <div class="chart-title">Cliques por tipo de página</div>
-        <div class="bar-group" id="bar-chart"><div class="state-msg"><div class="spinner"></div></div></div>
+
+    <!-- OVERVIEW -->
+    <div class="panel active" id="panel-overview">
+      <div class="metrics" id="metrics">
+        <div style="grid-column:1/-1" class="empty"><div class="spinner"></div></div>
       </div>
-      <div class="chart-card">
-        <div class="chart-title">Distribuição de cliques</div>
-        <div class="donut-wrap">
-          <canvas id="donut" width="120" height="120"></canvas>
-          <div class="donut-legend" id="donut-legend"></div>
+      <div class="charts-row">
+        <div class="chart-card">
+          <div class="chart-title">Cliques por tipo de página</div>
+          <div class="bar-group" id="bc-tipo">
+            <div class="empty"><div class="spinner"></div></div>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title">Distribuição</div>
+          <div class="donut-wrap">
+            <canvas id="donut" width="110" height="110"></canvas>
+            <div class="donut-legend" id="donut-leg"></div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="table-card">
-      <div class="section-title">Top páginas por cliques</div>
-      <div id="table-wrap"><div class="state-msg"><div class="spinner"></div>Carregando...</div></div>
+
+    <!-- PRODUTOS -->
+    <div class="panel" id="panel-produtos">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;">
+        <div class="sub-tabs">
+          <button class="sub-tab active" id="stab-af" onclick="subTab('af',this)">
+            🎯 Afiliado
+            <span class="count count-af" id="cnt-af">0</span>
+          </button>
+          <button class="sub-tab" id="stab-drop" onclick="subTab('drop',this)">
+            🛒 Dropshipping
+            <span class="count count-drop" id="cnt-drop">0</span>
+          </button>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-green" id="btn-buscar" onclick="buscarProdutos()">
+            ⚡ Buscar produtos
+          </button>
+          <button class="btn" id="btn-gerar" onclick="gerarPaginas()">
+            ⚙️ Gerar páginas
+          </button>
+        </div>
+      </div>
+
+      <div class="filtros">
+        <span style="font-size:12px;color:var(--muted);margin-right:4px;">Filtrar:</span>
+        <button class="filtro-btn active" onclick="setFiltro('todos',this)">Todos</button>
+        <button class="filtro-btn" onclick="setFiltro('pendente',this)">Pendentes</button>
+        <button class="filtro-btn" onclick="setFiltro('ativo',this)">Ativos</button>
+        <button class="filtro-btn" onclick="setFiltro('pausado',this)">Pausados</button>
+      </div>
+
+      <!-- Log de output -->
+      <div class="log-box" id="log-box"></div>
+
+      <div id="lista-af"></div>
+      <div id="lista-drop" style="display:none"></div>
     </div>
+
+    <!-- PÁGINAS -->
+    <div class="panel" id="panel-paginas">
+      <div class="tcard">
+        <div class="tcard-title">Páginas geradas</div>
+        <div id="tbl-paginas">
+          <div class="empty"><div class="spinner"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS -->
+    <div class="panel" id="panel-analytics">
+      <div class="charts-row">
+        <div class="chart-card">
+          <div class="chart-title">Cliques por tipo</div>
+          <div class="bar-group" id="bc-tipo2"></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title">Cliques por plataforma</div>
+          <div class="bar-group" id="bc-plat"></div>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-title">Top páginas</div>
+        <div id="tbl-analytics"></div>
+      </div>
+    </div>
+
   </div>
 </div>
+
+<div class="toast" id="toast-el"></div>
+
 <script>
-const SUPABASE_URL = "https://cmykqkytjhiqarcginfs.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteWtxa3l0amhpcWFyY2dpbmZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NDY0MTMsImV4cCI6MjA5MjAyMjQxM30.5navVvq_NuPAF-Xv8Pk39QdNE80JwEzpuHZ6hgU1gWU";
+const SB_URL = "https://cmykqkytjhiqarcginfs.supabase.co";
+const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteWtxa3l0amhpcWFyY2dpbmZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NDY0MTMsImV4cCI6MjA5MjAyMjQxM30.5navVvq_NuPAF-Xv8Pk39QdNE80JwEzpuHZ6hgU1gWU";
+const API    = "http://localhost:5000";
 
-const TYPE_COLORS = {descoberta:"#3b82f6",erro:"#fbbf24",acao:"#22c55e",light:"#a5b4fc",minimal:"#94a3b8"};
-const TYPE_LABELS = {descoberta:"Descoberta",erro:"Erro",acao:"Ação",light:"Light",minimal:"Minimal"};
+const TYPE_C  = {descoberta:"#3b82f6",erro:"#fbbf24",acao:"#22c55e"};
+const TYPE_L  = {descoberta:"Descoberta",erro:"Erro",acao:"Ação"};
+const PLAT_C  = {hotmart:"#ff8c42",monetizze:"#818cf8",eduzz:"#38bdf8",braip:"#4ade80",aliexpress:"#fb923c",shopee:"#f97316"};
+const PTITLES = {overview:"Overview",produtos:"Produtos",paginas:"Páginas",analytics:"Analytics"};
 
-async function query(table, params="") {
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`, {
-    headers:{"apikey":SUPABASE_KEY,"Authorization":`Bearer ${SUPABASE_KEY}`}
+let DB          = {produtos:[],pages:[]};
+let filtroAtual = "todos";
+let subAtual    = "af";
+
+// ── API Supabase ──────────────────────────────────────────────
+
+async function sb(table, params="") {
+  const r = await fetch(`${SB_URL}/rest/v1/${table}?${params}`, {
+    headers:{"apikey":SB_KEY,"Authorization":`Bearer ${SB_KEY}`}
   });
-  return res.json();
+  return r.json();
 }
 
-function badgeHtml(type) {
-  return `<span class="badge badge-${type}">${TYPE_LABELS[type]||type}</span>`;
+async function sbPatch(table, col, val, data) {
+  const r = await fetch(`${SB_URL}/rest/v1/${table}?${col}=eq.${encodeURIComponent(val)}`, {
+    method:"PATCH",
+    headers:{"apikey":SB_KEY,"Authorization":`Bearer ${SB_KEY}`,
+             "Content-Type":"application/json","Prefer":"return=minimal"},
+    body: JSON.stringify(data)
+  });
+  return r.ok;
 }
 
-function renderMetrics(pages) {
-  const total   = pages.length;
-  const clicks  = pages.reduce((s,p)=>s+(p.clicks||0),0);
-  const products = new Set(pages.map(p=>p.product_name)).size;
-  const top     = [...pages].sort((a,b)=>b.clicks-a.clicks)[0];
-  const ctr     = total ? (clicks/total).toFixed(1) : "0";
+// ── API Servidor local ────────────────────────────────────────
+
+async function buscarProdutos() {
+  const btn = document.getElementById("btn-buscar");
+  btn.textContent = "🔍 Buscando...";
+  btn.classList.add("btn-loading");
+  showLog("🧠 Darwin iniciando varredura de produtos...\n");
+  try {
+    const r    = await fetch(`${API}/buscar-produtos`, {method:"POST"});
+    const data = await r.json();
+    if (data.ok) {
+      showLog(data.output);
+      toast("✅ Busca concluída! Novos produtos adicionados.", "ok");
+      await loadAll();
+    } else {
+      showLog("❌ Erro: " + data.error);
+      toast("Erro na busca", "err");
+    }
+  } catch(e) {
+    showLog("❌ Servidor offline.\nRode: python server.py no terminal");
+    toast("❌ Servidor offline — rode python server.py", "err");
+  }
+  btn.textContent = "⚡ Buscar produtos";
+  btn.classList.remove("btn-loading");
+}
+
+async function gerarPaginas() {
+  const btn = document.getElementById("btn-gerar");
+  btn.textContent = "⚙️ Gerando...";
+  btn.classList.add("btn-loading");
+  showLog("⚙️ Darwin gerando páginas de venda...\n");
+  try {
+    const r    = await fetch(`${API}/gerar-paginas`, {method:"POST"});
+    const data = await r.json();
+    if (data.ok) {
+      showLog(data.output);
+      toast("✅ Páginas geradas e publicadas no GitHub!", "ok");
+      await loadAll();
+    } else {
+      showLog("❌ Erro: " + data.error);
+      toast("Erro ao gerar páginas", "err");
+    }
+  } catch(e) {
+    showLog("❌ Servidor offline.\nRode: python server.py no terminal");
+    toast("❌ Servidor offline — rode python server.py", "err");
+  }
+  btn.textContent = "⚙️ Gerar páginas";
+  btn.classList.remove("btn-loading");
+}
+
+function showLog(text) {
+  const el = document.getElementById("log-box");
+  el.textContent = text;
+  el.classList.add("show");
+}
+
+// ── Toast ─────────────────────────────────────────────────────
+
+function toast(msg, type="ok") {
+  const el = document.getElementById("toast-el");
+  el.textContent = msg;
+  el.className = `toast show ${type}`;
+  setTimeout(()=>el.className="toast", 4000);
+}
+
+// ── Nav ───────────────────────────────────────────────────────
+
+function nav(id, btn) {
+  document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll(".nav-item").forEach(b=>b.classList.remove("active"));
+  document.getElementById(`panel-${id}`).classList.add("active");
+  btn.classList.add("active");
+  document.getElementById("ptitle").textContent = PTITLES[id];
+}
+
+function subTab(id, btn) {
+  subAtual = id;
+  document.querySelectorAll(".sub-tab").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  document.getElementById("lista-af").style.display   = id==="af"   ? "block":"none";
+  document.getElementById("lista-drop").style.display = id==="drop" ? "block":"none";
+}
+
+function setFiltro(f, btn) {
+  filtroAtual = f;
+  document.querySelectorAll(".filtro-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  renderProdutos(DB.produtos);
+}
+
+// ── Overview ──────────────────────────────────────────────────
+
+function renderOverview(pages, produtos) {
+  const clicks = pages.reduce((s,p)=>s+(p.clicks||0),0);
+  const ativos = produtos.filter(p=>p.status==="ativo").length;
+  const pend   = produtos.filter(p=>p.status==="pendente").length;
+  const top    = [...pages].sort((a,b)=>b.clicks-a.clicks)[0];
+
+  document.getElementById("nb-pendente").textContent = pend;
   document.getElementById("metrics").innerHTML = `
-    <div class="metric"><div class="metric-label">Páginas geradas</div>
-      <div class="metric-value">${total}</div><div class="metric-sub">${products} produto(s)</div></div>
-    <div class="metric"><div class="metric-label">Total de cliques</div>
-      <div class="metric-value up">${clicks.toLocaleString("pt-BR")}</div><div class="metric-sub">todos os templates</div></div>
-    <div class="metric"><div class="metric-label">Média por página</div>
-      <div class="metric-value warn">${ctr}</div><div class="metric-sub">cliques / página</div></div>
-    <div class="metric"><div class="metric-label">Melhor página</div>
-      <div class="metric-value" style="font-size:16px;color:#f1f5f9;">${top?top.clicks:0} cliques</div>
-      <div class="metric-sub">${top?badgeHtml(top.page_type):"—"}</div></div>`;
+    <div class="metric">
+      <div class="metric-label">Produtos ativos</div>
+      <div class="metric-value c-green">${ativos}</div>
+      <div class="metric-sub">${pend} aguardando link</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Páginas geradas</div>
+      <div class="metric-value c-blue">${pages.length}</div>
+      <div class="metric-sub">${new Set(pages.map(p=>p.product_name)).size} produto(s)</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Total de cliques</div>
+      <div class="metric-value c-yellow">${clicks.toLocaleString("pt-BR")}</div>
+      <div class="metric-sub">todas as páginas</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Melhor página</div>
+      <div class="metric-value c-purple" style="font-size:18px;">${top?top.clicks:0} cliques</div>
+      <div class="metric-sub">${top?`<span class="tbadge tbadge-${top.page_type}">${TYPE_L[top.page_type]||top.page_type}</span>`:"—"}</div>
+    </div>`;
+
+  renderBarChart(pages,"bc-tipo");
+  renderBarChart(pages,"bc-tipo2");
+  renderDonut(pages);
+  renderBarPlat(produtos);
 }
 
-function renderBarChart(pages) {
-  const totals={};
-  for(const p of pages) totals[p.page_type]=(totals[p.page_type]||0)+(p.clicks||0);
-  const max=Math.max(...Object.values(totals),1);
-  const rows=Object.entries(totals).sort((a,b)=>b[1]-a[1]).map(([type,count])=>{
-    const pct=Math.round((count/max)*100);
-    return `<div class="bar-row">
-      <span class="bar-label">${TYPE_LABELS[type]||type}</span>
-      <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${TYPE_COLORS[type]||'#64748b'};"></div></div>
-      <span class="bar-count">${count}</span></div>`;
-  }).join("");
-  document.getElementById("bar-chart").innerHTML=rows||'<div class="state-msg">Sem dados</div>';
+function renderBarChart(pages, elId) {
+  const t={};
+  for(const p of pages) t[p.page_type]=(t[p.page_type]||0)+(p.clicks||0);
+  const max=Math.max(...Object.values(t),1);
+  const html=Object.entries(t).sort((a,b)=>b[1]-a[1]).map(([type,n])=>`
+    <div class="bar-row">
+      <span class="bar-label">${TYPE_L[type]||type}</span>
+      <div class="bar-track"><div class="bar-fill" style="width:${Math.round(n/max*100)}%;background:${TYPE_C[type]||'#64748b'}"></div></div>
+      <span class="bar-val">${n}</span>
+    </div>`).join("")||'<div class="empty" style="padding:20px">Sem dados ainda</div>';
+  const el=document.getElementById(elId);
+  if(el) el.innerHTML=html;
 }
 
 function renderDonut(pages) {
-  const totals={};
-  for(const p of pages) totals[p.page_type]=(totals[p.page_type]||0)+(p.clicks||0);
-  const total=Object.values(totals).reduce((s,v)=>s+v,0)||1;
-  const entries=Object.entries(totals);
-  const canvas=document.getElementById("donut");
-  const ctx=canvas.getContext("2d");
-  let angle=-Math.PI/2;
-  ctx.clearRect(0,0,120,120);
-  for(const [type,count] of entries){
-    const a=(count/total)*2*Math.PI;
-    ctx.beginPath();ctx.moveTo(60,60);ctx.arc(60,60,50,angle,angle+a);
-    ctx.closePath();ctx.fillStyle=TYPE_COLORS[type]||"#64748b";ctx.fill();
-    angle+=a;
+  const t={};
+  for(const p of pages) t[p.page_type]=(t[p.page_type]||0)+(p.clicks||0);
+  const total=Object.values(t).reduce((s,v)=>s+v,0)||1;
+  const entries=Object.entries(t);
+  const ctx=document.getElementById("donut").getContext("2d");
+  let a=-Math.PI/2;
+  ctx.clearRect(0,0,110,110);
+  for(const [type,n] of entries){
+    const da=(n/total)*2*Math.PI;
+    ctx.beginPath();ctx.moveTo(55,55);ctx.arc(55,55,48,a,a+da);
+    ctx.closePath();ctx.fillStyle=TYPE_C[type]||"#64748b";ctx.fill();
+    a+=da;
   }
-  ctx.beginPath();ctx.arc(60,60,28,0,2*Math.PI);ctx.fillStyle="#0d1829";ctx.fill();
-  document.getElementById("donut-legend").innerHTML=entries.map(([type,count])=>
-    `<div class="legend-item"><div class="legend-dot" style="background:${TYPE_COLORS[type]||'#64748b'}"></div>
-    <span style="color:var(--muted)">${TYPE_LABELS[type]||type}</span>
-    <span style="font-family:var(--mono);font-size:12px;">${count}</span></div>`).join("");
+  ctx.beginPath();ctx.arc(55,55,26,0,2*Math.PI);ctx.fillStyle="#0d1829";ctx.fill();
+  document.getElementById("donut-leg").innerHTML=entries.map(([type,n])=>
+    `<div class="legend-row">
+      <div class="legend-dot" style="background:${TYPE_C[type]||'#64748b'}"></div>
+      <span style="color:var(--muted)">${TYPE_L[type]||type}</span>
+      <span style="font-family:var(--mono);font-size:11px;">${n}</span>
+    </div>`).join("");
 }
 
-function renderTable(pages) {
-  const sorted=[...pages].sort((a,b)=>b.clicks-a.clicks).slice(0,20);
+function renderBarPlat(produtos) {
+  const t={};
+  for(const p of produtos){
+    const pl=(p.plataforma||"hotmart").toLowerCase();
+    t[pl]=(t[pl]||0)+1;
+  }
+  const max=Math.max(...Object.values(t),1);
+  const html=Object.entries(t).sort((a,b)=>b[1]-a[1]).map(([pl,n])=>`
+    <div class="bar-row">
+      <span class="bar-label">${pl}</span>
+      <div class="bar-track"><div class="bar-fill" style="width:${Math.round(n/max*100)}%;background:${PLAT_C[pl]||'#64748b'}"></div></div>
+      <span class="bar-val">${n}</span>
+    </div>`).join("");
+  const el=document.getElementById("bc-plat");
+  if(el) el.innerHTML=html||'<div class="empty" style="padding:20px">Sem dados</div>';
+}
+
+// ── Produtos ──────────────────────────────────────────────────
+
+function platClass(p){return `plat-${(p||"hotmart").toLowerCase()}`;}
+
+function buildCard(p) {
+  const isAf    = (p.tipo||"afiliado")==="afiliado";
+  const isAtivo = p.status==="ativo";
+  const isPend  = p.status==="pendente";
+  const isPause = p.status==="pausado";
+  const plat    = (p.plataforma||"hotmart").toLowerCase();
+
+  return `
+  <div class="pcard" id="pc-${p.id}">
+    <div class="pcard-top">
+      <div class="pcard-icon ${isAf?'icon-af':'icon-drop'}">${isAf?'🎯':'🛒'}</div>
+      <div class="pcard-body">
+        <div class="pcard-nome" title="${p.nome||p.name}">${p.nome||p.name}</div>
+        <div class="pcard-meta">
+          <span class="plat ${platClass(plat)}">${plat}</span>
+          <span class="score">★ ${(p.score||0).toFixed(1)}</span>
+          ${p.nicho?`<span class="nicho">· ${p.nicho}</span>`:''}
+          ${isAtivo?'<span style="font-size:11px;color:var(--green)">● online</span>':''}
+        </div>
+      </div>
+      <div class="pcard-actions">
+        <a href="${p.link||'#'}" target="_blank" class="btn btn-ghost btn-sm">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Ver produto
+        </a>
+        ${isPend?`<button class="btn btn-sm" onclick="toggleExp(${p.id})">+ Link</button>`:''}
+        ${isAtivo?`<span class="status-pill sp-ativo">Ativo</span>
+                   <button class="btn btn-ghost btn-sm" onclick="pausar(${p.id})">Pausar</button>`:''}
+        ${isPause?`<span class="status-pill sp-pausado">Pausado</span>
+                   <button class="btn btn-sm" onclick="reativar(${p.id})">Reativar</button>`:''}
+      </div>
+    </div>
+    <div class="pcard-expand" id="exp-${p.id}">
+      ${isPend?`
+        <div class="link-row">
+          <input class="link-input" id="li-${p.id}" placeholder="Cole aqui seu link de afiliado (https://...)"/>
+          <button class="btn ${isAf?'btn-green':'btn-yellow'}" onclick="ativar(${p.id})">✓ Ativar</button>
+        </div>
+        <p class="hint">① Clique em "Ver produto" → ② Se afilie na plataforma → ③ Cole o link acima → ④ Darwin gera as páginas</p>`
+      :isAtivo?`<div class="link-ativo">${p.link}</div>`:''}
+    </div>
+  </div>`;
+}
+
+function toggleExp(id){
+  document.getElementById(`exp-${id}`).classList.toggle("open");
+}
+
+function renderProdutos(produtos) {
+  const af   = produtos.filter(p=>(p.tipo||"afiliado")==="afiliado");
+  const drop = produtos.filter(p=>p.tipo==="dropshipping");
+
+  document.getElementById("cnt-af").textContent   = af.length;
+  document.getElementById("cnt-drop").textContent = drop.length;
+
+  const fil = list => filtroAtual==="todos" ? list : list.filter(p=>p.status===filtroAtual);
+
+  document.getElementById("lista-af").innerHTML   = fil(af).map(buildCard).join("")||
+    `<div class="empty">Nenhum produto afiliado ${filtroAtual!=="todos"?filtroAtual:"encontrado"}.<br>Clique em ⚡ Buscar produtos.</div>`;
+  document.getElementById("lista-drop").innerHTML = fil(drop).map(buildCard).join("")||
+    `<div class="empty">Nenhum produto dropshipping ${filtroAtual!=="todos"?filtroAtual:"encontrado"}.</div>`;
+
+  document.getElementById("lista-af").style.display   = subAtual==="af"   ? "block":"none";
+  document.getElementById("lista-drop").style.display = subAtual==="drop" ? "block":"none";
+}
+
+// ── Ações produto ─────────────────────────────────────────────
+
+async function ativar(id) {
+  const link=(document.getElementById(`li-${id}`)?.value||"").trim();
+  if(!link){toast("Cole o link de afiliado primeiro","err");return;}
+  if(!link.startsWith("http")){toast("Link inválido — deve começar com http","err");return;}
+  const ok=await sbPatch("products","id",id,{link,status:"ativo"});
+  if(ok){
+    toast("✅ Produto ativado! Clique em ⚙️ Gerar páginas.","ok");
+    await loadAll();
+  } else toast("Erro ao ativar","err");
+}
+
+async function pausar(id){
+  await sbPatch("products","id",id,{status:"pausado"});
+  toast("Produto pausado.");
+  await loadAll();
+}
+
+async function reativar(id){
+  await sbPatch("products","id",id,{status:"ativo"});
+  toast("✅ Produto reativado!");
+  await loadAll();
+}
+
+// ── Tabela ────────────────────────────────────────────────────
+
+function renderTabela(pages, elId) {
+  const sorted=[...pages].sort((a,b)=>b.clicks-a.clicks);
   const maxC=sorted[0]?.clicks||1;
-  if(!sorted.length){document.getElementById("table-wrap").innerHTML='<div class="state-msg">Nenhuma página encontrada</div>';return;}
+  if(!sorted.length){
+    document.getElementById(elId).innerHTML='<div class="empty">Nenhuma página gerada ainda.</div>';
+    return;
+  }
   const rows=sorted.map(p=>{
-    const bw=Math.max(4,Math.round((p.clicks/maxC)*80));
+    const bw=Math.max(3,Math.round(p.clicks/maxC*70));
     const date=new Date(p.created_at).toLocaleDateString("pt-BR",{day:"2-digit",month:"short"});
     return `<tr>
-      <td class="page-id-cell">${p.page_id}</td>
-      <td style="font-weight:500;color:#f1f5f9;">${p.product_name}</td>
-      <td>${badgeHtml(p.page_type)}</td>
-      <td><div class="clicks-bar"><div class="clicks-mini" style="width:${bw}px"></div>
-        <span style="font-family:var(--mono);font-size:13px;">${p.clicks}</span></div></td>
-      <td style="color:var(--muted);font-size:12px;">${date}</td></tr>`;
+      <td class="mono">${p.page_id}</td>
+      <td style="font-weight:500;color:#f1f5f9;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.product_name}</td>
+      <td><span class="tbadge tbadge-${p.page_type}">${TYPE_L[p.page_type]||p.page_type}</span></td>
+      <td><div class="clicks-wrap"><div class="clicks-bar" style="width:${bw}px"></div>
+        <span style="font-family:var(--mono);font-size:12px;">${p.clicks}</span></div></td>
+      <td style="color:var(--muted);font-size:11px;">${date}</td>
+    </tr>`;
   }).join("");
-  document.getElementById("table-wrap").innerHTML=`
+  document.getElementById(elId).innerHTML=`
     <table><thead><tr>
-      <th>Page ID</th><th>Produto</th><th>Tipo</th><th>Cliques</th><th>Criado em</th>
+      <th>Page ID</th><th>Produto</th><th>Tipo</th><th>Cliques</th><th>Data</th>
     </tr></thead><tbody>${rows}</tbody></table>`;
 }
 
-async function loadData() {
+// ── Load ──────────────────────────────────────────────────────
+
+async function loadAll() {
   try {
-    const pages=await query("pages","select=*&order=clicks.desc&limit=200");
-    renderMetrics(pages);renderBarChart(pages);renderDonut(pages);renderTable(pages);
-  } catch(err) {
-    document.getElementById("metrics").innerHTML=
-      `<div class="state-msg" style="grid-column:1/-1;color:#f87171;">
-        Erro ao carregar dados.<br><small>Verifique as configurações no topo do script.</small></div>`;
+    const [pages, produtos] = await Promise.all([
+      sb("pages",    "select=*&order=clicks.desc&limit=200"),
+      sb("products", "select=*&order=score.desc")
+    ]);
+    DB.pages    = Array.isArray(pages)    ? pages    : [];
+    DB.produtos = Array.isArray(produtos) ? produtos : [];
+
+    renderOverview(DB.pages, DB.produtos);
+    renderProdutos(DB.produtos);
+    renderTabela(DB.pages,"tbl-paginas");
+    renderTabela(DB.pages,"tbl-analytics");
+  } catch(e) {
+    console.error(e);
+    toast("Erro ao carregar dados","err");
   }
 }
 
-loadData();
+loadAll();
 </script>
 </body>
 </html>
