@@ -19,8 +19,6 @@
 html{font-size:16px;-webkit-font-smoothing:antialiased}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:100vh}
 .shell{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
-
-/* ── Sidebar ── */
 .sidebar{background:var(--surface);border-right:1px solid var(--border);
          padding:28px 16px;display:flex;flex-direction:column;gap:4px;
          position:sticky;top:0;height:100vh}
@@ -35,16 +33,12 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .nav-item.active{background:#0f2d1a;color:var(--green);font-weight:500}
 .nav-badge{margin-left:auto;background:var(--yellow-bg);color:var(--yellow);
            font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px}
-
-/* ── Main ── */
 .main{padding:36px 32px;overflow-y:auto}
 .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
 .page-title{font-size:22px;font-weight:700;letter-spacing:-.02em}
 .topbar-right{display:flex;align-items:center;gap:10px}
 .status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-
-/* ── Buttons ── */
 .btn{display:inline-flex;align-items:center;gap:7px;background:var(--surface);
      border:1px solid var(--border2);color:var(--text);padding:8px 16px;
      border-radius:8px;font-size:13px;font-family:var(--sans);cursor:pointer;
@@ -58,20 +52,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .btn-ghost{background:transparent;border-color:var(--border);color:var(--muted)}
 .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
 .btn-loading{opacity:.6;pointer-events:none}
-
-/* ── Panels ── */
-.panel{display:none}
-.panel.active{display:block}
-
-/* ── Metrics ── */
+.panel{display:none}.panel.active{display:block}
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
 .metric{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
 .metric-label{font-size:11px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
 .metric-value{font-size:26px;font-weight:700;letter-spacing:-.03em;line-height:1}
 .metric-sub{font-size:12px;color:var(--muted);margin-top:5px}
 .c-green{color:var(--green)}.c-yellow{color:var(--yellow)}.c-blue{color:var(--blue)}.c-purple{color:var(--purple)}
-
-/* ── Sub tabs ── */
 .sub-tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--border);
           border-radius:10px;padding:4px;width:fit-content}
 .sub-tab{padding:8px 20px;font-size:13px;font-weight:500;color:var(--muted);
@@ -84,30 +71,24 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .count-drop{background:var(--border);color:var(--muted)}
 .sub-tab.active .count-af{background:var(--green-bg);color:var(--green)}
 .sub-tab.active .count-drop{background:var(--yellow-bg);color:var(--yellow)}
-
-/* ── Filtros ── */
 .filtros{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
 .filtro-btn{padding:5px 14px;font-size:12px;font-weight:500;border-radius:20px;
             border:1px solid var(--border2);background:transparent;color:var(--muted);
             cursor:pointer;font-family:var(--sans);transition:all .15s}
 .filtro-btn:hover{border-color:var(--text);color:var(--text)}
 .filtro-btn.active{border-color:var(--green);color:var(--green);background:var(--green-bg)}
-
-/* ── Produto card ── */
 .pcard{background:var(--surface);border:1px solid var(--border);border-radius:12px;
        padding:16px 18px;margin-bottom:10px;transition:border-color .15s}
 .pcard:hover{border-color:var(--border2)}
 .pcard-top{display:flex;align-items:flex-start;gap:12px}
 .pcard-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;
             justify-content:center;font-size:18px;flex-shrink:0}
-.icon-af{background:var(--green-bg)}
-.icon-drop{background:var(--yellow-bg)}
+.icon-af{background:var(--green-bg)}.icon-drop{background:var(--yellow-bg)}
 .pcard-body{flex:1;min-width:0}
 .pcard-nome{font-size:14px;font-weight:600;color:#f1f5f9;margin-bottom:5px;
             white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pcard-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.plat{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;
-      text-transform:uppercase;letter-spacing:.04em}
+.plat{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
 .plat-hotmart{background:#ff6b0022;color:#ff8c42;border:1px solid #ff6b0033}
 .plat-monetizze{background:#6366f122;color:#818cf8;border:1px solid #6366f133}
 .plat-eduzz{background:#0ea5e922;color:#38bdf8;border:1px solid #0ea5e933}
@@ -116,26 +97,22 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .plat-shopee{background:#f9731622;color:#f97316;border:1px solid #f9731633}
 .score{font-size:12px;font-weight:700;color:var(--yellow)}
 .nicho{font-size:11px;color:var(--muted)}
-.pcard-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.pcard-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;flex-wrap:wrap}
 .status-pill{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase}
 .sp-pendente{background:var(--yellow-bg);color:var(--yellow)}
 .sp-ativo{background:var(--green-bg);color:var(--green)}
 .sp-pausado{background:#1a1a2e;color:var(--muted)}
-
-/* ── Expansão ── */
 .pcard-expand{margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:none}
 .pcard-expand.open{display:block}
-.link-row{display:flex;gap:8px;align-items:center}
+.link-group{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.link-field{display:flex;flex-direction:column;gap:4px}
+.link-label{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .link-input{flex:1;background:#0a1628;border:1px solid var(--border2);color:var(--text);
             font-size:13px;font-family:var(--mono);padding:9px 14px;border-radius:8px;
             outline:none;transition:border-color .15s}
 .link-input:focus{border-color:var(--green)}
 .link-input::placeholder{color:var(--muted)}
-.link-ativo{font-size:12px;font-family:var(--mono);color:var(--muted);
-            padding:8px 12px;background:#0a1628;border-radius:8px;word-break:break-all}
-.hint{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5}
-
-/* ── Charts ── */
+.hint{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.6}
 .charts-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
 .chart-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
 .chart-title{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-bottom:16px}
@@ -149,8 +126,6 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .donut-legend{display:flex;flex-direction:column;gap:8px}
 .legend-row{display:flex;align-items:center;gap:8px;font-size:12px}
 .legend-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-
-/* ── Table ── */
 .tcard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:24px}
 .tcard-title{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-bottom:16px}
 table{width:100%;border-collapse:collapse}
@@ -164,21 +139,19 @@ tr:hover td{background:#0d1f2d44}
 .mono{font-family:var(--mono);font-size:11px;color:var(--muted)}
 .clicks-wrap{display:flex;align-items:center;gap:8px}
 .clicks-bar{height:3px;border-radius:2px;background:var(--green);min-width:3px}
-
-/* ── Log box ── */
+.gh-link{font-size:11px;color:var(--blue);text-decoration:none;display:inline-flex;
+         align-items:center;gap:4px;padding:3px 8px;border:1px solid var(--blue-bg);
+         border-radius:6px;background:var(--blue-bg);transition:opacity .15s}
+.gh-link:hover{opacity:.8}
 .log-box{background:#020817;border:1px solid var(--border);border-radius:8px;
          padding:14px;font-family:var(--mono);font-size:12px;color:#4ade80;
          max-height:200px;overflow-y:auto;margin-top:12px;line-height:1.7;
          white-space:pre-wrap;display:none}
 .log-box.show{display:block}
-
-/* ── Empty / Loading ── */
 .empty{text-align:center;padding:48px 24px;color:var(--muted);font-size:14px;line-height:1.8}
 .spinner{width:18px;height:18px;border:2px solid var(--border2);border-top-color:var(--green);
          border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 12px}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* ── Toast ── */
 .toast{position:fixed;bottom:24px;right:24px;background:#1e293b;
        border:1px solid var(--border2);color:var(--text);padding:12px 20px;
        border-radius:10px;font-size:14px;transform:translateY(80px);opacity:0;
@@ -186,7 +159,6 @@ tr:hover td{background:#0d1f2d44}
 .toast.show{transform:translateY(0);opacity:1}
 .toast.ok{border-color:var(--green);color:var(--green)}
 .toast.err{border-color:var(--red);color:var(--red)}
-
 @media(max-width:900px){
   .shell{grid-template-columns:1fr}.sidebar{display:none}
   .metrics{grid-template-columns:repeat(2,1fr)}.charts-row{grid-template-columns:1fr}
@@ -195,8 +167,6 @@ tr:hover td{background:#0d1f2d44}
 </head>
 <body>
 <div class="shell">
-
-  <!-- Sidebar -->
   <aside class="sidebar">
     <div class="logo"><span class="logo-dot"></span>Darwin</div>
     <button class="nav-item active" onclick="nav('overview',this)">
@@ -218,13 +188,15 @@ tr:hover td{background:#0d1f2d44}
     </button>
   </aside>
 
-  <!-- Main -->
   <div class="main">
     <div class="topbar">
       <h1 class="page-title" id="ptitle">Overview</h1>
       <div class="topbar-right">
         <span class="status-dot"></span>
-        <button class="btn" onclick="loadAll()">↺ Atualizar</button>
+        <button class="btn" onclick="loadAll()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          Atualizar
+        </button>
       </div>
     </div>
 
@@ -236,9 +208,7 @@ tr:hover td{background:#0d1f2d44}
       <div class="charts-row">
         <div class="chart-card">
           <div class="chart-title">Cliques por tipo de página</div>
-          <div class="bar-group" id="bc-tipo">
-            <div class="empty"><div class="spinner"></div></div>
-          </div>
+          <div class="bar-group" id="bc-tipo"><div class="empty"><div class="spinner"></div></div></div>
         </div>
         <div class="chart-card">
           <div class="chart-title">Distribuição</div>
@@ -255,24 +225,17 @@ tr:hover td{background:#0d1f2d44}
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;">
         <div class="sub-tabs">
           <button class="sub-tab active" id="stab-af" onclick="subTab('af',this)">
-            🎯 Afiliado
-            <span class="count count-af" id="cnt-af">0</span>
+            🎯 Afiliado <span class="count count-af" id="cnt-af">0</span>
           </button>
           <button class="sub-tab" id="stab-drop" onclick="subTab('drop',this)">
-            🛒 Dropshipping
-            <span class="count count-drop" id="cnt-drop">0</span>
+            🛒 Dropshipping <span class="count count-drop" id="cnt-drop">0</span>
           </button>
         </div>
         <div style="display:flex;gap:8px;">
-          <button class="btn btn-green" id="btn-buscar" onclick="buscarProdutos()">
-            ⚡ Buscar produtos
-          </button>
-          <button class="btn" id="btn-gerar" onclick="gerarPaginas()">
-            ⚙️ Gerar páginas
-          </button>
+          <button class="btn btn-green" id="btn-buscar" onclick="buscarProdutos()">⚡ Buscar produtos</button>
+          <button class="btn" id="btn-gerar" onclick="gerarPaginas()">⚙️ Gerar páginas</button>
         </div>
       </div>
-
       <div class="filtros">
         <span style="font-size:12px;color:var(--muted);margin-right:4px;">Filtrar:</span>
         <button class="filtro-btn active" onclick="setFiltro('todos',this)">Todos</button>
@@ -280,10 +243,7 @@ tr:hover td{background:#0d1f2d44}
         <button class="filtro-btn" onclick="setFiltro('ativo',this)">Ativos</button>
         <button class="filtro-btn" onclick="setFiltro('pausado',this)">Pausados</button>
       </div>
-
-      <!-- Log de output -->
       <div class="log-box" id="log-box"></div>
-
       <div id="lista-af"></div>
       <div id="lista-drop" style="display:none"></div>
     </div>
@@ -292,9 +252,7 @@ tr:hover td{background:#0d1f2d44}
     <div class="panel" id="panel-paginas">
       <div class="tcard">
         <div class="tcard-title">Páginas geradas</div>
-        <div id="tbl-paginas">
-          <div class="empty"><div class="spinner"></div></div>
-        </div>
+        <div id="tbl-paginas"><div class="empty"><div class="spinner"></div></div></div>
       </div>
     </div>
 
@@ -315,7 +273,6 @@ tr:hover td{background:#0d1f2d44}
         <div id="tbl-analytics"></div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -324,18 +281,17 @@ tr:hover td{background:#0d1f2d44}
 <script>
 const SB_URL = "https://cmykqkytjhiqarcginfs.supabase.co";
 const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteWtxa3l0amhpcWFyY2dpbmZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NDY0MTMsImV4cCI6MjA5MjAyMjQxM30.5navVvq_NuPAF-Xv8Pk39QdNE80JwEzpuHZ6hgU1gWU";
-const API    = "http://localhost:5000";
+const API = "http://localhost:5000";
+const GH  = "https://darwinagentcodebywanderson.github.io/darwin-pages";
 
 const TYPE_C  = {descoberta:"#3b82f6",erro:"#fbbf24",acao:"#22c55e"};
 const TYPE_L  = {descoberta:"Descoberta",erro:"Erro",acao:"Ação"};
 const PLAT_C  = {hotmart:"#ff8c42",monetizze:"#818cf8",eduzz:"#38bdf8",braip:"#4ade80",aliexpress:"#fb923c",shopee:"#f97316"};
 const PTITLES = {overview:"Overview",produtos:"Produtos",paginas:"Páginas",analytics:"Analytics"};
 
-let DB          = {produtos:[],pages:[]};
+let DB = {produtos:[],pages:[]};
 let filtroAtual = "todos";
 let subAtual    = "af";
-
-// ── API Supabase ──────────────────────────────────────────────
 
 async function sb(table, params="") {
   const r = await fetch(`${SB_URL}/rest/v1/${table}?${params}`, {
@@ -354,22 +310,20 @@ async function sbPatch(table, col, val, data) {
   return r.ok;
 }
 
-// ── API Servidor local ────────────────────────────────────────
-
 async function buscarProdutos() {
   const btn = document.getElementById("btn-buscar");
   btn.textContent = "🔍 Buscando...";
   btn.classList.add("btn-loading");
   showLog("🧠 Darwin iniciando varredura de produtos...\n");
   try {
-    const r    = await fetch(`${API}/buscar-produtos`, {method:"POST"});
+    const r = await fetch(`${API}/buscar-produtos`, {method:"POST"});
     const data = await r.json();
     if (data.ok) {
       showLog(data.output);
-      toast("✅ Busca concluída! Novos produtos adicionados.", "ok");
+      toast("✅ Busca concluída!", "ok");
       await loadAll();
     } else {
-      showLog("❌ Erro: " + data.error);
+      showLog("❌ Erro: " + (data.error||data.errors||"desconhecido"));
       toast("Erro na busca", "err");
     }
   } catch(e) {
@@ -386,14 +340,14 @@ async function gerarPaginas() {
   btn.classList.add("btn-loading");
   showLog("⚙️ Darwin gerando páginas de venda...\n");
   try {
-    const r    = await fetch(`${API}/gerar-paginas`, {method:"POST"});
+    const r = await fetch(`${API}/gerar-paginas`, {method:"POST"});
     const data = await r.json();
     if (data.ok) {
       showLog(data.output);
-      toast("✅ Páginas geradas e publicadas no GitHub!", "ok");
+      toast("✅ Páginas geradas e publicadas!", "ok");
       await loadAll();
     } else {
-      showLog("❌ Erro: " + data.error);
+      showLog("❌ Erro: " + (data.errors||data.error||"desconhecido"));
       toast("Erro ao gerar páginas", "err");
     }
   } catch(e) {
@@ -410,16 +364,12 @@ function showLog(text) {
   el.classList.add("show");
 }
 
-// ── Toast ─────────────────────────────────────────────────────
-
 function toast(msg, type="ok") {
   const el = document.getElementById("toast-el");
   el.textContent = msg;
   el.className = `toast show ${type}`;
   setTimeout(()=>el.className="toast", 4000);
 }
-
-// ── Nav ───────────────────────────────────────────────────────
 
 function nav(id, btn) {
   document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
@@ -443,8 +393,6 @@ function setFiltro(f, btn) {
   btn.classList.add("active");
   renderProdutos(DB.produtos);
 }
-
-// ── Overview ──────────────────────────────────────────────────
 
 function renderOverview(pages, produtos) {
   const clicks = pages.reduce((s,p)=>s+(p.clicks||0),0);
@@ -535,8 +483,6 @@ function renderBarPlat(produtos) {
   if(el) el.innerHTML=html||'<div class="empty" style="padding:20px">Sem dados</div>';
 }
 
-// ── Produtos ──────────────────────────────────────────────────
-
 function platClass(p){return `plat-${(p||"hotmart").toLowerCase()}`;}
 
 function buildCard(p) {
@@ -545,40 +491,82 @@ function buildCard(p) {
   const isPend  = p.status==="pendente";
   const isPause = p.status==="pausado";
   const plat    = (p.plataforma||"hotmart").toLowerCase();
+  const linkVer = p.link && p.link.startsWith("http") ? p.link : "#";
+
+  let expandContent = "";
+
+  if (isPend) {
+    expandContent = `
+      <div class="link-group">
+        <div class="link-field">
+          <span class="link-label">🔗 Link padrão (obrigatório)</span>
+          <input class="link-input" id="li-${p.id}" placeholder="https://go.hotmart.com/XXXXXXX"/>
+        </div>
+        <div class="link-field">
+          <span class="link-label">📘 Link descoberta — ?dp=1 (tráfego frio)</span>
+          <input class="link-input" id="ld-${p.id}" placeholder="https://go.hotmart.com/XXXXXXX?dp=1  (opcional)"/>
+        </div>
+        <div class="link-field">
+          <span class="link-label">🚀 Link direto VSL — ?ap=XXXX (tráfego quente)</span>
+          <input class="link-input" id="lh-${p.id}" placeholder="https://go.hotmart.com/XXXXXXX?ap=XXXX  (opcional)"/>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+        <button class="btn ${isAf?'btn-green':'btn-yellow'}" onclick="ativar(${p.id})">✓ Ativar produto</button>
+        <span class="hint">① Ver produto → ② Se afilie → ③ Cole os links → ④ Darwin gera as páginas</span>
+      </div>`;
+  } else if (isAtivo) {
+    expandContent = `
+      <div class="link-group">
+        <div class="link-field">
+          <span class="link-label">🔗 Link padrão</span>
+          <input class="link-input" id="li-${p.id}" value="${p.link||''}"/>
+        </div>
+        <div class="link-field">
+          <span class="link-label">📘 Link descoberta — ?dp=1</span>
+          <input class="link-input" id="ld-${p.id}" value="${p.link_descoberta||p.link||''}"/>
+        </div>
+        <div class="link-field">
+          <span class="link-label">🚀 Link direto VSL — ?ap=XXXX</span>
+          <input class="link-input" id="lh-${p.id}" value="${p.link_direto||p.link||''}"/>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn btn-green btn-sm" onclick="salvarLinks(${p.id})">💾 Salvar links</button>
+        <span class="hint" style="align-self:center;">Edite e salve. Depois clique em ⚙️ Gerar páginas.</span>
+      </div>`;
+  } else if (isPause) {
+    expandContent = `<div style="font-size:12px;color:var(--muted);">Produto pausado. Reative para gerar páginas.</div>`;
+  }
 
   return `
   <div class="pcard" id="pc-${p.id}">
     <div class="pcard-top">
       <div class="pcard-icon ${isAf?'icon-af':'icon-drop'}">${isAf?'🎯':'🛒'}</div>
       <div class="pcard-body">
-        <div class="pcard-nome" title="${p.nome||p.name}">${p.nome||p.name}</div>
+        <div class="pcard-nome" title="${p.nome||''}">${p.nome||''}</div>
         <div class="pcard-meta">
           <span class="plat ${platClass(plat)}">${plat}</span>
           <span class="score">★ ${(p.score||0).toFixed(1)}</span>
           ${p.nicho?`<span class="nicho">· ${p.nicho}</span>`:''}
-          ${isAtivo?'<span style="font-size:11px;color:var(--green)">● online</span>':''}
+          ${isAtivo?'<span style="font-size:11px;color:var(--green)">● ativo</span>':''}
+          ${isPause?'<span style="font-size:11px;color:var(--muted)">● pausado</span>':''}
         </div>
       </div>
       <div class="pcard-actions">
-        <a href="${p.link||'#'}" target="_blank" class="btn btn-ghost btn-sm">
+        <a href="${linkVer}" target="_blank" class="btn btn-ghost btn-sm">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Ver produto
         </a>
         ${isPend?`<button class="btn btn-sm" onclick="toggleExp(${p.id})">+ Link</button>`:''}
-        ${isAtivo?`<span class="status-pill sp-ativo">Ativo</span>
-                   <button class="btn btn-ghost btn-sm" onclick="pausar(${p.id})">Pausar</button>`:''}
-        ${isPause?`<span class="status-pill sp-pausado">Pausado</span>
-                   <button class="btn btn-sm" onclick="reativar(${p.id})">Reativar</button>`:''}
+        ${isAtivo?`
+          <button class="btn btn-ghost btn-sm" onclick="toggleExp(${p.id})">✏️ Editar links</button>
+          <button class="btn btn-ghost btn-sm" onclick="pausar(${p.id})">Pausar</button>`:''}
+        ${isPause?`<button class="btn btn-sm" onclick="reativar(${p.id})">Reativar</button>`:''}
       </div>
     </div>
     <div class="pcard-expand" id="exp-${p.id}">
-      ${isPend?`
-        <div class="link-row">
-          <input class="link-input" id="li-${p.id}" placeholder="Cole aqui seu link de afiliado (https://...)"/>
-          <button class="btn ${isAf?'btn-green':'btn-yellow'}" onclick="ativar(${p.id})">✓ Ativar</button>
-        </div>
-        <p class="hint">① Clique em "Ver produto" → ② Se afilie na plataforma → ③ Cole o link acima → ④ Darwin gera as páginas</p>`
-      :isAtivo?`<div class="link-ativo">${p.link}</div>`:''}
+      ${expandContent}
     </div>
   </div>`;
 }
@@ -596,68 +584,116 @@ function renderProdutos(produtos) {
 
   const fil = list => filtroAtual==="todos" ? list : list.filter(p=>p.status===filtroAtual);
 
-  document.getElementById("lista-af").innerHTML   = fil(af).map(buildCard).join("")||
+  document.getElementById("lista-af").innerHTML = fil(af).map(buildCard).join("") ||
     `<div class="empty">Nenhum produto afiliado ${filtroAtual!=="todos"?filtroAtual:"encontrado"}.<br>Clique em ⚡ Buscar produtos.</div>`;
-  document.getElementById("lista-drop").innerHTML = fil(drop).map(buildCard).join("")||
-    `<div class="empty">Nenhum produto dropshipping ${filtroAtual!=="todos"?filtroAtual:"encontrado"}.</div>`;
+  document.getElementById("lista-drop").innerHTML = fil(drop).map(buildCard).join("") ||
+    `<div class="empty">Nenhum produto dropshipping encontrado.</div>`;
 
   document.getElementById("lista-af").style.display   = subAtual==="af"   ? "block":"none";
   document.getElementById("lista-drop").style.display = subAtual==="drop" ? "block":"none";
 }
 
-// ── Ações produto ─────────────────────────────────────────────
-
 async function ativar(id) {
-  const link=(document.getElementById(`li-${id}`)?.value||"").trim();
-  if(!link){toast("Cole o link de afiliado primeiro","err");return;}
-  if(!link.startsWith("http")){toast("Link inválido — deve começar com http","err");return;}
-  const ok=await sbPatch("products","id",id,{link,status:"ativo"});
-  if(ok){
+  const link  = (document.getElementById(`li-${id}`)?.value||"").trim();
+  const linkD = (document.getElementById(`ld-${id}`)?.value||"").trim();
+  const linkH = (document.getElementById(`lh-${id}`)?.value||"").trim();
+
+  if (!link) { toast("Cole o link padrão primeiro","err"); return; }
+  if (!link.startsWith("http")) { toast("Link inválido — deve começar com http","err"); return; }
+
+  const ok = await sbPatch("products","id",id,{
+    link:            link,
+    link_descoberta: linkD || link,
+    link_direto:     linkH || link,
+    status:          "ativo"
+  });
+
+  if (ok) {
     toast("✅ Produto ativado! Clique em ⚙️ Gerar páginas.","ok");
     await loadAll();
-  } else toast("Erro ao ativar","err");
+  } else {
+    toast("Erro ao ativar","err");
+  }
 }
 
-async function pausar(id){
+async function salvarLinks(id) {
+  const link  = (document.getElementById(`li-${id}`)?.value||"").trim();
+  const linkD = (document.getElementById(`ld-${id}`)?.value||"").trim();
+  const linkH = (document.getElementById(`lh-${id}`)?.value||"").trim();
+
+  if (!link) { toast("Link padrão não pode estar vazio","err"); return; }
+  if (!link.startsWith("http")) { toast("Link inválido — deve começar com http","err"); return; }
+
+  const ok = await sbPatch("products","id",id,{
+    link:            link,
+    link_descoberta: linkD || link,
+    link_direto:     linkH || link,
+  });
+
+  if (ok) {
+    toast("✅ Links salvos! Gere as páginas novamente para aplicar.","ok");
+    await loadAll();
+  } else {
+    toast("Erro ao salvar links","err");
+  }
+}
+
+async function pausar(id) {
   await sbPatch("products","id",id,{status:"pausado"});
   toast("Produto pausado.");
   await loadAll();
 }
 
-async function reativar(id){
+async function reativar(id) {
   await sbPatch("products","id",id,{status:"ativo"});
   toast("✅ Produto reativado!");
   await loadAll();
 }
 
-// ── Tabela ────────────────────────────────────────────────────
+function slugify(text) {
+  return text.toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[^a-z0-9]+/g,"_")
+    .replace(/^_|_$/g,"")
+    .substring(0,50);
+}
 
 function renderTabela(pages, elId) {
-  const sorted=[...pages].sort((a,b)=>b.clicks-a.clicks);
-  const maxC=sorted[0]?.clicks||1;
-  if(!sorted.length){
+  const sorted = [...pages].sort((a,b)=>b.clicks-a.clicks);
+  const maxC   = sorted[0]?.clicks||1;
+
+  if (!sorted.length) {
     document.getElementById(elId).innerHTML='<div class="empty">Nenhuma página gerada ainda.</div>';
     return;
   }
-  const rows=sorted.map(p=>{
-    const bw=Math.max(3,Math.round(p.clicks/maxC*70));
-    const date=new Date(p.created_at).toLocaleDateString("pt-BR",{day:"2-digit",month:"short"});
+
+  const rows = sorted.map(p => {
+    const bw   = Math.max(3, Math.round(p.clicks/maxC*70));
+    const date = new Date(p.created_at).toLocaleDateString("pt-BR",{day:"2-digit",month:"short"});
+    const slug = slugify(p.product_name);
+    const ghUrl = `${GH}/${slug}_${p.page_type}.html`;
+
     return `<tr>
       <td class="mono">${p.page_id}</td>
-      <td style="font-weight:500;color:#f1f5f9;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.product_name}</td>
+      <td style="font-weight:500;color:#f1f5f9;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${p.product_name}">${p.product_name}</td>
       <td><span class="tbadge tbadge-${p.page_type}">${TYPE_L[p.page_type]||p.page_type}</span></td>
+      <td>
+        <a href="${ghUrl}" target="_blank" class="gh-link">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Ver online
+        </a>
+      </td>
       <td><div class="clicks-wrap"><div class="clicks-bar" style="width:${bw}px"></div>
         <span style="font-family:var(--mono);font-size:12px;">${p.clicks}</span></div></td>
       <td style="color:var(--muted);font-size:11px;">${date}</td>
     </tr>`;
   }).join("");
+
   document.getElementById(elId).innerHTML=`
     <table><thead><tr>
-      <th>Page ID</th><th>Produto</th><th>Tipo</th><th>Cliques</th><th>Data</th>
+      <th>Page ID</th><th>Produto</th><th>Tipo</th><th>Link</th><th>Cliques</th><th>Data</th>
     </tr></thead><tbody>${rows}</tbody></table>`;
 }
-
-// ── Load ──────────────────────────────────────────────────────
 
 async function loadAll() {
   try {
