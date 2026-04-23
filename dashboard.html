@@ -98,10 +98,6 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .score{font-size:12px;font-weight:700;color:var(--yellow)}
 .nicho{font-size:11px;color:var(--muted)}
 .pcard-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;flex-wrap:wrap}
-.status-pill{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase}
-.sp-pendente{background:var(--yellow-bg);color:var(--yellow)}
-.sp-ativo{background:var(--green-bg);color:var(--green)}
-.sp-pausado{background:#1a1a2e;color:var(--muted)}
 .pcard-expand{margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:none}
 .pcard-expand.open{display:block}
 .link-group{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
@@ -159,9 +155,27 @@ tr:hover td{background:#0d1f2d44}
 .toast.show{transform:translateY(0);opacity:1}
 .toast.ok{border-color:var(--green);color:var(--green)}
 .toast.err{border-color:var(--red);color:var(--red)}
+
+/* Analytics */
+.produto-analytics-card{background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:20px 22px;margin-bottom:16px}
+.produto-analytics-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.produto-analytics-nome{font-size:15px;font-weight:600;color:#f1f5f9}
+.produto-analytics-total{font-size:22px;font-weight:700;color:var(--green)}
+.produto-analytics-label{font-size:11px;color:var(--muted);text-align:right}
+.paginas-breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pagina-stat{background:#0a1628;border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.pagina-stat-tipo{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+.pagina-stat-clicks{font-size:24px;font-weight:700;margin-bottom:4px}
+.pagina-stat-link{font-size:11px;color:var(--blue);text-decoration:none;display:inline-flex;
+                  align-items:center;gap:3px;margin-top:4px}
+.pagina-stat-link:hover{opacity:.8}
+.pagina-stat-bar{height:3px;border-radius:2px;margin-top:8px}
+
 @media(max-width:900px){
   .shell{grid-template-columns:1fr}.sidebar{display:none}
   .metrics{grid-template-columns:repeat(2,1fr)}.charts-row{grid-template-columns:1fr}
+  .paginas-breakdown{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -258,21 +272,12 @@ tr:hover td{background:#0d1f2d44}
 
     <!-- ANALYTICS -->
     <div class="panel" id="panel-analytics">
-      <div class="charts-row">
-        <div class="chart-card">
-          <div class="chart-title">Cliques por tipo</div>
-          <div class="bar-group" id="bc-tipo2"></div>
-        </div>
-        <div class="chart-card">
-          <div class="chart-title">Cliques por plataforma</div>
-          <div class="bar-group" id="bc-plat"></div>
-        </div>
+      <div class="metrics" id="analytics-metrics" style="margin-bottom:28px;">
+        <div style="grid-column:1/-1" class="empty"><div class="spinner"></div></div>
       </div>
-      <div class="tcard">
-        <div class="tcard-title">Top páginas</div>
-        <div id="tbl-analytics"></div>
-      </div>
+      <div id="analytics-produtos"></div>
     </div>
+
   </div>
 </div>
 
@@ -424,9 +429,7 @@ function renderOverview(pages, produtos) {
     </div>`;
 
   renderBarChart(pages,"bc-tipo");
-  renderBarChart(pages,"bc-tipo2");
   renderDonut(pages);
-  renderBarPlat(produtos);
 }
 
 function renderBarChart(pages, elId) {
@@ -466,21 +469,112 @@ function renderDonut(pages) {
     </div>`).join("");
 }
 
-function renderBarPlat(produtos) {
-  const t={};
-  for(const p of produtos){
-    const pl=(p.plataforma||"hotmart").toLowerCase();
-    t[pl]=(t[pl]||0)+1;
+// ── Analytics por produto ─────────────────────
+
+function renderAnalytics(pages) {
+  const totalClicks = pages.reduce((s,p)=>s+(p.clicks||0),0);
+  const totalPaginas = pages.length;
+  const melhorProduto = (() => {
+    const t={};
+    for(const p of pages) t[p.product_name]=(t[p.product_name]||0)+(p.clicks||0);
+    return Object.entries(t).sort((a,b)=>b[1]-a[1])[0];
+  })();
+
+  document.getElementById("analytics-metrics").innerHTML = `
+    <div class="metric">
+      <div class="metric-label">Total de cliques</div>
+      <div class="metric-value c-green">${totalClicks.toLocaleString("pt-BR")}</div>
+      <div class="metric-sub">em todas as páginas</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Páginas ativas</div>
+      <div class="metric-value c-blue">${totalPaginas}</div>
+      <div class="metric-sub">${new Set(pages.map(p=>p.product_name)).size} produto(s)</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Melhor produto</div>
+      <div class="metric-value c-yellow" style="font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+        ${melhorProduto ? melhorProduto[1] + ' cliques' : '0'}
+      </div>
+      <div class="metric-sub" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+        ${melhorProduto ? melhorProduto[0].substring(0,30)+'...' : '—'}
+      </div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Média por página</div>
+      <div class="metric-value c-purple">
+        ${totalPaginas ? (totalClicks/totalPaginas).toFixed(1) : '0'}
+      </div>
+      <div class="metric-sub">cliques por página</div>
+    </div>`;
+
+  // Agrupa por produto
+  const porProduto = {};
+  for(const p of pages) {
+    if(!porProduto[p.product_name]) porProduto[p.product_name] = [];
+    porProduto[p.product_name].push(p);
   }
-  const max=Math.max(...Object.values(t),1);
-  const html=Object.entries(t).sort((a,b)=>b[1]-a[1]).map(([pl,n])=>`
-    <div class="bar-row">
-      <span class="bar-label">${pl}</span>
-      <div class="bar-track"><div class="bar-fill" style="width:${Math.round(n/max*100)}%;background:${PLAT_C[pl]||'#64748b'}"></div></div>
-      <span class="bar-val">${n}</span>
-    </div>`).join("");
-  const el=document.getElementById("bc-plat");
-  if(el) el.innerHTML=html||'<div class="empty" style="padding:20px">Sem dados</div>';
+
+  const maxTotal = Math.max(...Object.values(porProduto).map(ps=>ps.reduce((s,p)=>s+(p.clicks||0),0)), 1);
+
+  const html = Object.entries(porProduto)
+    .sort((a,b) => {
+      const sa = a[1].reduce((s,p)=>s+(p.clicks||0),0);
+      const sb2 = b[1].reduce((s,p)=>s+(p.clicks||0),0);
+      return sb2 - sa;
+    })
+    .map(([nome, paginas]) => {
+      const total = paginas.reduce((s,p)=>s+(p.clicks||0),0);
+      const pct = Math.round(total/maxTotal*100);
+
+      const tiposOrdem = ["descoberta","erro","acao"];
+      const paginasMap = {};
+      for(const p of paginas) paginasMap[p.page_type] = p;
+
+      const breakdown = tiposOrdem.map(tipo => {
+        const p = paginasMap[tipo];
+        if(!p) return `<div class="pagina-stat">
+          <div class="pagina-stat-tipo" style="color:${TYPE_C[tipo]||'#64748b'}">${TYPE_L[tipo]||tipo}</div>
+          <div class="pagina-stat-clicks" style="color:var(--muted)">—</div>
+        </div>`;
+
+        const slug = slugify(p.product_name);
+        const ghUrl = `${GH}/${slug}_${p.page_type}.html`;
+        const maxClicks = Math.max(...paginas.map(x=>x.clicks||0), 1);
+        const barPct = Math.round((p.clicks||0)/maxClicks*100);
+
+        return `<div class="pagina-stat">
+          <div class="pagina-stat-tipo" style="color:${TYPE_C[tipo]||'#64748b'}">${TYPE_L[tipo]||tipo}</div>
+          <div class="pagina-stat-clicks" style="color:${TYPE_C[tipo]||'#64748b'}">${p.clicks||0}</div>
+          <div style="font-size:11px;color:var(--muted)">cliques</div>
+          <div class="pagina-stat-bar" style="background:${TYPE_C[tipo]||'#64748b'};width:${barPct}%;min-width:4px;max-width:100%"></div>
+          <a href="${ghUrl}" target="_blank" class="pagina-stat-link">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ver página
+          </a>
+        </div>`;
+      }).join("");
+
+      return `<div class="produto-analytics-card">
+        <div class="produto-analytics-header">
+          <div>
+            <div class="produto-analytics-nome">${nome}</div>
+            <div style="margin-top:6px;">
+              <div style="background:var(--border);border-radius:3px;height:4px;width:200px;overflow:hidden;">
+                <div style="height:100%;border-radius:3px;background:var(--green);width:${pct}%;transition:width .8s"></div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:right;">
+            <div class="produto-analytics-total">${total}</div>
+            <div class="produto-analytics-label">cliques totais</div>
+          </div>
+        </div>
+        <div class="paginas-breakdown">${breakdown}</div>
+      </div>`;
+    }).join("") || '<div class="empty">Nenhum dado de cliques ainda.<br>Compartilhe suas páginas para começar a receber cliques.</div>';
+
+  document.getElementById("analytics-produtos").innerHTML = html;
 }
 
 function platClass(p){return `plat-${(p||"hotmart").toLowerCase()}`;}
@@ -707,7 +801,7 @@ async function loadAll() {
     renderOverview(DB.pages, DB.produtos);
     renderProdutos(DB.produtos);
     renderTabela(DB.pages,"tbl-paginas");
-    renderTabela(DB.pages,"tbl-analytics");
+    renderAnalytics(DB.pages);
   } catch(e) {
     console.error(e);
     toast("Erro ao carregar dados","err");
