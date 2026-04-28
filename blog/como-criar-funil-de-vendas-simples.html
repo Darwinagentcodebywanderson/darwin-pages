@@ -3,103 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="como criar funil de vendas simples - Dicas práticas e guia completo no Darwin Blog">
-<title>Como Criar Funil De Vendas Simples | Darwin Blog</title>
+<meta name="description" content="Como Criar Funil De Vendas Simples — dicas práticas e diretas no Darwin Blog.">
+<title>Como Criar um Funil de Vendas Simples e Eficaz | Darwin Blog</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',system-ui,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.7}
-.header{background:#0b1120;padding:16px 0;border-bottom:1px solid #1e293b}
-.header-inner{max-width:800px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
-.blog-nome{color:#22c55e;font-size:18px;font-weight:700;text-decoration:none}
-.blog-desc{color:#64748b;font-size:12px}
-.container{max-width:800px;margin:0 auto;padding:40px 20px 80px}
-.breadcrumb{font-size:13px;color:#64748b;margin-bottom:24px}
-.breadcrumb a{color:#3b82f6;text-decoration:none}
-.meta{font-size:13px;color:#64748b;margin-bottom:32px;display:flex;gap:16px}
-article h1{font-size:clamp(24px,4vw,36px);font-weight:700;color:#0f172a;line-height:1.3;margin-bottom:16px}
-article h2{font-size:20px;font-weight:600;color:#1e293b;margin:32px 0 12px}
-article p{margin-bottom:16px;color:#334155}
+:root{--accent:#3b82f6;--bg:#06080f;--card:#111827;--border:rgba(255,255,255,.07);--text:#f1f5f9;--muted:#64748b;--subtle:#94a3b8;--font:'Plus Jakarta Sans',sans-serif}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:var(--accent);text-decoration:none}
+a:hover{opacity:.8}
+
+/* Nav */
+nav{background:rgba(6,8,15,.95);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.nav-logo{font-size:16px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.nav-back{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--text)}
+
+/* Layout */
+.layout{max-width:720px;margin:0 auto;padding:48px 24px 80px}
+
+/* Meta */
+.meta{display:flex;align-items:center;gap:12px;margin-bottom:32px;flex-wrap:wrap}
+.meta-tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);padding:4px 12px;border-radius:100px}
+.meta-date{font-size:13px;color:var(--muted)}
+.meta-time{font-size:13px;color:var(--muted)}
+
+/* Artigo */
+article h1{font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.2;letter-spacing:-.02em;color:var(--text);margin-bottom:20px}
+article h2{font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--text);margin:32px 0 12px;line-height:1.3}
+article p{font-size:16px;color:var(--subtle);line-height:1.8;margin-bottom:16px}
+article strong{color:var(--text);font-weight:600}
 article ul,article ol{padding-left:20px;margin-bottom:16px}
-article li{margin-bottom:8px;color:#334155}
-article strong{color:#0f172a;font-weight:600}
-.cta-box{background:#0b1120;border:1px solid #22c55e33;border-radius:16px;padding:28px;margin:40px 0;text-align:center}
-.cta-box h3{color:#f8fafc;font-size:20px;margin-bottom:10px}
-.cta-box p{color:#94a3b8;margin-bottom:20px}
-.cta-btn{display:inline-flex;align-items:center;gap:8px;background:#22c55e;color:#000;
-          padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px}
-.cta-btn:hover{opacity:.88}
-.footer{background:#0b1120;padding:24px 0;margin-top:60px;text-align:center}
-.footer p{color:#64748b;font-size:13px}
-.tag{display:inline-block;background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;
-      padding:3px 10px;border-radius:20px;margin-right:6px;text-transform:uppercase}
+article li{font-size:15px;color:var(--subtle);line-height:1.7;margin-bottom:8px}
+.divider{height:1px;background:var(--border);margin:40px 0}
+
+/* CTA box */
+.cta-box{background:var(--card);border:1px solid rgba(59,130,246,.15);border-radius:20px;padding:36px;margin-top:48px;text-align:center;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.cta-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
+.cta-box h3{font-size:clamp(20px,3vw,28px);font-weight:800;color:var(--text);margin-bottom:12px;line-height:1.25}
+.cta-box p{font-size:15px;color:var(--muted);margin-bottom:24px;line-height:1.7}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;transition:all .15s;box-shadow:0 0 24px rgba(59,130,246,.2)}
+.cta-btn:hover{opacity:.88;transform:translateY(-1px);color:#fff}
+.cta-btn svg{transition:transform .15s}
+.cta-btn:hover svg{transform:translateX(3px)}
+.cta-note{font-size:12px;color:var(--muted);margin-top:14px}
+
+/* Sidebar produto */
+.produto-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin:40px 0;display:flex;gap:16px;align-items:flex-start}
+.produto-icon{width:48px;height:48px;min-width:48px;border-radius:12px;background:rgba(59,130,246,.1);display:flex;align-items:center;justify-content:center;font-size:22px}
+.produto-info h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.produto-info p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.produto-link{font-size:13px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:5px}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;margin-top:60px}
+footer p{font-size:12px;color:var(--muted)}
+
+@media(max-width:600px){
+  .layout{padding:32px 16px 60px}
+  .cta-box{padding:28px 20px}
+  .produto-card{flex-direction:column}
+}
 </style>
 </head>
 <body>
-<header class="header">
-  <div class="header-inner">
-    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/" class="blog-nome">Darwin Blog</a>
-    <span class="blog-desc">Dicas, guias e conteúdo sobre desenvolvimento pessoal e profissional</span>
-  </div>
-</header>
-<div class="container">
-  <div class="breadcrumb">
-    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/">Blog</a> › Marketing › Como Criar Funil De Vendas Simples
-  </div>
+
+<nav>
+  <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/" class="nav-logo">
+    <span class="nav-dot"></span>Darwin Blog
+  </a>
+  <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Ver todos os artigos
+  </a>
+</nav>
+
+<div class="layout">
+
   <div class="meta">
-    <span>📅 23/04/2026</span>
-    <span>📂 Marketing</span>
-    <span>⏱ 5 min de leitura</span>
+    <span class="meta-tag">Marketing</span>
+    <span class="meta-date">📅 27 de Apr. de 2026</span>
+    <span class="meta-time">⏱ 3 min de leitura</span>
   </div>
+
   <article>
     ```html
 <h1>Como Criar um Funil de Vendas Simples e Eficaz</h1>
 
-<p>Você está perdendo clientes potenciais por não ter um funil de vendas bem estruturado? Muitos empreendedores iniciantes não sabem por onde começar e acabam deixando oportunidades de venda escaparem pela falta de organização.</p>
+<p>Você tem um produto ou serviço, mas não sabe por onde começar a vender. A verdade é que vender sem organização é como jogar dinheiro fora.</p>
 
-<p>Neste artigo, você vai aprender como criar um funil de vendas simples que realmente funciona. Com as estratégias certas, é possível guiar seus clientes desde o primeiro contato até a compra, de forma natural e eficiente.</p>
+<h2>Entenda o que é um funil de vendas</h2>
 
-<h2>O que é um Funil de Vendas e por que é importante</h2>
+<p>Um funil de vendas é simplesmente o caminho que seu cliente percorre até comprar de você. Começa quando ele descobre sua existência, passa por algumas etapas e termina na compra.</p>
 
-<p>Um funil de vendas é um sistema que organiza os estágios pelos quais seus clientes passam, desde conhecer sua marca até realizar a compra. Ele funciona como um mapa que orienta tanto você quanto seus leads no processo de decisão.</p>
+<p>Não é nada complicado. É apenas: atrair pessoas, ganhar interesse delas, convencê-las e fazer a venda.</p>
 
-<p>Ter um funil bem definido aumenta significativamente suas chances de conversão. Sem ele, você estará contando apenas com sorte e não com estratégia comprovada para transformar visitantes em clientes pagantes.</p>
+<h2>Os 3 passos práticos para montar o seu</h2>
 
-<h2>Etapa 1: Atração - Conheça seu Funil de Vendas</h2>
+<p><strong>Passo 1: Atraía pessoas certas.</strong> Use redes sociais, blogs ou anúncios para trazer gente interessada no que você oferece. Não precisa ser todos. Precisa ser o seu cliente ideal.</p>
 
-<p>A primeira etapa do seu funil de vendas é atrair pessoas interessadas no seu produto ou serviço. Isso acontece através de conteúdo de qualidade, anúncios direcionados ou mídias sociais que resolvem problemas do seu público-alvo.</p>
+<p><strong>Passo 2: Construa relacionamento.</strong> Colha o email dessas pessoas. Mande conteúdo útil que resolva os problemas delas. Um vídeo, um artigo, uma dica prática. Isso cria confiança.</p>
 
-<p>Crie conteúdo educativo que demonstre sua expertise. Blog posts, vídeos e dicas práticas atraem potenciais clientes de forma orgânica e construem confiança desde o início do relacionamento.</p>
+<p><strong>Passo 3: Faça o convite para comprar.</strong> Depois de algum tempo de contato, apresente sua solução. Mostre por que vale a pena. Não force, mas convide de forma clara.</p>
 
-<h2>Etapa 2: Captura - Transforme Visitantes em Leads</h2>
+<h2>Comece simples, depois evolua</h2>
 
-<p>Depois de atrair pessoas, você precisa capturar seus dados para manter contato. Use formulários simples, oferecendo algo de valor em troca: um guia gratuito, checklist ou acesso a conteúdo exclusivo.</p>
+<p>Você não precisa de ferramentas caras para começar. Um email simples, redes sociais e uma página de venda já funcionam. O importante é ter a estrutura clara na cabeça.</p>
 
-<p>Uma página de captura bem feita com um formulário claro converte muito melhor. Quanto menos campos solicitar, maior será sua taxa de conversão nesta etapa do funil de vendas.</p>
-
-<h2>Etapa 3: Nutrição - Mantenha o Interesse com Valor</h2>
-
-<p>Agora que você tem os dados, é hora de enviar conteúdo relevante via email ou redes sociais. A nutrição de leads envolve fornecer informações úteis que resolvem problemas e constroem relacionamento contínuo.</p>
-
-<p>Plataformas como Fórmula Negócio Online ajudam a automatizar esse processo, permitindo que você crie sequências de emails inteligentes que educam e vendem simultaneamente, mantendo seu funil de vendas ativo e produtivo.</p>
-
-<h2>Etapa 4: Venda - Apresente Sua Solução</h2>
-
-<p>Quando o lead está nutrido e pronto, chegou a hora de apresentar sua oferta. Mostre como seu produto resolve especificamente os problemas que ele enfrenta e qual é o retorno que ele terá.</p>
-
-<p>Seja transparente sobre preço, características e benefícios. Uma venda conquistada com confiança gera clientes satisfeitos que indicam sua marca para
+<p>Se você quer ir além, <strong>Fórmula Negócio Online</strong> tem um método estruturado que pode te ajudar nesse caminho. Vale conhecer.</p>
+```
   </article>
-  <div class="cta-box">
-    <h3>Quer ir além?</h3>
-    <p>Conheça <strong>Fórmula Negócio Online</strong> e dê o próximo passo na sua jornada.</p>
-    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/formula_negocio_online_descoberta.html" class="cta-btn">
-      Quero conhecer →
-    </a>
+
+  <div class="divider"></div>
+
+  <!-- Card do produto no meio do artigo -->
+  <div class="produto-card">
+    <div class="produto-icon">💡</div>
+    <div class="produto-info">
+      <h4>Fórmula Negócio Online</h4>
+      <p>Um método estruturado para quem quer resultados reais nessa área. Vale conhecer antes de continuar tentando sozinho.</p>
+      <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/formula_negocio_online_descoberta.html" class="produto-link">
+        Conhecer o método
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
   </div>
+
+  <!-- CTA final -->
+  <div class="cta-box">
+    <span class="cta-tag">Próximo passo</span>
+    <h3>Quer colocar isso em prática?</h3>
+    <p>Fórmula Negócio Online tem um caminho estruturado para você aplicar o que aprendeu neste artigo de forma consistente.</p>
+    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/formula_negocio_online_descoberta.html" class="cta-btn" id="cta-btn">
+      Quero conhecer
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <p class="cta-note">#publi — conteúdo patrocinado</p>
+  </div>
+
 </div>
-<footer class="footer">
-  <p>Darwin Blog · Conteúdo educativo · <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/" style="color:#3b82f6">Ver todos os artigos</a></p>
+
+<footer>
+  <p>Darwin Blog · Conteúdo educativo · <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/">Ver todos os artigos</a></p>
 </footer>
+
 </body>
 </html>

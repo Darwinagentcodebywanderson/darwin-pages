@@ -3,101 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="como criar reserva de emergencia - Dicas práticas e guia completo no Darwin Blog">
-<title>Como Criar Reserva De Emergencia | Darwin Blog</title>
+<meta name="description" content="Como Criar Reserva De Emergência — dicas práticas e diretas no Darwin Blog.">
+<title>Como Criar Uma Reserva de Emergência | Darwin Blog</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',system-ui,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.7}
-.header{background:#0b1120;padding:16px 0;border-bottom:1px solid #1e293b}
-.header-inner{max-width:800px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
-.blog-nome{color:#22c55e;font-size:18px;font-weight:700;text-decoration:none}
-.blog-desc{color:#64748b;font-size:12px}
-.container{max-width:800px;margin:0 auto;padding:40px 20px 80px}
-.breadcrumb{font-size:13px;color:#64748b;margin-bottom:24px}
-.breadcrumb a{color:#3b82f6;text-decoration:none}
-.meta{font-size:13px;color:#64748b;margin-bottom:32px;display:flex;gap:16px}
-article h1{font-size:clamp(24px,4vw,36px);font-weight:700;color:#0f172a;line-height:1.3;margin-bottom:16px}
-article h2{font-size:20px;font-weight:600;color:#1e293b;margin:32px 0 12px}
-article p{margin-bottom:16px;color:#334155}
+:root{--accent:#fbbf24;--bg:#06080f;--card:#111827;--border:rgba(255,255,255,.07);--text:#f1f5f9;--muted:#64748b;--subtle:#94a3b8;--font:'Plus Jakarta Sans',sans-serif}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:var(--accent);text-decoration:none}
+a:hover{opacity:.8}
+
+/* Nav */
+nav{background:rgba(6,8,15,.95);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.nav-logo{font-size:16px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.nav-back{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--text)}
+
+/* Layout */
+.layout{max-width:720px;margin:0 auto;padding:48px 24px 80px}
+
+/* Meta */
+.meta{display:flex;align-items:center;gap:12px;margin-bottom:32px;flex-wrap:wrap}
+.meta-tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.15);padding:4px 12px;border-radius:100px}
+.meta-date{font-size:13px;color:var(--muted)}
+.meta-time{font-size:13px;color:var(--muted)}
+
+/* Artigo */
+article h1{font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.2;letter-spacing:-.02em;color:var(--text);margin-bottom:20px}
+article h2{font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--text);margin:32px 0 12px;line-height:1.3}
+article p{font-size:16px;color:var(--subtle);line-height:1.8;margin-bottom:16px}
+article strong{color:var(--text);font-weight:600}
 article ul,article ol{padding-left:20px;margin-bottom:16px}
-article li{margin-bottom:8px;color:#334155}
-article strong{color:#0f172a;font-weight:600}
-.cta-box{background:#0b1120;border:1px solid #22c55e33;border-radius:16px;padding:28px;margin:40px 0;text-align:center}
-.cta-box h3{color:#f8fafc;font-size:20px;margin-bottom:10px}
-.cta-box p{color:#94a3b8;margin-bottom:20px}
-.cta-btn{display:inline-flex;align-items:center;gap:8px;background:#22c55e;color:#000;
-          padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px}
-.cta-btn:hover{opacity:.88}
-.footer{background:#0b1120;padding:24px 0;margin-top:60px;text-align:center}
-.footer p{color:#64748b;font-size:13px}
-.tag{display:inline-block;background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;
-      padding:3px 10px;border-radius:20px;margin-right:6px;text-transform:uppercase}
+article li{font-size:15px;color:var(--subtle);line-height:1.7;margin-bottom:8px}
+.divider{height:1px;background:var(--border);margin:40px 0}
+
+/* CTA box */
+.cta-box{background:var(--card);border:1px solid rgba(251,191,36,.15);border-radius:20px;padding:36px;margin-top:48px;text-align:center;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.cta-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
+.cta-box h3{font-size:clamp(20px,3vw,28px);font-weight:800;color:var(--text);margin-bottom:12px;line-height:1.25}
+.cta-box p{font-size:15px;color:var(--muted);margin-bottom:24px;line-height:1.7}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;transition:all .15s;box-shadow:0 0 24px rgba(251,191,36,.2)}
+.cta-btn:hover{opacity:.88;transform:translateY(-1px);color:#fff}
+.cta-btn svg{transition:transform .15s}
+.cta-btn:hover svg{transform:translateX(3px)}
+.cta-note{font-size:12px;color:var(--muted);margin-top:14px}
+
+/* Sidebar produto */
+.produto-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin:40px 0;display:flex;gap:16px;align-items:flex-start}
+.produto-icon{width:48px;height:48px;min-width:48px;border-radius:12px;background:rgba(251,191,36,.1);display:flex;align-items:center;justify-content:center;font-size:22px}
+.produto-info h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.produto-info p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.produto-link{font-size:13px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:5px}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;margin-top:60px}
+footer p{font-size:12px;color:var(--muted)}
+
+@media(max-width:600px){
+  .layout{padding:32px 16px 60px}
+  .cta-box{padding:28px 20px}
+  .produto-card{flex-direction:column}
+}
 </style>
 </head>
 <body>
-<header class="header">
-  <div class="header-inner">
-    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/" class="blog-nome">Darwin Blog</a>
-    <span class="blog-desc">Dicas, guias e conteúdo sobre desenvolvimento pessoal e profissional</span>
-  </div>
-</header>
-<div class="container">
-  <div class="breadcrumb">
-    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/">Blog</a> › Finanças › Como Criar Reserva De Emergencia
-  </div>
+
+<nav>
+  <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/" class="nav-logo">
+    <span class="nav-dot"></span>Darwin Blog
+  </a>
+  <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Ver todos os artigos
+  </a>
+</nav>
+
+<div class="layout">
+
   <div class="meta">
-    <span>📅 23/04/2026</span>
-    <span>📂 Finanças</span>
-    <span>⏱ 5 min de leitura</span>
+    <span class="meta-tag">Finanças</span>
+    <span class="meta-date">📅 27 de Apr. de 2026</span>
+    <span class="meta-time">⏱ 3 min de leitura</span>
   </div>
+
   <article>
     ```html
-<h1>Como Criar uma Reserva de Emergência: Guia Prático</h1>
+<h1>Como Criar Uma Reserva de Emergência</h1>
 
-<p>A reserva de emergência é um dos pilares mais importantes da saúde financeira, mas muitas pessoas não sabem por onde começar. Sem esse fundo de segurança, qualquer imprevisto pode desestabilizar suas finanças e deixá-lo vulnerável a dívidas.</p>
+<p>A maioria das pessoas não sabe por onde começar a guardar dinheiro para emergências. Sem uma reserva, qualquer imprevisto pode virar uma dívida.</p>
 
-<p>Neste artigo, você vai aprender passo a passo como criar uma reserva de emergência sólida, independentemente da sua renda atual. Vamos explorar estratégias práticas e realistas para você colocar em ação hoje mesmo.</p>
+<h2>Defina Um Valor Realista</h2>
 
-<h2>Por Que Criar uma Reserva de Emergência</h2>
+<p>Comece guardando o equivalente a 3 meses de despesas. Se você gasta R$ 2 mil por mês, sua meta inicial é R$ 6 mil.</p>
 
-<p>Uma reserva de emergência é o dinheiro guardado especificamente para cobrir despesas inesperadas, como perda de emprego, problemas de saúde ou consertos urgentes. Ela funciona como um airbag financeiro que protege você e sua família.</p>
+<p>Não precisa ser tudo de uma vez. Guarde R$ 200, R$ 300 por mês. O importante é criar o hábito, não o valor.</p>
 
-<p>Sem essa proteção, você fica à mercê de empréstimos ou cartão de crédito quando surge uma emergência. Isso cria um ciclo de dívidas que compromete seus objetivos financeiros de longo prazo.</p>
+<h2>Escolha Um Lugar Seguro</h2>
 
-<h2>Quanto Você Precisa Guardar</h2>
+<p>A reserva deve estar em um lugar que você consiga acessar rápido, mas longe da tentação de gastar. Uma conta poupança ou aplicação de baixo risco funciona bem.</p>
 
-<p>O ideal é ter entre 3 a 6 meses de despesas cobertas. Se você gasta R$ 3 mil por mês, sua meta seria ter entre R$ 9 mil a R$ 18 mil guardados. Comece com a meta menor e vá aumentando conforme sua situação melhora.</p>
+<p>Evite deixar o dinheiro na conta corrente. Se está misturado com seu dinheiro de rotina, fica mais fácil usar indevidamente.</p>
 
-<p>Se você acaba de começar e essa quantia parece distante, não desanime. Até R$ 1 mil já é um começo válido. O importante é dar o primeiro passo e manter a consistência ao longo do tempo.</p>
+<h2>Comece Hoje, Não Amanhã</h2>
 
-<h2>Passo a Passo para Criar sua Reserva</h2>
+<p>Você não precisa de um plano perfeito para começar. Abra uma conta, escolha um valor pequeno e faça sua primeira transferência esta semana. Depois aumenta gradualmente.</p>
 
-<p>O primeiro passo é definir quanto você gasta mensalmente com as despesas essenciais: moradia, alimentação, transporte e contas fixas. Esse número será a base para calcular sua meta de emergência.</p>
-
-<p>Em seguida, escolha quanto vai guardar por mês. Pode ser 5%, 10% ou 20% do seu salário, dependendo da sua realidade. Comece com um valor que seja desafiador, mas viável. O importante é automatizar essa transferência no mesmo dia que você recebe.</p>
-
-<h2>Onde Guardar o Dinheiro</h2>
-
-<p>A reserva de emergência deve ficar em um lugar seguro e acessível, mas que não seja tentador de usar para compras do dia a dia. Uma conta poupança ou um fundo com liquidez diária é ideal para isso.</p>
-
-<p>Evite investimentos que dificultem o resgate rápido. O objetivo aqui é ter segurança, não rentabilidade máxima. A melhor reserva é aquela que você realmente usa em uma emergência real.</p>
-
-<h2>Conhecimento Financeiro como Base Sólida</h2>
-
-<p>Para construir uma reserva de emergência eficaz, você precisará entender melhor como o dinheiro funciona e como tomar decisões financeiras inteligentes. Recursos como <strong>50 Perguntas e Respostas Sobre Dinheiro e Investimentos</strong> podem aprofundar seu conhecimento sobre planejamento financeiro e ajudá-lo a evitar erros
+<p>Se você quer entender melhor como organizar suas finanças e construir essa segurança desde o início, <strong>50 Perguntas e Respostas Sobre Dinheiro e Investimentos</strong> tem um método estruturado que pode te ajudar nesse caminho. Vale conhecer.</p>
+```
   </article>
-  <div class="cta-box">
-    <h3>Quer ir além?</h3>
-    <p>Conheça <strong>50 Perguntas e Respostas Sobre DInheiro e Investimentos</strong> e dê o próximo passo na sua jornada.</p>
-    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/50_perguntas_e_respostas_sobre_dinheiro__descoberta.html" class="cta-btn">
-      Quero conhecer →
-    </a>
+
+  <div class="divider"></div>
+
+  <!-- Card do produto no meio do artigo -->
+  <div class="produto-card">
+    <div class="produto-icon">💡</div>
+    <div class="produto-info">
+      <h4>50 Perguntas e Respostas Sobre DInheiro e Investimentos</h4>
+      <p>Um método estruturado para quem quer resultados reais nessa área. Vale conhecer antes de continuar tentando sozinho.</p>
+      <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/50_perguntas_e_respostas_sobre_dinheiro__descoberta.html" class="produto-link">
+        Conhecer o método
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
   </div>
+
+  <!-- CTA final -->
+  <div class="cta-box">
+    <span class="cta-tag">Próximo passo</span>
+    <h3>Quer colocar isso em prática?</h3>
+    <p>50 Perguntas e Respostas Sobre DInheiro e Investimentos tem um caminho estruturado para você aplicar o que aprendeu neste artigo de forma consistente.</p>
+    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/50_perguntas_e_respostas_sobre_dinheiro__descoberta.html" class="cta-btn" id="cta-btn">
+      Quero conhecer
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <p class="cta-note">#publi — conteúdo patrocinado</p>
+  </div>
+
 </div>
-<footer class="footer">
-  <p>Darwin Blog · Conteúdo educativo · <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/" style="color:#3b82f6">Ver todos os artigos</a></p>
+
+<footer>
+  <p>Darwin Blog · Conteúdo educativo · <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/">Ver todos os artigos</a></p>
 </footer>
+
 </body>
 </html>

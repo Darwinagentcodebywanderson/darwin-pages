@@ -3,134 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Dicas, guias e conteúdo sobre desenvolvimento pessoal e profissional">
+<meta name="description" content="Dicas práticas sobre marketing, finanças, tecnologia e mais.">
 <title>Darwin Blog — Dicas e Guias Práticos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',system-ui,sans-serif;background:#f8fafc;color:#1e293b}
-.header{background:#0b1120;padding:24px 0}
-.header-inner{max-width:900px;margin:0 auto;padding:0 20px;text-align:center}
-.header h1{color:#22c55e;font-size:28px;font-weight:700;margin-bottom:6px}
-.header p{color:#94a3b8;font-size:14px}
-.container{max-width:900px;margin:0 auto;padding:40px 20px 80px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:22px;
-       text-decoration:none;color:inherit;transition:border-color .15s,transform .15s;display:block}
-.card:hover{border-color:#22c55e;transform:translateY(-2px)}
-.card-tag{font-size:11px;font-weight:700;color:#22c55e;text-transform:uppercase;
-           letter-spacing:.05em;margin-bottom:10px}
-.card h2{font-size:15px;font-weight:600;color:#0f172a;margin-bottom:8px;line-height:1.4}
-.card p{font-size:13px;color:#64748b;line-height:1.6;margin-bottom:14px}
-.card-link{font-size:13px;color:#3b82f6;font-weight:500}
-.footer{background:#0b1120;padding:20px;text-align:center;margin-top:40px}
-.footer p{color:#64748b;font-size:13px}
+:root{--bg:#06080f;--card:#111827;--border:rgba(255,255,255,.07);--text:#f1f5f9;--muted:#64748b;--subtle:#94a3b8;--accent:#3b82f6;--font:'Plus Jakarta Sans',sans-serif}
+html{font-size:16px}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+.header{background:rgba(6,8,15,.98);border-bottom:1px solid var(--border);padding:20px 24px 40px;text-align:center}
+.header-logo{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:700;color:var(--text);margin-bottom:24px}
+.header-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.header h1{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.025em;color:var(--text);margin-bottom:12px;line-height:1.2}
+.header p{font-size:16px;color:var(--subtle);max-width:460px;margin:0 auto;line-height:1.7}
+.container{max-width:1060px;margin:0 auto;padding:48px 24px 80px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;text-decoration:none;color:inherit;transition:all .2s;display:block}
+.card:hover{border-color:rgba(255,255,255,.12);transform:translateY(-3px)}
+.card-tag{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:100px;border:1px solid;display:inline-block;margin-bottom:14px}
+.card h2{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4}
+.card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.card-link{font-size:13px;font-weight:600}
+footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center}
+footer p{font-size:12px;color:var(--muted)}
+footer a{color:var(--accent);text-decoration:none}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header class="header">
-  <div class="header-inner">
-    <h1>Darwin Blog</h1>
-    <p>Dicas, guias e conteúdo sobre desenvolvimento pessoal e profissional</p>
-  </div>
+  <div class="header-logo"><span class="header-dot"></span>Darwin Blog</div>
+  <h1>Dicas que funcionam<br>na prática</h1>
+  <p>Conteúdo direto ao ponto sobre marketing, finanças, tecnologia e desenvolvimento profissional.</p>
 </header>
 <div class="container">
   <div class="grid">
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/como-comecar-no-marketing-digital.html" class="card">
-      <div class="card-tag">Marketing</div>
-      <h2>Como Comecar No Marketing Digital</h2>
-      <p>Guia completo sobre como comecar no marketing digital — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <span class="card-tag" style="color:#3b82f6;background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.15)">Marketing</span>
+      <h2>Como Começar No Marketing Digital</h2>
+      <p>Guia prático e direto sobre como começar no marketing digital.</p>
+      <span class="card-link" style="color:#3b82f6">Ler artigo →</span>
     </a>
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/como-vender-pela-internet-sem-investimento.html" class="card">
-      <div class="card-tag">Marketing</div>
+      <span class="card-tag" style="color:#3b82f6;background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.15)">Marketing</span>
       <h2>Como Vender Pela Internet Sem Investimento</h2>
-      <p>Guia completo sobre como vender pela internet sem investimento — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <p>Guia prático e direto sobre como vender pela internet sem investimento.</p>
+      <span class="card-link" style="color:#3b82f6">Ler artigo →</span>
     </a>
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/estrategias-de-marketing-digital-para-iniciantes.html" class="card">
-      <div class="card-tag">Marketing</div>
-      <h2>Estrategias De Marketing Digital Para Iniciantes</h2>
-      <p>Guia completo sobre estrategias de marketing digital para iniciantes — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <span class="card-tag" style="color:#3b82f6;background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.15)">Marketing</span>
+      <h2>Estratégias De Marketing Digital Para Iniciantes</h2>
+      <p>Guia prático e direto sobre estratégias de marketing digital para iniciantes.</p>
+      <span class="card-link" style="color:#3b82f6">Ler artigo →</span>
     </a>
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/como-criar-funil-de-vendas-simples.html" class="card">
-      <div class="card-tag">Marketing</div>
+      <span class="card-tag" style="color:#3b82f6;background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.15)">Marketing</span>
       <h2>Como Criar Funil De Vendas Simples</h2>
-      <p>Guia completo sobre como criar funil de vendas simples — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <p>Guia prático e direto sobre como criar funil de vendas simples.</p>
+      <span class="card-link" style="color:#3b82f6">Ler artigo →</span>
     </a>
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/erros-comuns-no-marketing-digital.html" class="card">
-      <div class="card-tag">Marketing</div>
+      <span class="card-tag" style="color:#3b82f6;background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.15)">Marketing</span>
       <h2>Erros Comuns No Marketing Digital</h2>
-      <p>Guia completo sobre erros comuns no marketing digital — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <p>Guia prático e direto sobre erros comuns no marketing digital.</p>
+      <span class="card-link" style="color:#3b82f6">Ler artigo →</span>
     </a>
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/como-comecar-a-investir-com-pouco-dinheiro.html" class="card">
-      <div class="card-tag">Finanças</div>
-      <h2>Como Comecar A Investir Com Pouco Dinheiro</h2>
-      <p>Guia completo sobre como comecar a investir com pouco dinheiro — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <span class="card-tag" style="color:#fbbf24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.15)">Finanças</span>
+      <h2>Como Começar A Investir Com Pouco Dinheiro</h2>
+      <p>Guia prático e direto sobre como começar a investir com pouco dinheiro.</p>
+      <span class="card-link" style="color:#fbbf24">Ler artigo →</span>
     </a>
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/diferenca-entre-poupar-e-investir.html" class="card">
-      <div class="card-tag">Finanças</div>
-      <h2>Diferenca Entre Poupar E Investir</h2>
-      <p>Guia completo sobre diferenca entre poupar e investir — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <span class="card-tag" style="color:#fbbf24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.15)">Finanças</span>
+      <h2>Diferença Entre Poupar E Investir</h2>
+      <p>Guia prático e direto sobre diferença entre poupar e investir.</p>
+      <span class="card-link" style="color:#fbbf24">Ler artigo →</span>
     </a>
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/como-sair-das-dividas-e-comecar-a-investir.html" class="card">
-      <div class="card-tag">Finanças</div>
-      <h2>Como Sair Das Dividas E Comecar A Investir</h2>
-      <p>Guia completo sobre como sair das dividas e comecar a investir — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <span class="card-tag" style="color:#fbbf24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.15)">Finanças</span>
+      <h2>Como Sair Das Dívidas E Começar A Investir</h2>
+      <p>Guia prático e direto sobre como sair das dívidas e começar a investir.</p>
+      <span class="card-link" style="color:#fbbf24">Ler artigo →</span>
     </a>
-    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/investimentos-para-iniciantes-em-2025.html" class="card">
-      <div class="card-tag">Finanças</div>
-      <h2>Investimentos Para Iniciantes Em 2025</h2>
-      <p>Guia completo sobre investimentos para iniciantes em 2025 — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/investimentos-para-iniciantes.html" class="card">
+      <span class="card-tag" style="color:#fbbf24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.15)">Finanças</span>
+      <h2>Investimentos Para Iniciantes</h2>
+      <p>Guia prático e direto sobre investimentos para iniciantes.</p>
+      <span class="card-link" style="color:#fbbf24">Ler artigo →</span>
     </a>
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/como-criar-reserva-de-emergencia.html" class="card">
-      <div class="card-tag">Finanças</div>
-      <h2>Como Criar Reserva De Emergencia</h2>
-      <p>Guia completo sobre como criar reserva de emergencia — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <span class="card-tag" style="color:#fbbf24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.15)">Finanças</span>
+      <h2>Como Criar Reserva De Emergência</h2>
+      <p>Guia prático e direto sobre como criar reserva de emergência.</p>
+      <span class="card-link" style="color:#fbbf24">Ler artigo →</span>
     </a>
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/como-aprender-programacao-do-zero.html" class="card">
-      <div class="card-tag">Tecnologia</div>
-      <h2>Como Aprender Programacao Do Zero</h2>
-      <p>Guia completo sobre como aprender programacao do zero — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <span class="card-tag" style="color:#38bdf8;background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.15)">Tecnologia</span>
+      <h2>Como Aprender Programação Do Zero</h2>
+      <p>Guia prático e direto sobre como aprender programação do zero.</p>
+      <span class="card-link" style="color:#38bdf8">Ler artigo →</span>
     </a>
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/profissoes-de-tecnologia-mais-bem-pagas.html" class="card">
-      <div class="card-tag">Tecnologia</div>
-      <h2>Profissoes De Tecnologia Mais Bem Pagas</h2>
-      <p>Guia completo sobre profissoes de tecnologia mais bem pagas — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <span class="card-tag" style="color:#38bdf8;background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.15)">Tecnologia</span>
+      <h2>Profissões De Tecnologia Mais Bem Pagas</h2>
+      <p>Guia prático e direto sobre profissões de tecnologia mais bem pagas.</p>
+      <span class="card-link" style="color:#38bdf8">Ler artigo →</span>
     </a>
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/como-entrar-na-area-de-ti-sem-faculdade.html" class="card">
-      <div class="card-tag">Tecnologia</div>
-      <h2>Como Entrar Na Area De Ti Sem Faculdade</h2>
-      <p>Guia completo sobre como entrar na area de ti sem faculdade — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <span class="card-tag" style="color:#38bdf8;background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.15)">Tecnologia</span>
+      <h2>Como Entrar Na Área De Ti Sem Faculdade</h2>
+      <p>Guia prático e direto sobre como entrar na área de TI sem faculdade.</p>
+      <span class="card-link" style="color:#38bdf8">Ler artigo →</span>
     </a>
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/cursos-de-tecnologia-que-valem-a-pena.html" class="card">
-      <div class="card-tag">Tecnologia</div>
+      <span class="card-tag" style="color:#38bdf8;background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.15)">Tecnologia</span>
       <h2>Cursos De Tecnologia Que Valem A Pena</h2>
-      <p>Guia completo sobre cursos de tecnologia que valem a pena — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <p>Guia prático e direto sobre cursos de tecnologia que valem a pena.</p>
+      <span class="card-link" style="color:#38bdf8">Ler artigo →</span>
     </a>
     <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/habilidades-digitais-mais-valorizadas.html" class="card">
-      <div class="card-tag">Tecnologia</div>
+      <span class="card-tag" style="color:#38bdf8;background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.15)">Tecnologia</span>
       <h2>Habilidades Digitais Mais Valorizadas</h2>
-      <p>Guia completo sobre habilidades digitais mais valorizadas — dicas práticas e objetivas.</p>
-      <span class="card-link">Ler artigo →</span>
+      <p>Guia prático e direto sobre habilidades digitais mais valorizadas.</p>
+      <span class="card-link" style="color:#38bdf8">Ler artigo →</span>
     </a>
   </div>
 </div>
-<footer class="footer">
-  <p>Darwin Blog · Conteúdo educativo e informativo</p>
+<footer>
+  <p>Darwin Blog · Conteúdo educativo e informativo · <a href="https://darwinagentcodebywanderson.github.io/darwin-pages">Voltar ao início</a></p>
 </footer>
 </body>
 </html>

@@ -3,107 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="como aprender programacao do zero - Dicas práticas e guia completo no Darwin Blog">
-<title>Como Aprender Programacao Do Zero | Darwin Blog</title>
+<meta name="description" content="Como Aprender Programação Do Zero — dicas práticas e diretas no Darwin Blog.">
+<title>Como Aprender Programação do Zero | Darwin Blog</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',system-ui,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.7}
-.header{background:#0b1120;padding:16px 0;border-bottom:1px solid #1e293b}
-.header-inner{max-width:800px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
-.blog-nome{color:#22c55e;font-size:18px;font-weight:700;text-decoration:none}
-.blog-desc{color:#64748b;font-size:12px}
-.container{max-width:800px;margin:0 auto;padding:40px 20px 80px}
-.breadcrumb{font-size:13px;color:#64748b;margin-bottom:24px}
-.breadcrumb a{color:#3b82f6;text-decoration:none}
-.meta{font-size:13px;color:#64748b;margin-bottom:32px;display:flex;gap:16px}
-article h1{font-size:clamp(24px,4vw,36px);font-weight:700;color:#0f172a;line-height:1.3;margin-bottom:16px}
-article h2{font-size:20px;font-weight:600;color:#1e293b;margin:32px 0 12px}
-article p{margin-bottom:16px;color:#334155}
+:root{--accent:#38bdf8;--bg:#06080f;--card:#111827;--border:rgba(255,255,255,.07);--text:#f1f5f9;--muted:#64748b;--subtle:#94a3b8;--font:'Plus Jakarta Sans',sans-serif}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:var(--accent);text-decoration:none}
+a:hover{opacity:.8}
+
+/* Nav */
+nav{background:rgba(6,8,15,.95);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.nav-logo{font-size:16px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.nav-back{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--text)}
+
+/* Layout */
+.layout{max-width:720px;margin:0 auto;padding:48px 24px 80px}
+
+/* Meta */
+.meta{display:flex;align-items:center;gap:12px;margin-bottom:32px;flex-wrap:wrap}
+.meta-tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.15);padding:4px 12px;border-radius:100px}
+.meta-date{font-size:13px;color:var(--muted)}
+.meta-time{font-size:13px;color:var(--muted)}
+
+/* Artigo */
+article h1{font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.2;letter-spacing:-.02em;color:var(--text);margin-bottom:20px}
+article h2{font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--text);margin:32px 0 12px;line-height:1.3}
+article p{font-size:16px;color:var(--subtle);line-height:1.8;margin-bottom:16px}
+article strong{color:var(--text);font-weight:600}
 article ul,article ol{padding-left:20px;margin-bottom:16px}
-article li{margin-bottom:8px;color:#334155}
-article strong{color:#0f172a;font-weight:600}
-.cta-box{background:#0b1120;border:1px solid #22c55e33;border-radius:16px;padding:28px;margin:40px 0;text-align:center}
-.cta-box h3{color:#f8fafc;font-size:20px;margin-bottom:10px}
-.cta-box p{color:#94a3b8;margin-bottom:20px}
-.cta-btn{display:inline-flex;align-items:center;gap:8px;background:#22c55e;color:#000;
-          padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px}
-.cta-btn:hover{opacity:.88}
-.footer{background:#0b1120;padding:24px 0;margin-top:60px;text-align:center}
-.footer p{color:#64748b;font-size:13px}
-.tag{display:inline-block;background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;
-      padding:3px 10px;border-radius:20px;margin-right:6px;text-transform:uppercase}
+article li{font-size:15px;color:var(--subtle);line-height:1.7;margin-bottom:8px}
+.divider{height:1px;background:var(--border);margin:40px 0}
+
+/* CTA box */
+.cta-box{background:var(--card);border:1px solid rgba(56,189,248,.15);border-radius:20px;padding:36px;margin-top:48px;text-align:center;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.cta-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
+.cta-box h3{font-size:clamp(20px,3vw,28px);font-weight:800;color:var(--text);margin-bottom:12px;line-height:1.25}
+.cta-box p{font-size:15px;color:var(--muted);margin-bottom:24px;line-height:1.7}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;transition:all .15s;box-shadow:0 0 24px rgba(56,189,248,.2)}
+.cta-btn:hover{opacity:.88;transform:translateY(-1px);color:#fff}
+.cta-btn svg{transition:transform .15s}
+.cta-btn:hover svg{transform:translateX(3px)}
+.cta-note{font-size:12px;color:var(--muted);margin-top:14px}
+
+/* Sidebar produto */
+.produto-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin:40px 0;display:flex;gap:16px;align-items:flex-start}
+.produto-icon{width:48px;height:48px;min-width:48px;border-radius:12px;background:rgba(56,189,248,.1);display:flex;align-items:center;justify-content:center;font-size:22px}
+.produto-info h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.produto-info p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.produto-link{font-size:13px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:5px}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;margin-top:60px}
+footer p{font-size:12px;color:var(--muted)}
+
+@media(max-width:600px){
+  .layout{padding:32px 16px 60px}
+  .cta-box{padding:28px 20px}
+  .produto-card{flex-direction:column}
+}
 </style>
 </head>
 <body>
-<header class="header">
-  <div class="header-inner">
-    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/" class="blog-nome">Darwin Blog</a>
-    <span class="blog-desc">Dicas, guias e conteúdo sobre desenvolvimento pessoal e profissional</span>
-  </div>
-</header>
-<div class="container">
-  <div class="breadcrumb">
-    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/">Blog</a> › Tecnologia › Como Aprender Programacao Do Zero
-  </div>
+
+<nav>
+  <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/" class="nav-logo">
+    <span class="nav-dot"></span>Darwin Blog
+  </a>
+  <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Ver todos os artigos
+  </a>
+</nav>
+
+<div class="layout">
+
   <div class="meta">
-    <span>📅 23/04/2026</span>
-    <span>📂 Tecnologia</span>
-    <span>⏱ 5 min de leitura</span>
+    <span class="meta-tag">Tecnologia</span>
+    <span class="meta-date">📅 27 de Apr. de 2026</span>
+    <span class="meta-time">⏱ 3 min de leitura</span>
   </div>
+
   <article>
     ```html
-<h1>Como Aprender Programação do Zero: Guia Prático</h1>
+<h1>Como Aprender Programação do Zero</h1>
 
-<p>Muitas pessoas querem aprender programação, mas não sabem por onde começar. A falta de direção e orientação clara é uma das maiores barreiras para quem deseja entrar nessa área promissora.</p>
+<p>Quer começar a programar mas não sabe por onde começar? A verdade é que todo programador experiente um dia foi iniciante e enfrentou as mesmas dúvidas que você agora.</p>
 
-<p>Neste artigo, você vai descobrir um caminho prático e realista para aprender programação do zero, sem se sentir perdido no meio do caminho.</p>
+<h2>Escolha uma Linguagem e Comece</h2>
 
-<h2>1. Escolha a Linguagem de Programação Certa</h2>
+<p>Não tente aprender tudo de uma vez. Escolha uma linguagem como Python ou JavaScript e foque nela nos primeiros meses. Essas duas são boas para iniciantes porque têm sintaxe mais simples e comunidade grande.</p>
 
-<p>O primeiro passo é escolher qual linguagem aprender. Para iniciantes, recomendamos Python ou JavaScript, pois possuem sintaxe mais simples e uma comunidade grande de apoio.</p>
+<p>Dedique algumas horas por semana para estudar. Não precisa ser 8 horas por dia. Consistência é mais importante que quantidade. Estude 1 ou 2 horas, mas todos os dias.</p>
 
-<p>Não tente aprender todas as linguagens de uma vez. Escolha uma, domine os conceitos fundamentais e depois expanda seus conhecimentos. Isso evita frustração e mantém seu foco.</p>
+<h2>Aprenda Praticando de Verdade</h2>
 
-<h2>2. Comece pelos Conceitos Fundamentais de Programação</h2>
+<p>Assistir vídeos não é suficiente. Você precisa sentar e escrever código com suas próprias mãos. Comece com problemas pequenos e vá aumentando a complexidade.</p>
 
-<p>Antes de escrever código, você precisa entender conceitos básicos como variáveis, condicionais, loops e funções. Esses pilares são essenciais em qualquer linguagem de programação.</p>
+<p>Faça projetos reais, mesmo que simples. Uma calculadora, um jogo da velha, um aplicativo de lista de tarefas. Isso te força a resolver problemas reais e fixa melhor o aprendizado.</p>
 
-<p>Use plataformas online gratuitas como Codecademy ou freeCodeCamp para aprender a programação através de exercícios práticos. A prática é fundamental para consolidar o aprendizado.</p>
+<h2>Considere um Caminho Estruturado</h2>
 
-<h2>3. Pratique Escrevendo Código Diariamente</h2>
+<p>Se você está tendo dificuldade para se manter organizado ou precisa de orientação clara, um curso estruturado pode fazer diferença. A vantagem é que você tem uma trilha pronta, sem ter que ficar pesquisando qual é o próximo passo.</p>
 
-<p>Aprender programação é como aprender um idioma: requer prática constante. Dedique pelo menos 1 hora por dia para codificar e resolver problemas reais.</p>
-
-<p>Comece com projetos pequenos, como uma calculadora ou um jogo simples. Conforme avança, aumente a complexidade. Essa progressão natural mantém você motivado e confiante.</p>
-
-<h2>4. Considere Diversificar Suas Competências Técnicas</h2>
-
-<p>Enquanto desenvolve suas habilidades em programação, considere ampliar seu conhecimento em áreas complementares da tecnologia. Profissões técnicas diversas oferecem oportunidades e segurança profissional.</p>
-
-<p>Por exemplo, o <strong>Curso de CFTV - Aprenda uma Nova Profissão</strong> pode ser uma excelente adição ao seu portfólio técnico, oferecendo uma formação prática em uma área em crescimento. Ter múltiplas competências técnicas aumenta suas chances no mercado de trabalho.</p>
-
-<h2>5. Participe da Comunidade de Desenvolvimento</h2>
-
-<p>Faça parte de comunidades online, fóruns e grupos de desenvolvedores. Isso ajuda a esclarecer dúvidas, conhecer outros aprendizes e se manter motivado na jornada.</p>
-
-<p>Plataformas como GitHub, Stack Overflow e Discord possuem comunidades ativas de programadores dispostos a ajudar iniciantes. Não tenha medo de fazer perguntas.</p>
-
-<h2>Conclusão</h2>
-
-<p>Aprender programação do zero é totalmente viável com dedicação, disciplina e um plano claro. Escolha sua linguagem, domine os fundamentos, pratique constantemente e participe da comunidade. Lembre-se: progresso consistente é mais importante que perfeição. Comece hoje mesmo
+<p>Se você quer ir além, <strong>Curso de CFTV - Aprenda uma Nova Profissão</strong> tem um método estruturado que pode te ajudar nesse caminho. Vale conhecer.</p>
+```
   </article>
-  <div class="cta-box">
-    <h3>Quer ir além?</h3>
-    <p>Conheça <strong>Curso de CFTV - Aprenda uma Nova Profissão</strong> e dê o próximo passo na sua jornada.</p>
-    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/curso_de_cftv_aprenda_uma_nova_profissao_descoberta.html" class="cta-btn">
-      Quero conhecer →
-    </a>
+
+  <div class="divider"></div>
+
+  <!-- Card do produto no meio do artigo -->
+  <div class="produto-card">
+    <div class="produto-icon">💡</div>
+    <div class="produto-info">
+      <h4>Curso de CFTV - Aprenda uma Nova Profissão</h4>
+      <p>Um método estruturado para quem quer resultados reais nessa área. Vale conhecer antes de continuar tentando sozinho.</p>
+      <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/curso_de_cftv_aprenda_uma_nova_profissao_descoberta.html" class="produto-link">
+        Conhecer o método
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
   </div>
+
+  <!-- CTA final -->
+  <div class="cta-box">
+    <span class="cta-tag">Próximo passo</span>
+    <h3>Quer colocar isso em prática?</h3>
+    <p>Curso de CFTV - Aprenda uma Nova Profissão tem um caminho estruturado para você aplicar o que aprendeu neste artigo de forma consistente.</p>
+    <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/curso_de_cftv_aprenda_uma_nova_profissao_descoberta.html" class="cta-btn" id="cta-btn">
+      Quero conhecer
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <p class="cta-note">#publi — conteúdo patrocinado</p>
+  </div>
+
 </div>
-<footer class="footer">
-  <p>Darwin Blog · Conteúdo educativo · <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/" style="color:#3b82f6">Ver todos os artigos</a></p>
+
+<footer>
+  <p>Darwin Blog · Conteúdo educativo · <a href="https://darwinagentcodebywanderson.github.io/darwin-pages/blog/">Ver todos os artigos</a></p>
 </footer>
+
 </body>
 </html>
