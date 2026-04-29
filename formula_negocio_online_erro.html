@@ -4,494 +4,512 @@
 <meta charset="UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fórmula Negócio Online - Ganhe Dinheiro na Internet</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <title>Fórmula Negócio Online - Saia do Zero e Ganhe Sua Primeira Venda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
             color: #1a1a1a;
-            background: #ffffff;
+            line-height: 1.6;
+            background: #fafafa;
         }
-        
-        #sp {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            width: 0%;
-            z-index: 999;
-            transition: width 0.1s;
-            background: linear-gradient(90deg, #ff6b35, #f7931e);
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
         }
-        
-        #mainnav {
+
+        nav#mainnav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
-            padding: 16px 20px;
+            padding: 16px 24px;
             background: rgba(255, 255, 255, 0.95);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 100;
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid transparent;
         }
-        
-        #mainnav.scrolled {
-            padding: 12px 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+        nav#mainnav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
+
+        .nav-logo {
+            font-family: 'Outfit', sans-serif;
             font-size: 24px;
             font-weight: 800;
-            color: #ff6b35;
-            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
-        .nav-link {
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
+
+        .nav-cta {
+            text-decoration: none;
             color: white;
-            border: none;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
             padding: 10px 24px;
             border-radius: 6px;
-            cursor: pointer;
             font-weight: 600;
             font-size: 14px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-decoration: none;
-            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
         }
-        
-        .nav-link:hover {
+
+        .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
         }
-        
+
+        section {
+            padding: 60px 24px;
+        }
+
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px;
         }
-        
-        /* Hero Section */
+
         .hero {
-            margin-top: 80px;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(247, 147, 30, 0.05) 100%);
+            padding-top: 140px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, #fff9f5 0%, #fff5f0 100%);
             text-align: center;
         }
-        
-        .hero-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
+
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            line-height: 1.2;
-            margin-bottom: 20px;
+            font-size: 52px;
             color: #1a1a1a;
+            margin-bottom: 16px;
             font-weight: 800;
         }
-        
-        .hero-subtitle {
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subheadline {
             font-size: 20px;
             color: #555;
-            margin-bottom: 30px;
-            line-height: 1.4;
+            margin-bottom: 32px;
+            line-height: 1.5;
         }
-        
-        .hero .cta-btn {
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            color: white;
-            border: none;
-            padding: 18px 44px;
-            font-size: 16px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 30px;
+
+        .cta-btn {
             display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            color: white;
             text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.35);
+            margin-bottom: 24px;
         }
-        
-        .hero .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.4);
+
+        .cta-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(255, 107, 53, 0.45);
         }
-        
+
+        .cta-btn:active {
+            transform: translateY(-1px);
+        }
+
         .social-proof {
             display: flex;
             justify-content: center;
             gap: 40px;
-            margin-top: 30px;
+            margin-top: 24px;
             flex-wrap: wrap;
         }
-        
+
         .proof-item {
             text-align: center;
         }
-        
+
         .proof-number {
             font-size: 28px;
-            font-weight: 700;
+            font-weight: 800;
             color: #ff6b35;
+            font-family: 'Outfit', sans-serif;
         }
-        
-        .proof-text {
+
+        .proof-label {
             font-size: 13px;
             color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             margin-top: 4px;
         }
-        
-        /* Pains Section */
-        .pains {
-            padding: 80px 20px;
-            background: #f9f9f9;
-        }
-        
+
         .section-title {
-            font-family: 'Playfair Display', serif;
             font-size: 36px;
-            margin-bottom: 50px;
             text-align: center;
+            margin-bottom: 48px;
             color: #1a1a1a;
         }
-        
-        .pains-grid {
+
+        .section-title .highlight {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .dores {
+            background: white;
+        }
+
+        .dores-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 32px;
         }
-        
-        .pain-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 10px;
+
+        .dor-card {
+            padding: 32px;
+            background: linear-gradient(135deg, #fff5f0 0%, #ffe8dd 100%);
+            border-radius: 12px;
             border-left: 4px solid #ff6b35;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
-        
-        .pain-card.rv.in {
-            opacity: 1;
-        }
-        
-        .pain-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: #ff6b35;
-        }
-        
-        .pain-card p {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.5;
-        }
-        
-        /* Benefits Section */
-        .benefits {
-            padding: 80px 20px;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .benefit-card {
-            background: linear-gradient(135deg, #fff 0%, #fafafa 100%);
-            padding: 35px;
-            border-radius: 10px;
-            border: 1px solid #f0f0f0;
-            text-align: center;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .benefit-card.rv.in {
+
+        .dor-card.rv.in {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        .benefit-card.rv {
+
+        .dor-card.rv {
             transform: translateY(20px);
         }
-        
-        .benefit-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 24px;
+
+        .dor-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
         }
-        
-        .benefit-card h3 {
-            font-size: 18px;
+
+        .dor-card h3 {
+            font-size: 20px;
             margin-bottom: 12px;
             color: #1a1a1a;
         }
-        
-        .benefit-card p {
-            font-size: 14px;
-            color: #777;
-            line-height: 1.5;
+
+        .dor-card p {
+            color: #666;
+            font-size: 15px;
         }
-        
-        /* Stats Section */
-        .stats {
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
+
+        .beneficios {
+            background: linear-gradient(135deg, #fff9f5 0%, #fff5f0 100%);
+        }
+
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .beneficio-item {
+            padding: 28px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #f0f0f0;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .beneficio-item.rv.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .beneficio-item.rv {
+            transform: translateY(20px);
+        }
+
+        .beneficio-item:hover {
+            border-color: #ff6b35;
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.12);
+        }
+
+        .beneficio-numero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .beneficio-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .beneficio-item p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .metricas {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .metricas .section-title {
             color: white;
         }
-        
-        .stats-grid {
+
+        .metricas .highlight {
+            color: #fff;
+        }
+
+        .metricas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
         }
-        
-        .stat-item {
-            text-align: center;
+
+        .metrica-box {
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: all 0.4s ease;
         }
-        
-        .stat-item.rv.in {
+
+        .metrica-box.rv.in {
             opacity: 1;
+            transform: translateY(0);
         }
-        
-        .stat-number {
-            font-size: 42px;
+
+        .metrica-box.rv {
+            transform: translateY(20px);
+        }
+
+        .metrica-numero {
+            font-size: 48px;
             font-weight: 800;
-            margin-bottom: 10px;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 8px;
+            display: block;
         }
-        
-        .stat-label {
-            font-size: 15px;
+
+        .metrica-label {
+            font-size: 16px;
             opacity: 0.95;
             line-height: 1.4;
         }
-        
-        /* Testimonials Section */
-        .testimonials {
-            padding: 80px 20px;
-            background: #f9f9f9;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
+
+        .depoimentos {
             background: white;
-            padding: 35px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        .depoimento-card {
+            padding: 32px;
+            background: #fafafa;
+            border-radius: 12px;
+            border: 1px solid #f0f0f0;
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
-        
-        .testimonial-card.rv.in {
+
+        .depoimento-card.rv.in {
             opacity: 1;
+            transform: translateY(0);
         }
-        
+
+        .depoimento-card.rv {
+            transform: translateY(20px);
+        }
+
         .stars {
             color: #ff6b35;
             font-size: 14px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
         }
-        
-        .testimonial-text {
+
+        .depoimento-texto {
+            color: #333;
             font-size: 15px;
-            color: #555;
-            margin-bottom: 20px;
             line-height: 1.6;
+            margin-bottom: 16px;
             font-style: italic;
         }
-        
-        .testimonial-author {
+
+        .depoimento-resultado {
+            padding: 12px;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 140, 66, 0.08) 100%);
+            border-left: 3px solid #ff6b35;
+            border-radius: 4px;
             font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 4px;
-        }
-        
-        .testimonial-role {
-            font-size: 13px;
             color: #ff6b35;
+            font-size: 14px;
+            margin-bottom: 16px;
         }
-        
-        /* Guarantee Section */
-        .guarantee {
-            padding: 60px 20px;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(247, 147, 30, 0.05) 100%);
+
+        .depoimento-autor {
+            font-weight: 700;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+
+        .depoimento-cargo {
+            color: #888;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .garantia {
+            background: linear-gradient(135deg, #fff9f5 0%, #fff5f0 100%);
             text-align: center;
         }
-        
-        .guarantee-content {
+
+        .garantia-box {
             max-width: 600px;
             margin: 0 auto;
-        }
-        
-        .guarantee-badge {
-            display: inline-block;
+            padding: 40px;
             background: white;
+            border-radius: 12px;
             border: 2px solid #ff6b35;
-            color: #ff6b35;
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 13px;
-            margin-bottom: 20px;
+            opacity: 0;
+            transition: all 0.4s ease;
         }
-        
-        .guarantee-content h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
+
+        .garantia-box.rv.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .garantia-box.rv {
+            transform: translateY(20px);
+        }
+
+        .garantia-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .garantia-box h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
             color: #1a1a1a;
         }
-        
-        .guarantee-content p {
-            font-size: 16px;
+
+        .garantia-box p {
             color: #666;
+            font-size: 15px;
             line-height: 1.6;
         }
-        
-        /* CTA Final Section */
+
         .cta-final {
-            padding: 80px 20px;
-            background: white;
-        }
-        
-        .cta-final-content {
-            max-width: 700px;
-            margin: 0 auto;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            color: white;
             text-align: center;
+            padding: 80px 24px;
         }
-        
+
         .cta-final h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
-            color: #1a1a1a;
+            font-size: 40px;
+            margin-bottom: 24px;
+            color: white;
         }
-        
+
+        .cta-final p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
         .checklist {
+            max-width: 500px;
+            margin: 0 auto 32px;
             text-align: left;
-            display: inline-block;
-            margin-bottom: 40px;
         }
-        
-        .checklist-item {
+
+        .check-item {
             display: flex;
             align-items: center;
             margin-bottom: 16px;
             font-size: 15px;
-            color: #555;
+            opacity: 0;
+            transition: all 0.4s ease;
         }
-        
-        .checklist-check {
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            border-radius: 50%;
-            display: flex;
+
+        .check-item.rv.in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .check-item.rv {
+            transform: translateX(-20px);
+        }
+
+        .check-icon {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
             margin-right: 12px;
             flex-shrink: 0;
             font-weight: 700;
-            font-size: 12px;
         }
-        
-        .cta-final .cta-btn {
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            color: white;
-            border: none;
-            padding: 20px 60px;
-            font-size: 18px;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .cta-final .cta-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
-        }
-        
-        /* FAQ Section */
+
         .faq {
-            padding: 80px 20px;
-            background: #f9f9f9;
+            background: white;
         }
-        
+
         .faq-container {
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         .fi {
-            background: white;
+            margin-bottom: 16px;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
-            margin-bottom: 15px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            opacity: 0;
+            transition: all 0.4s ease;
         }
-        
-        .fi-btn {
-            width: 100%;
-            padding: 20px;
-            background: white;
-            border: none;
-            text-align: left;
-            font-size: 16px;
-            font-weight: 600;
-            color: #1a1a1a;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        
-        .fi-btn:hover {
-            background: #fafafa;
-        }
-        
-        .fi.open .fi-btn {
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(247, 147, 30, 0.1) 100%);
-            color: #ff6b35;
-        }
-        
-        .fi-icon {
-            font-size: 20
+
+        .fi.rv.in {
+            opacity: 1;
+            transform: translateY(
