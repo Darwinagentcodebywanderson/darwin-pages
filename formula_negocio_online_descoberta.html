@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fórmula Negócio Online | Descubra o Método Que Está Mudando Vidas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Fórmula Negócio Online - Descubra Como Monetizar Sua Presença Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,518 +13,484 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
             color: #1a1a1a;
-            background: #fafafa;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        header {
-            background: white;
-            padding: 16px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #efefef;
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-        }
-
-        nav {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        #mainnav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: rgba(255, 255, 255, 0);
+            transition: all 0.3s ease;
+        }
+
+        #mainnav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 12px 20px;
         }
 
         .logo {
-            font-family: 'Epilogue', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 24px;
-            font-weight: 800;
-            color: #ff6b35;
-            letter-spacing: -1px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-cta {
-            background: #ff6b35;
-            color: white;
             padding: 10px 20px;
-            border-radius: 6px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
             text-decoration: none;
+            border-radius: 6px;
             font-weight: 600;
             font-size: 14px;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .nav-cta:hover {
-            background: #e55a28;
             transform: translateY(-2px);
         }
 
+        /* Progress bar */
+        #sp {
+            background: linear-gradient(90deg, #ff6b35 0%, #f7931e 100%);
+        }
+
+        /* Hero Section */
         .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            padding: 120px 20px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-family: 'Epilogue', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 56px;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
             color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
-            font-size: 20px;
-            color: #4a4a4a;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.5;
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.8;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            margin-bottom: 60px;
-            flex-wrap: wrap;
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
         }
 
         .cta-btn {
-            padding: 16px 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            text-decoration: none;
             border-radius: 8px;
-            border: none;
+            font-weight: 700;
             font-size: 16px;
-            font-weight: 600;
+            border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
         }
 
-        .cta-btn.primary {
-            background: linear-gradient(135deg, #ff6b35 0%, #f23b3b 100%);
-            color: white;
-        }
-
-        .cta-btn.primary:hover {
+        .cta-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
         }
 
-        .cta-btn.secondary {
-            background: white;
-            color: #ff6b35;
-            border: 2px solid #ff6b35;
-        }
-
-        .cta-btn.secondary:hover {
-            background: #fff5f0;
-        }
-
-        .social-proof {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
             padding-top: 40px;
-            border-top: 1px solid #efefef;
-            max-width: 700px;
-            margin: 0 auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
         }
 
-        .proof-item {
+        .stat-item {
             text-align: center;
         }
 
-        .proof-number {
-            font-family: 'Epilogue', sans-serif;
+        .stat-number {
             font-size: 32px;
             font-weight: 800;
-            color: #ff6b35;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .proof-label {
+        .stat-label {
             font-size: 13px;
             color: #888;
-            margin-top: 4px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            margin-top: 8px;
         }
 
-        .section {
+        /* Pain Points Section */
+        .pains {
             padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            background: white;
         }
 
         .section-title {
-            font-family: 'Epilogue', sans-serif;
-            font-size: 48px;
-            font-weight: 800;
             text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
             margin-bottom: 60px;
             color: #1a1a1a;
         }
 
-        .dores-grid {
+        .pains-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            gap: 40px;
         }
 
-        .dor-card {
-            background: white;
+        .pain-card {
             padding: 40px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #fff9f5 0%, #fffbf8 100%);
             border-left: 4px solid #ff6b35;
+            border-radius: 12px;
             opacity: 0;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
         }
 
-        .dor-card.in {
+        .pain-card.rv.in {
             opacity: 1;
+            animation: slideInUp 0.6s ease forwards;
         }
 
-        .dor-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
-        }
-
-        .dor-icon {
+        .pain-icon {
             font-size: 40px;
             margin-bottom: 16px;
         }
 
-        .dor-card h3 {
-            font-family: 'Epilogue', sans-serif;
-            font-size: 22px;
+        .pain-card h3 {
+            font-size: 20px;
             font-weight: 700;
             margin-bottom: 12px;
             color: #1a1a1a;
         }
 
-        .dor-card p {
+        .pain-card p {
+            font-size: 14px;
             color: #666;
-            font-size: 15px;
+            line-height: 1.8;
         }
 
-        .beneficios-grid {
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+        }
+
+        .benefits .section-title {
+            margin-bottom: 60px;
+        }
+
+        .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            gap: 35px;
         }
 
-        .beneficio-item {
+        .benefit-item {
+            padding: 30px;
             background: white;
-            padding: 32px;
             border-radius: 12px;
+            border: 1px solid rgba(255, 107, 53, 0.1);
             opacity: 0;
-            transition: all 0.5s ease;
-            border: 1px solid #efefef;
+            transition: all 0.3s ease;
         }
 
-        .beneficio-item.in {
+        .benefit-item.rv.in {
             opacity: 1;
+            animation: slideInUp 0.6s ease forwards;
         }
 
-        .beneficio-item:hover {
-            border-color: #ff6b35;
-            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.12);
+        .benefit-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.1);
         }
 
-        .beneficio-check {
+        .benefit-number {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, #ff6b35 0%, #f23b3b 100%);
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
             color: white;
             border-radius: 50%;
-            font-weight: 700;
-            font-size: 20px;
+            font-weight: 800;
             margin-bottom: 16px;
         }
 
-        .beneficio-item h3 {
-            font-family: 'Epilogue', sans-serif;
+        .benefit-item h3 {
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 12px;
             color: #1a1a1a;
         }
 
-        .beneficio-item p {
-            color: #666;
+        .benefit-item p {
             font-size: 14px;
-            line-height: 1.6;
+            color: #666;
+            line-height: 1.8;
         }
 
-        .stats-section {
-            background: linear-gradient(135deg, #ff6b35 0%, #f23b3b 100%);
-            color: white;
-            padding: 60px 20px;
-            border-radius: 16px;
-            margin: 40px 0;
+        /* Stats Section */
+        .stats {
+            padding: 80px 20px;
+            background: white;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
+        }
+
+        .stats-card {
             text-align: center;
+            opacity: 0;
+            transition: all 0.3s ease;
         }
 
-        .stat-item h4 {
-            font-family: 'Epilogue', sans-serif;
-            font-size: 44px;
-            font-weight: 800;
-            margin-bottom: 8px;
+        .stats-card.rv.in {
+            opacity: 1;
+            animation: slideInUp 0.6s ease forwards;
         }
 
-        .stat-item p {
+        .stats-card-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .stats-card-label {
             font-size: 14px;
-            opacity: 0.9;
+            color: #666;
+            font-weight: 600;
         }
 
-        .testimonials-section {
-            background: white;
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+        }
+
+        .testimonials .section-title {
+            margin-bottom: 60px;
         }
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
         }
 
         .testimonial-card {
-            background: #f8f8f8;
-            padding: 32px;
+            padding: 35px;
+            background: white;
             border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             opacity: 0;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
         }
 
-        .testimonial-card.in {
+        .testimonial-card.rv.in {
             opacity: 1;
+            animation: slideInUp 0.6s ease forwards;
         }
 
-        .testimonial-stars {
-            color: #ff6b35;
-            font-size: 16px;
-            margin-bottom: 12px;
+        .testimonial-rating {
+            margin-bottom: 16px;
+            font-size: 18px;
         }
 
         .testimonial-text {
-            font-size: 15px;
-            color: #444;
+            font-size: 14px;
+            color: #555;
             margin-bottom: 20px;
-            line-height: 1.6;
+            line-height: 1.8;
             font-style: italic;
         }
 
         .testimonial-author {
-            font-family: 'Epilogue', sans-serif;
             font-weight: 700;
             color: #1a1a1a;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .testimonial-role {
-            font-size: 13px;
+            font-size: 12px;
             color: #888;
             margin-top: 4px;
         }
 
-        .guarantee-section {
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(242, 59, 59, 0.05) 100%);
-            border: 2px solid #ff6b35;
-            border-radius: 12px;
-            padding: 40px;
-            text-align: center;
-            margin: 60px 0;
-        }
-
-        .guarantee-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
-
-        .guarantee-section h3 {
-            font-family: 'Epilogue', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #1a1a1a;
-        }
-
-        .guarantee-section p {
-            color: #666;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .cta-final-section {
-            background: linear-gradient(135deg, #ff6b35 0%, #f23b3b 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            border-radius: 16px;
-            margin: 40px 0;
-        }
-
-        .cta-final-section h2 {
-            font-family: 'Epilogue', sans-serif;
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 24px;
-        }
-
-        .cta-benefits-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .benefit-check {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 15px;
-        }
-
-        .benefit-check::before {
-            content: "✓";
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            flex-shrink: 0;
-            font-weight: 700;
-        }
-
-        .cta-btn.large {
-            padding: 18px 48px;
-            font-size: 18px;
-            background: white;
-            color: #ff6b35;
-            font-weight: 700;
-            margin: 20px 0;
-        }
-
-        .cta-btn.large:hover {
-            background: #fff5f0;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
-        }
-
-        .faq-section {
+        /* Guarantee Section */
+        .guarantee {
+            padding: 80px 20px;
             background: white;
         }
 
-        .faq-container {
+        .guarantee-container {
             max-width: 700px;
             margin: 0 auto;
-        }
-
-        .fi {
-            border-bottom: 1px solid #efefef;
-            overflow: hidden;
-        }
-
-        .fi:last-child {
-            border-bottom: none;
-        }
-
-        .fi-button {
-            width: 100%;
-            padding: 24px;
-            background: none;
-            border: none;
-            text-align: left;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 16px;
-            font-weight: 600;
-            color: #1a1a1a;
+            padding: 50px;
+            background: linear-gradient(135deg, #fff9f5 0%, #fffbf8 100%);
+            border: 2px solid #ff6b35;
+            border-radius: 16px;
+            text-align: center;
+            opacity: 0;
             transition: all 0.3s ease;
         }
 
-        .fi-button:hover {
-            color: #ff6b35;
+        .guarantee-container.rv.in {
+            opacity: 1;
+            animation: slideInUp 0.6s ease forwards;
         }
 
-        .fi-arrow {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            border-right: 2px solid #ff6b35;
-            border-bottom: 2px solid #ff6b35;
-            transform: rotate(-45deg);
-            transition: transform 0.3s ease;
+        .guarantee-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
         }
 
-        .fi.open .fi-arrow {
-            transform: rotate(135deg);
+        .guarantee-container h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
         }
 
-        .fi-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 24px;
-        }
-
-        .fi.open .fi-content {
-            max-height: 400px;
-            padding: 0 24px 24px;
-        }
-
-        .fi-content p {
+        .guarantee-container p {
+            font-size: 15px;
             color: #666;
-            line-height: 1.6;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            font-size: 13px;
+        /* CTA Final Section */
+        .cta-final {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
         }
 
-        footer p {
-            max-width: 800px;
+        .cta-final-content {
+            max-width: 600px;
             margin: 0 auto;
-            line-height: 1.6;
-            opacity: 0.8;
+            text-align: center;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
+        .cta-final h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
 
-            .hero p {
-                font-size
+        .checklist {
+            text-align: left;
+            margin: 40px 0;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 107, 53, 0.1);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            font-size: 14px;
+            color: #555;

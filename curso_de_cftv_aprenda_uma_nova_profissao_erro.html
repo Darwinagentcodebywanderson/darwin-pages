@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprenda CFTV e Transforme Sua Carreira | Darwin</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <title>Curso de CFTV - Aprenda uma Nova Profissão | Darwin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,165 +13,159 @@
             box-sizing: border-box;
         }
 
-        html, body {
-            width: 100%;
-            overflow-x: hidden;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #f8f9fa;
-            color: #2c3e50;
+            color: #1a1a1a;
             line-height: 1.6;
+            background: #fafafa;
         }
 
-        /* Barra de progresso */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Barra de Progresso */
         #sp {
-            background: linear-gradient(90deg, #00d4ff, #0099ff);
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+            background: linear-gradient(90deg, #6366f1 0%, #ec4899 100%);
         }
 
         /* Navegação */
-        #mainnav {
+        nav#mainnav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            z-index: 100;
+            padding: 16px 0;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding: 16px 32px;
-            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        nav#mainnav.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        #mainnav.scrolled {
-            border-bottom-color: rgba(0, 0, 0, 0.1);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
         }
 
         .logo {
-            font-family: 'Sora', sans-serif;
-            font-size: 24px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -1px;
         }
 
-        .nav-cta {
-            text-decoration: none;
-            color: #fff;
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
+        nav .cta-btn {
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+            color: white;
             padding: 10px 24px;
-            border-radius: 8px;
-            font-size: 14px;
+            border-radius: 6px;
+            text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 14px;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 153, 255, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .nav-cta:hover {
+        nav .cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0, 153, 255, 0.4);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
         }
 
         /* Hero */
         .hero {
-            padding: 120px 32px 80px;
+            padding: 140px 0 80px;
+            margin-top: 60px;
             text-align: center;
-            background: linear-gradient(135deg, #f8f9fa 0%, #f0f4ff 100%);
-            margin-top: 64px;
-        }
-
-        .hero-content {
-            max-width: 700px;
-            margin: 0 auto;
         }
 
         .hero h1 {
-            font-family: 'Sora', sans-serif;
-            font-size: 52px;
-            font-weight: 800;
-            line-height: 1.2;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 8vw, 72px);
+            line-height: 1.1;
             margin-bottom: 20px;
-            color: #1a202c;
+            color: #1a1a1a;
         }
 
-        .hero h1 span {
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .hero p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 32px;
-            line-height: 1.8;
+        .hero .subheadline {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
         }
 
-        .hero-buttons {
+        .hero-cta-group {
             display: flex;
             gap: 16px;
             justify-content: center;
-            margin-bottom: 48px;
+            margin-bottom: 50px;
             flex-wrap: wrap;
         }
 
-        .cta-btn {
-            padding: 16px 32px;
-            border: none;
-            border-radius: 10px;
+        .hero .cta-btn {
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
             font-size: 16px;
-            font-weight: 600;
+            border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-decoration: none;
             display: inline-block;
-            font-family: 'Inter', sans-serif;
         }
 
-        .cta-btn-primary {
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
-            color: #fff;
-            box-shadow: 0 8px 25px rgba(0, 153, 255, 0.35);
+        .hero .cta-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
         }
 
-        .cta-btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 153, 255, 0.45);
+        .hero .cta-btn-secondary {
+            background: white;
+            color: #6366f1;
+            border: 2px solid #6366f1;
         }
 
-        .cta-btn-secondary {
-            background: transparent;
-            color: #0099ff;
-            border: 2px solid #0099ff;
+        .hero .cta-btn-secondary:hover {
+            background: #6366f1;
+            color: white;
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
         }
 
-        .cta-btn-secondary:hover {
-            background: #0099ff;
-            color: #fff;
-        }
-
-        .social-proof {
+        .hero-social-proof {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 30px;
             flex-wrap: wrap;
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 12px;
-            margin: 0 auto;
-            max-width: 600px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
         }
 
         .proof-item {
@@ -180,313 +173,336 @@
         }
 
         .proof-number {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 800;
-            color: #0099ff;
-            display: block;
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .proof-text {
-            font-size: 13px;
+        .proof-label {
+            font-size: 14px;
             color: #666;
-            margin-top: 4px;
+            margin-top: 6px;
         }
 
-        /* Seção Dores */
-        .dores {
-            padding: 80px 32px;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Seção de Dores */
+        .pains {
+            padding: 100px 0;
+            background: white;
         }
 
         .section-title {
-            font-family: 'Sora', sans-serif;
-            font-size: 42px;
-            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 6vw, 52px);
             text-align: center;
             margin-bottom: 60px;
-            color: #1a202c;
+            color: #1a1a1a;
         }
 
-        .section-title span {
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .dores-grid {
+        .pains-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
+            gap: 30px;
         }
 
-        .dor-card {
-            background: #fff;
-            padding: 32px;
+        .pain-card {
+            background: linear-gradient(135deg, #fef2f2 0%, #fef5ff 100%);
+            padding: 40px;
             border-radius: 12px;
-            border-left: 4px solid #ff6b6b;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #ec4899;
             opacity: 0;
-            transition: all 0.5s ease;
+            transition: all 0.6s ease;
         }
 
-        .dor-card.rv.in {
+        .pain-card.rv.in {
             opacity: 1;
         }
 
-        .dor-card h3 {
+        .pain-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(236, 72, 153, 0.12);
+        }
+
+        .pain-card h3 {
             font-size: 20px;
-            color: #1a202c;
-            margin-bottom: 12px;
-            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
         }
 
-        .dor-card p {
+        .pain-card p {
             color: #666;
-            font-size: 15px;
+            line-height: 1.7;
         }
 
-        /* Benefícios */
-        .beneficios {
-            padding: 80px 32px;
-            background: linear-gradient(135deg, #f0f4ff 0%, #f8f9fa 100%);
+        /* Seção de Benefícios */
+        .benefits {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #f9f5ff 0%, #fef5ff 100%);
         }
 
-        .beneficios-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .beneficios-grid {
+        .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-            margin-top: 48px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        .beneficio-card {
-            background: #fff;
-            padding: 32px;
+        .benefit-card {
+            background: white;
+            padding: 36px;
             border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            border-top: 4px solid #00d4ff;
+            border: 1px solid #e5e7eb;
             opacity: 0;
-            transition: all 0.5s ease;
+            transition: all 0.6s ease;
         }
 
-        .beneficio-card.rv.in {
+        .benefit-card.rv.in {
             opacity: 1;
         }
 
-        .beneficio-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
-            border-radius: 12px;
+        .benefit-card:hover {
+            border-color: #6366f1;
+            box-shadow: 0 16px 40px rgba(99, 102, 241, 0.12);
+            transform: translateY(-8px);
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
             font-size: 28px;
+            margin-bottom: 16px;
         }
 
-        .beneficio-card h3 {
+        .benefit-card h3 {
             font-size: 18px;
-            color: #1a202c;
             margin-bottom: 12px;
-            font-weight: 700;
+            color: #1a1a1a;
         }
 
-        .beneficio-card p {
+        .benefit-card p {
             color: #666;
-            font-size: 14px;
+            line-height: 1.7;
+            font-size: 15px;
         }
 
-        /* Números */
-        .numeros {
-            padding: 80px 32px;
-            background: linear-gradient(135deg, #1a202c, #2c3e50);
-            color: #fff;
+        /* Seção de Números */
+        .metrics {
+            padding: 100px 0;
+            background: white;
         }
 
-        .numeros-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .numeros-grid {
+        .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
-            margin-top: 48px;
-        }
-
-        .numero-card {
             text-align: center;
-            opacity: 0;
-            transition: all 0.5s ease;
         }
 
-        .numero-card.rv.in {
+        .metric-card {
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        .metric-card.rv.in {
             opacity: 1;
         }
 
-        .numero-card .numero {
-            font-family: 'Sora', sans-serif;
-            font-size: 48px;
+        .metric-number {
+            font-size: clamp(36px, 8vw, 64px);
             font-weight: 800;
-            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            display: block;
-            margin-bottom: 8px;
+            line-height: 1;
         }
 
-        .numero-card .label {
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.8);
+        .metric-label {
+            font-size: 16px;
+            color: #666;
+            margin-top: 12px;
+            font-weight: 600;
         }
 
-        /* Depoimentos */
-        .depoimentos {
-            padding: 80px 32px;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Seção de Depoimentos */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #f9f5ff 0%, #fef5ff 100%);
         }
 
-        .depoimentos-grid {
+        .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            margin-top: 48px;
+            gap: 30px;
         }
 
-        .depoimento-card {
-            background: #fff;
-            padding: 32px;
+        .testimonial-card {
+            background: white;
+            padding: 36px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e8eef5;
+            border: 1px solid #e5e7eb;
             opacity: 0;
-            transition: all 0.5s ease;
+            transition: all 0.6s ease;
         }
 
-        .depoimento-card.rv.in {
+        .testimonial-card.rv.in {
             opacity: 1;
         }
 
-        .stars {
-            color: #ffd700;
-            font-size: 14px;
+        .testimonial-card:hover {
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-6px);
+        }
+
+        .testimonial-stars {
+            color: #f59e0b;
+            font-size: 16px;
             margin-bottom: 12px;
         }
 
-        .depoimento-texto {
-            font-size: 15px;
-            color: #555;
+        .testimonial-text {
+            color: #1a1a1a;
             margin-bottom: 20px;
-            font-style: italic;
             line-height: 1.8;
+            font-style: italic;
         }
 
-        .depoimento-autor {
+        .testimonial-author {
+            border-top: 1px solid #eee;
+            padding-top: 16px;
+        }
+
+        .author-name {
             font-weight: 700;
-            color: #1a202c;
-            font-size: 14px;
+            color: #1a1a1a;
+            font-size: 15px;
         }
 
-        .depoimento-cargo {
-            font-size: 12px;
-            color: #0099ff;
+        .author-role {
+            font-size: 13px;
+            color: #6366f1;
             margin-top: 4px;
         }
 
-        /* Garantia */
-        .garantia {
-            padding: 80px 32px;
-            background: linear-gradient(135deg, #f0f4ff 0%, #f8f9fa 100%);
+        .author-location {
+            font-size: 12px;
+            color: #999;
+            margin-top: 4px;
         }
 
-        .garantia-container {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-            background: #fff;
-            padding: 48px 32px;
-            border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            border: 2px solid #00d4ff;
+        /* Seção de Garantia */
+        .guarantee {
+            padding: 80px 0;
+            background: white;
         }
 
-        .garantia-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            margin: 0 auto 24px;
-        }
-
-        .garantia-container h2 {
-            font-family: 'Sora', sans-serif;
-            font-size: 28px;
-            font-weight: 800;
-            color: #1a202c;
-            margin-bottom: 16px;
-        }
-
-        .garantia-container p {
-            color: #666;
-            font-size: 15px;
-            line-height: 1.8;
-        }
-
-        /* CTA Final */
-        .cta-final {
-            padding: 80px 32px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .cta-final-content {
+        .guarantee-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 48px;
+            gap: 60px;
             align-items: center;
+            opacity: 0;
+            transition: all 0.8s ease;
         }
 
-        .cta-final-text h2 {
-            font-family: 'Sora', sans-serif;
+        .guarantee-content.rv.in {
+            opacity: 1;
+        }
+
+        .guarantee-icon {
+            font-size: 100px;
+            text-align: center;
+        }
+
+        .guarantee h2 {
+            font-family: 'Playfair Display', serif;
             font-size: 42px;
-            font-weight: 800;
-            line-height: 1.3;
             margin-bottom: 24px;
-            color: #1a202c;
+            color: #1a1a1a;
         }
 
-        .cta-final-text h2 span {
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .guarantee p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
-        .checklist {
-            margin: 32px 0;
+        .guarantee-list {
+            list-style: none;
         }
 
-        .checklist-item {
+        .guarantee-list li {
             display: flex;
             gap: 12px;
-            margin-bottom: 16px;
-            font-size: 15px;
-            color: #555;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            font-weight: 500;
         }
 
-        .checklist-item
+        .guarantee-list li::before {
+            content: "✓";
+            color: #6366f1;
+            font-weight: 800;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .guarantee-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .guarantee-icon {
+                font-size: 60px;
+            }
+        }
+
+        /* Seção Final CTA */
+        .final-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 6vw, 52px);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .final-cta-button {
+            background: white;
+            color: #6366f1;
+            padding: 18px 50px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 50px;
+        }
+
+        .final-cta-button:hover {
+            transform:

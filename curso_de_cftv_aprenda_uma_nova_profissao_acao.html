@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso de CFTV - Aprenda uma Nova Profissão Agora</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,295 +13,252 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        body {
             font-family: 'Inter', sans-serif;
             color: #1a1a1a;
             background: #ffffff;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* NAV */
-        nav#mainnav {
+        /* BARRA DE PROGRESSO */
+        #sp {
+            background: linear-gradient(90deg, #ff6b35 0%, #ff8c42 100%);
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+        }
+
+        /* NAVEGAÇÃO */
+        #mainnav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 12px 20px;
+            z-index: 300;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid transparent;
+            justify-content: space-between;
+            padding: 16px 32px;
+            background: rgba(255, 255, 255, 0.95);
             transition: all 0.3s ease;
         }
 
-        nav#mainnav.scrolled {
-            border-bottom: 1px solid #e0e0e0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        #mainnav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 12px 32px;
         }
 
         .logo {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800;
+            font-family: 'Space Mono', monospace;
             font-size: 24px;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-weight: 700;
+            color: #ff6b35;
+            text-decoration: none;
+            letter-spacing: -1px;
         }
 
-        nav .cta-btn {
+        .nav-cta {
             padding: 10px 24px;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
             color: white;
-            border: none;
+            text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
             font-size: 14px;
-            cursor: pointer;
             transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            border: none;
+            cursor: pointer;
         }
 
-        nav .cta-btn:hover {
+        .nav-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
         }
 
-        /* PROGRESS BAR */
-        #sp {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            width: 0%;
-            background: linear-gradient(90deg, #ff6b35 0%, #f7931e 100%);
-            z-index: 999;
-            transition: width .1s;
+        /* STICKY CTA MOBILE */
+        #stickycta {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        #stickycta .cta-btn {
+            width: 100%;
+            padding: 14px 16px;
+            background: white;
+            color: #ff6b35;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        #stickycta .cta-btn:active {
+            transform: scale(0.98);
         }
 
         /* HERO */
         .hero {
-            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
-            color: white;
-            padding: 120px 20px 80px;
+            margin-top: 70px;
+            padding: 60px 32px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
             text-align: center;
-            margin-top: 60px;
         }
 
         .hero h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(32px, 8vw, 56px);
+            font-size: 48px;
             font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 16px;
             line-height: 1.2;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
         }
 
-        .hero p {
-            font-size: clamp(16px, 4vw, 20px);
-            color: #d0d0d0;
-            margin-bottom: 40px;
-            max-width: 600px;
+        .hero .subheadline {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 32px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.2s forwards;
         }
 
         .hero-cta {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.4s forwards;
-        }
-
-        .hero .cta-btn {
-            padding: 16px 40px;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            padding: 18px 48px;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
             color: white;
             border: none;
             border-radius: 8px;
-            font-weight: 700;
             font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
+            margin-bottom: 40px;
+            display: inline-block;
             text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
         }
 
-        .hero .cta-btn:hover {
+        .hero-cta:hover {
             transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.4);
         }
 
-        .social-proof {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 20px 30px;
+        .hero-cta:active {
+            transform: translateY(-1px);
+        }
+
+        .prova-social {
             display: inline-block;
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.6s forwards;
-        }
-
-        .social-proof p {
             font-size: 14px;
-            margin: 0;
+            color: #666;
+            padding: 12px 20px;
+            background: rgba(255, 107, 53, 0.08);
+            border-radius: 6px;
+            margin-top: 20px;
         }
 
-        .social-proof strong {
-            font-size: 18px;
+        .prova-social strong {
             color: #ff6b35;
+            font-weight: 700;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* DORES */
-        .section {
-            padding: 80px 20px;
+        /* SEÇÃO DE DORES */
+        .dores {
+            padding: 80px 32px;
+            background: white;
         }
 
         .section-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(28px, 6vw, 44px);
-            font-weight: 700;
+            font-size: 36px;
+            font-weight: 800;
             text-align: center;
             margin-bottom: 60px;
-            color: #0f0f1e;
+            color: #1a1a1a;
         }
 
         .dores-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .dor-card {
-            background: linear-gradient(135deg, #fff5f1 0%, #fff9f7 100%);
-            border: 2px solid #ffe0d5;
+            padding: 40px;
+            background: #f9f9f9;
             border-radius: 12px;
-            padding: 40px 30px;
-            text-align: center;
+            border-left: 5px solid #ff6b35;
             opacity: 0;
             transition: all 0.3s ease;
         }
 
-        .dor-card.rv.in {
+        .dor-card.in {
             opacity: 1;
-            transform: translateY(0);
-        }
-
-        .dor-card.rv {
-            opacity: 0;
-            transform: translateY(20px);
         }
 
         .dor-card:hover {
-            border-color: #ff6b35;
-            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.15);
             transform: translateY(-8px);
-        }
-
-        .dor-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-            display: block;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
         }
 
         .dor-card h3 {
-            font-family: 'Poppins', sans-serif;
             font-size: 20px;
             font-weight: 700;
-            margin-bottom: 15px;
-            color: #1a1a1a;
+            color: #ff6b35;
+            margin-bottom: 12px;
         }
 
         .dor-card p {
             font-size: 15px;
-            color: #555;
+            color: #666;
             line-height: 1.6;
         }
 
-        /* BENEFÍCIOS */
-        .benefits-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 100%);
+        /* SEÇÃO DE BENEFÍCIOS */
+        .beneficios {
+            padding: 80px 32px;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
         }
 
-        .benefits-grid {
+        .beneficios-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 35px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .benefit-card {
+            padding: 35px;
             background: white;
-            border-radius: 12px;
-            padding: 35px 30px;
-            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            text-align: center;
             opacity: 0;
             transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
         }
 
-        .benefit-card.rv.in {
+        .benefit-card.in {
             opacity: 1;
-            transform: translateY(0);
-        }
-
-        .benefit-card.rv {
-            opacity: 0;
-            transform: translateY(20px);
         }
 
         .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.15);
             border-color: #ff6b35;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
-            transform: translateY(-8px);
         }
 
-        .benefit-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            color: white;
-            border-radius: 50%;
-            font-weight: 800;
-            font-family: 'Poppins', sans-serif;
-            font-size: 20px;
-            margin-bottom: 20px;
+        .benefit-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+            display: block;
         }
 
         .benefit-card h3 {
-            font-family: 'Poppins', sans-serif;
             font-size: 18px;
             font-weight: 700;
-            margin-bottom: 12px;
             color: #1a1a1a;
+            margin-bottom: 12px;
         }
 
         .benefit-card p {
@@ -309,180 +267,239 @@
             line-height: 1.6;
         }
 
-        /* NÚMEROS */
-        .numbers-section {
-            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+        /* SEÇÃO DE NÚMEROS */
+        .numeros {
+            padding: 80px 32px;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
             color: white;
         }
 
-        .numbers-grid {
+        .numeros-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
             max-width: 1000px;
             margin: 0 auto;
-        }
-
-        .number-box {
             text-align: center;
-            opacity: 0;
         }
 
-        .number-box.rv.in {
-            opacity: 1;
-        }
-
-        .number-box.rv {
-            opacity: 0;
-        }
-
-        .number-box .big-number {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(36px, 8vw, 56px);
+        .numero-item h2 {
+            font-size: 48px;
             font-weight: 800;
-            color: #ff6b35;
-            margin-bottom: 10px;
-        }
-
-        .number-box p {
-            font-size: 16px;
-            color: #d0d0d0;
-            font-weight: 500;
-        }
-
-        /* DEPOIMENTOS */
-        .testimonials-section {
-            background: white;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .testimonial-card {
-            background: white;
-            border: 2px solid #e8e8e8;
-            border-radius: 12px;
-            padding: 35px 30px;
+            margin-bottom: 8px;
             opacity: 0;
             transition: all 0.3s ease;
         }
 
-        .testimonial-card.rv.in {
+        .numero-item.in h2 {
             opacity: 1;
-            transform: translateY(0);
         }
 
-        .testimonial-card.rv {
+        .numero-item p {
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        /* SEÇÃO DE DEPOIMENTOS */
+        .depoimentos {
+            padding: 80px 32px;
+            background: white;
+        }
+
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .depoimento-card {
+            padding: 35px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border: 1px solid #e8e8e8;
             opacity: 0;
-            transform: translateY(20px);
+            transition: all 0.3s ease;
         }
 
-        .testimonial-card:hover {
+        .depoimento-card.in {
+            opacity: 1;
+        }
+
+        .depoimento-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             border-color: #ff6b35;
-            box-shadow: 0 15px 45px rgba(255, 107, 53, 0.1);
         }
 
         .stars {
-            color: #ffc107;
-            font-size: 16px;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
+            color: #ff6b35;
+            font-size: 14px;
+            margin-bottom: 12px;
         }
 
-        .testimonial-text {
+        .depoimento-texto {
             font-size: 15px;
-            line-height: 1.8;
             color: #555;
             margin-bottom: 20px;
             font-style: italic;
+            line-height: 1.7;
         }
 
-        .testimonial-author {
-            border-top: 2px solid #e8e8e8;
-            padding-top: 15px;
-        }
-
-        .author-name {
+        .depoimento-autor {
             font-weight: 700;
             color: #1a1a1a;
-            font-size: 16px;
-            margin-bottom: 5px;
+            font-size: 15px;
         }
 
-        .author-role {
+        .depoimento-cargo {
             font-size: 13px;
-            color: #888;
-        }
-
-        .result-highlight {
-            background: #ffe8e0;
             color: #ff6b35;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: 700;
+            font-weight: 600;
+        }
+
+        .depoimento-estado {
             font-size: 13px;
-            display: inline-block;
-            margin-top: 10px;
+            color: #999;
+            margin-top: 4px;
         }
 
-        /* GARANTIA */
-        .warranty-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 100%);
-            text-align: center;
+        /* SEÇÃO DE GARANTIA */
+        .garantia {
+            padding: 80px 32px;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
         }
 
-        .warranty-box {
+        .garantia-card {
             max-width: 600px;
             margin: 0 auto;
-            background: white;
-            border: 3px solid #ff6b35;
-            border-radius: 12px;
             padding: 50px 40px;
+            background: white;
+            border-radius: 12px;
+            border: 2px solid #ff6b35;
+            text-align: center;
             opacity: 0;
+            transition: all 0.3s ease;
         }
 
-        .warranty-box.rv.in {
+        .garantia-card.in {
             opacity: 1;
         }
 
-        .warranty-box.rv {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .warranty-icon {
-            font-size: 64px;
+        .garantia-icon {
+            font-size: 60px;
             margin-bottom: 20px;
         }
 
-        .warranty-box h2 {
-            font-family: 'Poppins', sans-serif;
+        .garantia-card h2 {
             font-size: 28px;
-            font-weight: 700;
-            color: #0f0f1e;
-            margin-bottom: 15px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 16px;
         }
 
-        .warranty-box p {
+        .garantia-card p {
             font-size: 16px;
-            color: #555;
+            color: #666;
             line-height: 1.8;
+            margin-bottom: 12px;
         }
 
-        /* CTA FINAL */
-        .final-cta-section {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        .garantia-detalhe {
+            font-size: 14px;
+            color: #ff6b35;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        /* SEÇÃO CTA FINAL */
+        .cta-final {
+            padding: 80px 32px;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
             color: white;
-            padding: 80px 20px;
             text-align: center;
         }
 
-        .final-cta-section h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(28px, 6vw, 44px);
-            font-weight:
+        .cta-final h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .cta-final p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-checklist {
+            display: inline-block;
+            text-align: left;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .checklist-item {
+            padding: 12px 0;
+            font-size: 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .checklist-item:before {
+            content: '✓';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .cta-final-btn {
+            padding: 20px 60px;
+            background: white;
+            color: #ff6b35;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-final-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* SEÇÃO FAQ */
+        .faq {
+            padding: 80px 32px;
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .fi {
+            margin-bottom: 20px;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .fi.open .faq-title {
