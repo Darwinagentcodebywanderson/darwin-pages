@@ -1,421 +1,452 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Descubra as 50 perguntas mais importantes sobre investimentos e finanças que todo brasileiro deveria saber. Antes de perder mais dinheiro, aprenda ago">
-<title>50 Perguntas e Respostas Sobre DInheiro e Investimentos — Não Deixe Mais Dinheiro na Mesa</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#06080f;--surface:#0d1117;--card:#111827;
-  --border:rgba(255,255,255,.07);
-  --accent:#fbbf24;--accent2:#f59e0b;--green:#10b981;
-  --text:#f1f5f9;--muted:#64748b;--subtle:#94a3b8;
-  --font:'Plus Jakarta Sans',sans-serif;
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-
-/* Progress bar de scroll */
-#scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0%;z-index:999;transition:width .1s linear}
-
-.container{width:100%;max-width:1080px;margin:0 auto;padding:0 40px}
-nav{position:fixed;top:3px;left:0;right:0;z-index:100;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
-nav.scrolled{background:rgba(6,8,15,.93);border-bottom:1px solid var(--border);backdrop-filter:blur(16px)}
-.nav-logo{font-size:17px;font-weight:700;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px}
-.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pdot 2s infinite}
-@keyframes pdot{0%,100%{opacity:1}50%{opacity:.4}}
-.nav-cta{background:var(--accent);color:#fff;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:all .15s}
-.nav-cta:hover{opacity:.88}
-
-/* Hero */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:110px 40px 80px;position:relative;overflow:hidden;text-align:center}
-.hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(251,191,36,.12),transparent),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(245,158,11,.06),transparent);pointer-events:none}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:64px 64px;pointer-events:none}
-.hero-inner{max-width:780px;margin:0 auto;position:relative;z-index:2}
-.eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.18);color:var(--accent);padding:5px 16px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px}
-.eyebrow i{width:5px;height:5px;border-radius:50%;background:var(--accent);font-style:normal}
-h1{font-size:clamp(30px,4vw,54px);font-weight:800;line-height:1.15;letter-spacing:-.025em;color:var(--text);margin-bottom:22px}
-h1 span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-desc{font-size:clamp(15px,1.8vw,18px);color:var(--subtle);line-height:1.75;max-width:520px;margin:0 auto 40px;font-weight:400}
-.hero-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:52px}
-.btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;transition:all .15s;box-shadow:0 0 30px rgba(251,191,36,.2)}
-.btn-p:hover{opacity:.88;transform:translateY(-1px)}
-.btn-p svg{transition:transform .15s}
-.btn-p:hover svg{transform:translateX(3px)}
-.btn-s{display:inline-flex;align-items:center;gap:7px;color:var(--subtle);padding:14px 22px;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid var(--border);transition:all .15s}
-.btn-s:hover{color:var(--text);border-color:rgba(255,255,255,.14)}
-.stats{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap}
-.stat-n{font-size:24px;font-weight:800;color:var(--text);display:block}
-.stat-l{font-size:12px;color:var(--muted);margin-top:3px;display:block}
-.stat-div{width:1px;height:36px;background:var(--border)}
-
-/* Seções */
-section{position:relative;z-index:1}
-.stag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
-h2{font-size:clamp(22px,3vw,38px);font-weight:800;line-height:1.2;letter-spacing:-.02em;color:var(--text);margin-bottom:16px}
-.sdesc{font-size:15px;color:var(--subtle);line-height:1.75;max-width:520px}
-.problem{padding:96px 0}
-.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:52px}
-.plist{display:flex;flex-direction:column;gap:14px}
-.pitem{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:border-color .2s}
-.pitem:hover{border-color:rgba(239,68,68,.2)}
-.picon{width:40px;height:40px;min-width:40px;border-radius:10px;background:rgba(239,68,68,.07);display:flex;align-items:center;justify-content:center;font-size:18px}
-.ptxt h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}
-.ptxt p{font-size:13px;color:var(--muted);line-height:1.6}
-.pvis{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px}
-.mlabel-top{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:20px}
-.meters{display:flex;flex-direction:column;gap:14px}
-.mrow{display:flex;align-items:center;gap:10px}
-.ml{font-size:13px;color:var(--subtle);min-width:110px}
-.mt{flex:1;height:5px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden}
-.mf{height:100%;border-radius:3px;background:linear-gradient(90deg,#ef4444,#f97316)}
-.mp{font-size:11px;color:var(--muted);font-family:monospace;min-width:28px;text-align:right}
-.features{padding:96px 0}
-.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
-.fcard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px;transition:all .25s;position:relative;overflow:hidden}
-.fcard::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .25s}
-.fcard:hover{border-color:rgba(251,191,36,.18);transform:translateY(-3px)}
-.fcard:hover::after{opacity:1}
-.ficon{width:46px;height:46px;border-radius:11px;background:rgba(251,191,36,.08);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:20px}
-.fcard h3{font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px}
-.fcard p{font-size:13px;color:var(--muted);line-height:1.7}
-
-/* Garantia */
-.garantia-sec{padding:48px 0;background:var(--surface)}
-.garantia-box{display:flex;align-items:center;justify-content:center;gap:20px;background:var(--card);border:1px solid rgba(16,185,129,.15);border-radius:16px;padding:28px 36px;max-width:600px;margin:0 auto}
-.garantia-icon{width:60px;height:60px;min-width:60px;border-radius:50%;background:rgba(16,185,129,.1);display:flex;align-items:center;justify-content:center;font-size:28px}
-.garantia-txt h3{font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px}
-.garantia-txt p{font-size:13px;color:var(--muted);line-height:1.6}
-
-/* Prova social */
-.proof{padding:96px 0}
-.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
-.prcard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:border-color .2s}
-.prcard:hover{border-color:rgba(251,191,36,.15)}
-.stars{display:flex;gap:2px;margin-bottom:14px}
-.stars span{color:#fbbf24;font-size:14px}
-.prtext{font-size:14px;color:var(--subtle);line-height:1.75;margin-bottom:18px;font-style:italic}
-.prauthor{display:flex;align-items:center;gap:10px}
-.pravatar{width:38px;height:38px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff}
-.prname{font-size:13px;font-weight:600;color:var(--text)}
-.prrole{font-size:12px;color:var(--muted)}
-
-/* CTA */
-.cta-sec{padding:100px 0;position:relative;overflow:hidden}
-.cta-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(251,191,36,.09),transparent 70%);pointer-events:none}
-.cta-box{max-width:640px;margin:0 auto;text-align:center;background:var(--card);border:1px solid rgba(251,191,36,.1);border-radius:24px;padding:52px 40px;position:relative;overflow:hidden}
-.cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(251,191,36,.35),transparent)}
-.cta-box h2{font-size:clamp(22px,3vw,34px);margin-bottom:14px}
-.cta-box p{font-size:16px;color:var(--subtle);line-height:1.7;margin-bottom:32px}
-.cta-note{display:flex;align-items:center;justify-content:center;gap:7px;font-size:13px;color:var(--muted);margin-top:18px}
-.cta-note svg{color:var(--green)}
-.cta-badges{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:20px}
-.cta-badge{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}
-.cta-badge svg{color:var(--green)}
-
-/* FAQ */
-.faq{padding:96px 0}
-.faqlist{max-width:660px;margin:52px auto 0;display:flex;flex-direction:column;gap:8px}
-.faqitem{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.faqq{width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:none;border:none;color:var(--text);font-size:14px;font-weight:600;cursor:pointer;text-align:left;font-family:var(--font);gap:14px;transition:color .15s}
-.faqq:hover{color:var(--accent)}
-.faqico{width:22px;height:22px;min-width:22px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:17px;transition:transform .2s;color:var(--muted)}
-.faqitem.open .faqico{transform:rotate(45deg);color:var(--accent);border-color:var(--accent)}
-.faqa{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 22px}
-.faqitem.open .faqa{max-height:160px;padding-bottom:18px}
-.faqa p{font-size:13px;color:var(--muted);line-height:1.7}
-
-footer{border-top:1px solid var(--border);padding:32px 40px;text-align:center}
-footer p{font-size:12px;color:var(--muted)}
-footer a{color:var(--accent);text-decoration:none}
-
-/* ── STICKY CTA MOBILE ── */
-.sticky-cta{
-  display:none;
-  position:fixed;bottom:0;left:0;right:0;z-index:200;
-  padding:12px 16px;
-  background:rgba(6,8,15,.96);
-  border-top:1px solid var(--border);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-}
-.sticky-cta a{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  width:100%;padding:14px;
-  background:var(--accent);color:#fff;
-  border-radius:10px;font-size:15px;font-weight:700;
-  text-decoration:none;
-  box-shadow:0 0 24px rgba(251,191,36,.3);
-}
-
-@keyframes fade-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.a1{animation:fade-up .55s .05s ease both}
-.a2{animation:fade-up .55s .15s ease both}
-.a3{animation:fade-up .55s .25s ease both}
-.a4{animation:fade-up .55s .35s ease both}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
-.reveal.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}
-
-@media(max-width:960px){
-  .pgrid{grid-template-columns:1fr}
-  .fgrid{grid-template-columns:1fr 1fr}
-  .proof-grid{grid-template-columns:1fr}
-  .stat-div{display:none}
-  .stats{gap:22px}
-}
-@media(max-width:600px){
-  .container{padding:0 20px}
-  nav{padding:14px 20px}
-  .hero{padding:90px 20px 60px}
-  .fgrid{grid-template-columns:1fr}
-  .hero-btns{flex-direction:column;width:100%}
-  .btn-p,.btn-s{width:100%;justify-content:center}
-  footer{padding:28px 20px 80px}
-  /* Mostra sticky CTA só no mobile */
-  .sticky-cta{display:block}
-  .garantia-box{flex-direction:column;text-align:center;padding:24px 20px}
-}
-</style>
-</head>
-<body>
-
-<!-- Scroll progress -->
-<div id="scroll-progress"></div>
-
-<nav id="nav">
-  <a href="#" class="nav-logo"><span class="nav-dot"></span>Darwin</a>
-  <a href="#comecar" class="nav-cta cta-btn">Começar agora →</a>
-</nav>
-
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-inner">
-    <div class="eyebrow a1"><i></i>Pare de Cometer Erros</div>
-    <h1 class="a2">Você Está Jogando Dinheiro Fora Por Falta de Conhecimento<br><span>50 Respostas Que Vão Mudar Sua Relação com o Dinheiro</span></h1>
-    <p class="hero-desc a3">Descubra as 50 perguntas mais importantes sobre investimentos e finanças que todo brasileiro deveria saber. Antes de perder mais dinheiro, aprenda agora.</p>
-    <div class="hero-btns a4">
-      <a href="#comecar" class="btn-p cta-btn">
-        Quero As 50 Respostas
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="#como-funciona" class="btn-s">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Saiba mais
-      </a>
-    </div>
-    <div class="stats a4"><div><span class="stat-n">1.847</span><span class="stat-l">pessoas já transformaram suas finanças</span></div><div class="stat-div"></div><div><span class="stat-n">R$</span><span class="stat-l">2.3M economizados pelos leitores</span></div><div class="stat-div"></div><div><span class="stat-n">98%</span><span class="stat-l">de aprovação dos usuários</span></div></div>
-  </div>
-</section>
-
-<section class="problem" id="como-funciona">
-  <div class="container">
-    <div class="reveal">
-      <span class="stag">O problema</span>
-      <h2>Os 3 Maiores Erros Que Estão Roubando Seu Patrimônio</h2>
-      <p class="sdesc">A maioria das pessoas comete os mesmos erros financeiros porque não tem as respostas certas na hora certa.</p>
-    </div>
-    <div class="pgrid">
-      <div class="plist"><div class="pitem reveal"><div class="picon">❌</div><div class="ptxt"><h4>Medo de Investir Errado</h4><p>Sem conhecimento básico, você paralisa e deixa o dinheiro virar pó na poupança.</p></div></div>
-<div class="pitem reveal"><div class="picon">🤔</div><div class="ptxt"><h4>Dúvidas Que Te Custam Caro</h4><p>Não sabe taxas, juros compostos ou diversificação? Paga caro por isso todos os meses.</p></div></div>
-<div class="pitem reveal"><div class="picon">⏰</div><div class="ptxt"><h4>Perder Tempo Pesquisando Sozinho</h4><p>Horas de busca e confusão quando as respostas claras estão ao seu alcance.</p></div></div>
-</div>
-      <div class="pvis reveal">
-        <p class="mlabel-top">Dificuldades mais comuns</p>
-        <div class="meters">
-          <div class="mrow"><span class="ml">Falta de método</span><div class="mt"><div class="mf" style="width:87%"></div></div><span class="mp">87%</span></div>
-          <div class="mrow"><span class="ml">Sem direção</span><div class="mt"><div class="mf" style="width:74%"></div></div><span class="mp">74%</span></div>
-          <div class="mrow"><span class="ml">Sem suporte</span><div class="mt"><div class="mf" style="width:68%"></div></div><span class="mp">68%</span></div>
-          <div class="mrow"><span class="ml">Muito conteúdo</span><div class="mt"><div class="mf" style="width:61%"></div></div><span class="mp">61%</span></div>
-          <div class="mrow"><span class="ml">Desistência</span><div class="mt"><div class="mf" style="width:55%"></div></div><span class="mp">55%</span></div>
-        </div>
-        <p style="font-size:11px;color:var(--muted);margin-top:16px">*Pesquisa com iniciantes na área</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="features">
-  <div class="container">
-    <div class="reveal" style="text-align:center">
-      <span class="stag">A solução</span>
-      <h2>A Solução Simples: Respostas Diretas e Práticas</h2>
-      <p class="sdesc" style="margin:0 auto">Um programa estruturado do início ao fim para você alcançar resultados reais.</p>
-    </div>
-    <div class="fgrid"><div class="fcard reveal"><div class="ficon">💡</div><h3>50 Perguntas Estratégicas</h3><p>As questões reais que determinam seu sucesso financeiro respondidas com clareza.</p></div>
-<div class="fcard reveal"><div class="ficon">🎯</div><h3>Respostas Aplicáveis Hoje</h3><p>Não teoria vaga. Dicas práticas que você pode usar imediatamente nas suas finanças.</p></div>
-<div class="fcard reveal"><div class="ficon">📚</div><h3>Guia Sem Blá-Blá-Blá</h3><p>Linguagem simples, direto ao ponto, sem jargão bancário confuso.</p></div>
-<div class="fcard reveal"><div class="ficon">💰</div><h3>Economia Comprovada</h3><p>Economize milhares por ano evitando erros que a maioria comete.</p></div>
-<div class="fcard reveal"><div class="ficon">🔐</div><h3>Segurança nas Decisões</h3><p>Tome decisões confiante com base em fundamentos sólidos, não em palpites.</p></div>
-<div class="fcard reveal"><div class="ficon">⚡</div><h3>Acesso Imediato</h3><p>Comece a ler em poucos minutos. Sua transformação financeira começa hoje.</p></div>
-</div>
-  </div>
-</section>
-
-<!-- Garantia Visual -->
-<section class="garantia-sec">
-  <div class="container">
-    <div class="garantia-box reveal">
-      <div class="garantia-icon">🛡️</div>
-      <div class="garantia-txt">
-        <h3>Garantia de satisfação</h3>
-        <p>Se em 7 dias você não aprender pelo menos 3 conceitos que vão mudar sua visão sobre dinheiro, devolvemos 100% sem perguntas.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="proof">
-  <div class="container">
-    <div class="reveal" style="text-align:center">
-      <span class="stag">Depoimentos</span>
-      <h2>Quem já aplicou o método</h2>
-    </div>
-    <div class="proof-grid"><div class="prcard reveal">
-  <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-  <p class="prtext">"Finalmente entendi como investir sem medo. Em 3 meses já recuperei meu prejuízo."</p>
-  <div class="prauthor">
-    <div class="pravatar">RC</div>
-    <div><div class="prname">Rafael C.</div><div class="prrole">Empresário</div></div>
-  </div>
-</div>
-<div class="prcard reveal d1">
-  <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-  <p class="prtext">"Simples, direto e prático. Exatamente o que eu procurava sem complicações."</p>
-  <div class="prauthor">
-    <div class="pravatar">AM</div>
-    <div><div class="prname">Ana M.</div><div class="prrole">Analista Financeira</div></div>
-  </div>
-</div>
-<div class="prcard reveal d2">
-  <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-  <p class="prtext">"Deixei de perder 2 mil reais por mês com dívidas desnecessárias. Valeu demais!"</p>
-  <div class="prauthor">
-    <div class="pravatar">JL</div>
-    <div><div class="prname">João L.</div><div class="prrole">Autônomo</div></div>
-  </div>
-</div>
-</div>
-  </div>
-</section>
-
-<section class="cta-sec" id="comecar">
-  <div class="cta-bg"></div>
-  <div class="container">
-    <div class="cta-box reveal">
-      <span class="stag">Comece hoje</span>
-      <h2>Não Deixe Mais Dinheiro na Mesa</h2>
-      <p>Desbloqueie as 50 respostas que os brasileiros bem-sucedidos usam para construir patrimônio.</p>
-      <a href="#" class="btn-p cta-btn" style="font-size:16px;padding:16px 40px;display:inline-flex">
-        Quero As 50 Respostas
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <div class="cta-note">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Acesso imediato após a confirmação
-      </div>
-      <div class="cta-badges">
-        <div class="cta-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Pagamento seguro
-        </div>
-        <div class="cta-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Acesso vitalício
-        </div>
-        <div class="cta-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Garantia incluída
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="faq">
-  <div class="container">
-    <div class="reveal" style="text-align:center">
-      <span class="stag">Dúvidas</span>
-      <h2>Perguntas frequentes</h2>
-    </div>
-    <div class="faqlist"><div class="faqitem reveal">
-  <button class="faqq" onclick="toggleFaq(this)">Para quem é este material?<span class="faqico">+</span></button>
-  <div class="faqa"><p>Para qualquer pessoa que quer entender finanças e investimentos do zero, sem confusão.</p></div>
-</div>
-<div class="faqitem reveal">
-  <button class="faqq" onclick="toggleFaq(this)">Preciso ter conhecimento prévio?<span class="faqico">+</span></button>
-  <div class="faqa"><p>Não. É 100% feito para iniciantes. Começa do básico até decisões mais avançadas.</p></div>
-</div>
-<div class="faqitem reveal">
-  <button class="faqq" onclick="toggleFaq(this)">Como recebo o produto?<span class="faqico">+</span></button>
-  <div class="faqa"><p>Por email em minutos. Você baixa e pode ler em qualquer dispositivo, online ou offline.</p></div>
-</div>
-<div class="faqitem reveal">
-  <button class="faqq" onclick="toggleFaq(this)">Qual é a garantia?<span class="faqico">+</span></button>
-  <div class="faqa"><p>7 dias de garantia incondicional. Se não agregar valor, seu dinheiro volta sem burocracia.</p></div>
-</div>
-</div>
-  </div>
-</section>
-
-<footer>
-  <p>Conteúdo informativo e educativo. Resultados individuais podem variar. <a href="#">#publi</a></p>
-</footer>
-
-<!-- Sticky CTA Mobile -->
-<div class="sticky-cta" id="sticky-cta" style="display:none">
-  <a href="#comecar" class="cta-btn">
-    Quero As 50 Respostas
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-  </a>
-</div>
-
-
-<script>
-// Scroll progress bar
-const prog = document.getElementById('scroll-progress');
-window.addEventListener('scroll', () => {
-  const s = document.documentElement;
-  const pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
-  prog.style.width = pct + '%';
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
-  // Mostra sticky CTA após 30% de scroll
-  const sticky = document.getElementById('sticky-cta');
-  if (sticky) sticky.style.display = pct > 30 ? 'block' : 'none';
-});
-
-// Reveal on scroll
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('in'), i * 55) });
-}, {threshold: 0.1});
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-// FAQ
-function toggleFaq(btn) {
-  const item = btn.closest('.faqitem'), open = item.classList.contains('open');
-  document.querySelectorAll('.faqitem').forEach(i => i.classList.remove('open'));
-  if (!open) item.classList.add('open');
-}
-
-// Tracking + redirect
-const T = "https://cmykqkytjhiqarcginfs.supabase.co/functions/v1/track-click";
-const K = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteWtxa3l0amhpcWFyY2dpbmZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NDY0MTMsImV4cCI6MjA5MjAyMjQxM30.5navVvq_NuPAF-Xv8Pk39QdNE80JwEzpuHZ6hgU1gWU";
-const PID = "50_perguntas_e_respostas_sobre_dinheiro_e_investim__erro__5fdae1";
-const LNK = "https://go.hotmart.com/T105500512R";
-function handleCTA(e) {
-  e.preventDefault();
-  fetch(T, {
-    method: "POST", keepalive: true,
-    headers: {"Content-Type": "application/json", "Authorization": "Bearer " + K},
-    body: JSON.stringify({page_id: PID})
-  });
-  setTimeout(() => window.open(LNK, "_blank"), 150);
-}
-document.querySelectorAll('.cta-btn').forEach(btn => btn.addEventListener('click', handleCTA));
-</script>
-</body>
-</html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>50 Perguntas e Respostas Sobre Dinheiro e Investimentos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .rv {
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+        }
+        .rv.in {
+            opacity: 1;
+        }
+        nav#mainnav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.98);
+            transition: all 0.3s ease;
+        }
+        nav#mainnav.scrolled {
+            background: rgba(255,255,255,1);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #d4af37;
+            letter-spacing: -1px;
+        }
+        .nav-cta {
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+        .nav-cta:hover {
+            transform: translateY(-2px);
+        }
+        .hero {
+            padding-top: 140px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #f0f3f7 100%);
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .hero .subheadline {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        .cta-btn {
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .cta-btn.primary {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            box-shadow: 0 8px 24px rgba(30, 60, 114, 0.3);
+        }
+        .cta-btn.primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(30, 60, 114, 0.4);
+        }
+        .social-proof {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        .proof-item {
+            text-align: center;
+        }
+        .proof-item .number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #d4af37;
+        }
+        .proof-item .label {
+            font-size: 13px;
+            color: #777;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .section {
+            padding: 80px 32px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .dores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 50px;
+        }
+        .dore-card {
+            background: #fff;
+            padding: 32px;
+            border-radius: 12px;
+            border-left: 4px solid #e74c3c;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .dore-card .icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        .dore-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        .dore-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            margin-top: 50px;
+        }
+        .benefit-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #f0f3f7 100%);
+            padding: 28px;
+            border-radius: 10px;
+            border-top: 3px solid #d4af37;
+        }
+        .benefit-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .benefit-card .check {
+            color: #27ae60;
+            font-size: 24px;
+        }
+        .benefit-card p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .stats-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 32px;
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .stat-item h3 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .stat-item p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .testimonials {
+            padding: 80px 32px;
+            background: #f8f9fa;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 50px;
+        }
+        .testimonial-card {
+            background: white;
+            padding: 32px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .testimonial-card .rating {
+            color: #f39c12;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+        .testimonial-card p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4af37 0%, #c49a27 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .testimonial-info h4 {
+            font-size: 15px;
+            color: #1a1a1a;
+        }
+        .testimonial-info .role {
+            font-size: 12px;
+            color: #999;
+        }
+        .guarantee {
+            padding: 80px 32px;
+        }
+        .guarantee-box {
+            background: linear-gradient(135deg, #f0f3f7 0%, #e8ecf2 100%);
+            padding: 50px;
+            border-radius: 12px;
+            border-left: 6px solid #27ae60;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .guarantee-box .shield {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        .guarantee-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+        .guarantee-box p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .cta-final {
+            padding: 80px 32px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+        }
+        .cta-final h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            margin-bottom: 30px;
+        }
+        .cta-final p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .checklist {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 500px;
+            margin: 40px auto;
+            text-align: left;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+        }
+        .checklist-item:before {
+            content: "✓";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: #d4af37;
+            color: #1e3c72;
+            border-radius: 50%;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .cta-final .cta-btn {
+            background: #d4af37;
+            color: #1e3c72;
+            padding: 18px 50px;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+        .cta-final .cta-btn:hover {
+            background: #e8c547;
+        }
+        .faq {
+            padding: 80px 32px;
+            background: #f8f9fa;
+        }
+        .faq-items {
+            max-width: 700px;
+            margin: 50px auto 0;
+        }
+        .fi {
+            background: white;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .fi-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            transition: background 0.2s;
+        }
+        .fi-header:hover {
+            background: #f8f9fa;
+        }
+        .fi-header h4 {
+            font-size: 16px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        .fi-toggle {
+            font-size: 20px;
+            color: #d4af37;
+            transition: transform 0.3s;
+        }
+        .fi.open .fi-toggle {
+            transform: rotate(180deg);
+        }
+        .fi-content {
+            display: none;
+            padding: 0 20px 20px;
+            font-size: 15px;
+            color: #555;
+            line-height: 1.7;
+        }
+        .fi.open .fi-content {
+            display: block;
+        }
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            padding: 40px 32px;
+            text-align: center;
+            font-size: 13px;
+        }
+        footer p {
+            margin-bottom: 12px;
+        }
+        #stickycta {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
+        }
+        #stickycta p {
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        #stickycta .cta-btn {
+            padding: 12px 32px;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            nav#mainnav {
+                padding: 12px 16px;
+            }
