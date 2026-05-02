@@ -3,29 +3,281 @@
 <head>
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Curso de CFTV - Aprenda uma Nova Profissão</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Mercado Escondido que Paga R$8 mil por Mês</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:#07090E;color:#F0F2F0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
-h1{font-size:clamp(28px,5vw,52px);font-weight:900;margin-bottom:16px;line-height:1.1}
-p{font-size:16px;color:#8A9090;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
-.btn{display:inline-flex;align-items:center;gap:8px;background:#E8FF4D;color:#07090E;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none}
-.tag{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#4DFFB4;margin-bottom:20px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Space Grotesk',sans-serif;background:#0A0A0A;color:#fff;line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+#sp{position:fixed;top:0;left:0;height:3px;width:0%;z-index:999;background:linear-gradient(90deg,#F5C518,#00D4FF);transition:width .1s}
+#mainnav{position:fixed;top:0;width:100%;z-index:998;padding:20px 5%;background:transparent;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
+#mainnav.scrolled{background:rgba(10,10,10,.95);backdrop-filter:blur(10px);padding:16px 5%;box-shadow:0 4px 30px rgba(245,197,24,.1)}
+.logo{font-size:28px;font-weight:800;color:#F5C518;text-shadow:0 0 20px rgba(245,197,24,.4)}
+.cta-btn{background:linear-gradient(135deg,#F5C518,#e6b000);color:#0A0A0A;padding:16px 40px;border-radius:8px;font-weight:800;font-size:16px;cursor:pointer;border:none;transition:all .3s;box-shadow:0 4px 20px rgba(245,197,24,.3);display:inline-block}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(245,197,24,.5)}
+#stickycta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:rgba(10,10,10,.98);backdrop-filter:blur(10px);border-top:2px solid #F5C518;box-shadow:0 -4px 30px rgba(245,197,24,.2)}
+#stickycta .cta-btn{width:100%;padding:18px;font-size:18px}
+section{padding:100px 5%;max-width:1400px;margin:0 auto}
+.hero{text-align:center;padding:180px 5% 120px;position:relative}
+.hero h1{font-size:clamp(42px,7vw,96px);font-weight:800;line-height:1.1;margin-bottom:30px;color:#F5C518;text-shadow:0 0 60px rgba(245,197,24,.6);letter-spacing:-2px}
+.hero .sub{font-size:clamp(20px,3vw,28px);color:#00D4FF;margin-bottom:40px;font-weight:500}
+.hero .prova{margin-top:50px;font-size:18px;color:rgba(255,255,255,.7)}
+.hero .prova strong{color:#F5C518;font-size:48px;display:block;margin-bottom:10px}
+.problems{background:linear-gradient(180deg,#0A0A0A,#1a1a1a,#0A0A0A)}
+.problems h2,.benefits h2,.social h2,.guarantee h2,.faq h2{font-size:clamp(36px,5vw,64px);font-weight:800;text-align:center;margin-bottom:60px;color:#fff}
+.problems h2 span,.benefits h2 span{color:#F5C518;text-shadow:0 0 40px rgba(245,197,24,.5)}
+.prob-grid,.ben-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;margin-top:60px}
+.prob-card{background:#0A0A0A;border:2px solid #333;padding:40px;border-radius:12px;transition:all .3s}
+.prob-card:hover{border-color:#F5C518;box-shadow:0 0 30px rgba(245,197,24,.2)}
+.prob-card .icon{font-size:48px;margin-bottom:20px}
+.prob-card h3{font-size:24px;margin-bottom:16px;color:#00D4FF;font-weight:700}
+.prob-card p{color:rgba(255,255,255,.8);line-height:1.7}
+.ben-card{background:linear-gradient(135deg,#1a1a1a,#0f0f0f);border:2px solid #F5C518;padding:40px;border-radius:12px;transition:all .3s;position:relative;overflow:hidden}
+.ben-card::before{content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(245,197,24,.1),transparent);transition:all .5s;opacity:0}
+.ben-card:hover::before{opacity:1;top:-100%;right:-100%}
+.ben-card .num{font-size:64px;font-weight:800;color:#F5C518;line-height:1;margin-bottom:20px;text-shadow:0 0 30px rgba(245,197,24,.4)}
+.ben-card h3{font-size:26px;margin-bottom:16px;color:#fff;font-weight:700}
+.ben-card p{color:rgba(255,255,255,.8);line-height:1.7}
+.stats{background:linear-gradient(135deg,#0A0A0A,#1a1a1a);padding:80px 5%;margin:80px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;text-align:center}
+.stat-item .number{font-size:clamp(48px,6vw,72px);font-weight:800;color:#F5C518;text-shadow:0 0 30px rgba(245,197,24,.5);display:block;margin-bottom:10px}
+.stat-item .label{font-size:18px;color:#00D4FF;font-weight:500}
+.testimonials{background:#0A0A0A}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;margin-top:60px}
+.test-card{background:#1a1a1a;border:2px solid #333;padding:40px;border-radius:12px;transition:all .3s}
+.test-card:hover{border-color:#00D4FF;box-shadow:0 0 30px rgba(0,212,255,.2)}
+.test-header{display:flex;align-items:center;margin-bottom:24px}
+.test-avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#F5C518,#00D4FF);margin-right:20px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#0A0A0A}
+.test-name{font-weight:700;font-size:20px;color:#fff}
+.test-role{font-size:14px;color:#00D4FF}
+.test-text{color:rgba(255,255,255,.9);line-height:1.8;margin-bottom:20px;font-size:17px}
+.test-result{color:#F5C518;font-weight:700;font-size:20px}
+.guarantee{text-align:center;padding:100px 5%;background:linear-gradient(180deg,#0A0A0A,#1a1a1a)}
+.guarantee-box{background:#0A0A0A;border:3px solid #F5C518;padding:60px;border-radius:16px;max-width:800px;margin:40px auto;box-shadow:0 0 60px rgba(245,197,24,.3)}
+.guarantee-icon{font-size:80px;margin-bottom:20px}
+.guarantee h3{font-size:36px;color:#F5C518;margin-bottom:20px;font-weight:800}
+.guarantee p{font-size:20px;color:rgba(255,255,255,.9);line-height:1.7}
+.final-cta{text-align:center;padding:100px 5%;background:#0A0A0A}
+.final-cta h2{font-size:clamp(36px,5vw,56px);font-weight:800;margin-bottom:30px;color:#fff}
+.final-cta h2 span{color:#F5C518}
+.checklist{max-width:600px;margin:40px auto;text-align:left;background:#1a1a1a;padding:40px;border-radius:12px;border:2px solid #F5C518}
+.checklist li{margin:20px 0;font-size:20px;color:rgba(255,255,255,.9);list-style:none;padding-left:40px;position:relative}
+.checklist li::before{content:'✓';position:absolute;left:0;color:#F5C518;font-weight:800;font-size:28px}
+.faq{background:#0A0A0A;padding:100px 5%}
+.faq-list{max-width:900px;margin:60px auto 0}
+.fi{background:#1a1a1a;border:2px solid #333;border-radius:12px;margin-bottom:20px;overflow:hidden;transition:all .3s}
+.fi.open{border-color:#F5C518}
+.fq{width:100%;text-align:left;padding:24px 30px;background:transparent;border:none;color:#fff;font-size:20px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk',sans-serif}
+.fq::after{content:'+';font-size:32px;color:#F5C518;transition:transform .3s;font-weight:800}
+.fi.open .fq::after{transform:rotate(45deg)}
+.fa{max-height:0;overflow:hidden;transition:all .3s;padding:0 30px;color:rgba(255,255,255,.8);font-size:17px;line-height:1.7}
+.fi.open .fa{max-height:500px;padding:0 30px 30px}
+footer{background:#000;padding:40px 5%;text-align:center;color:rgba(255,255,255,.5);font-size:14px;line-height:1.8}
+.rv{opacity:0;transform:translateY(30px);transition:all .6s ease-out}
+.rv.in{opacity:1;transform:translateY(0)}
+@media(max-width:768px){
+section{padding:60px 5%}
+.hero{padding:140px 5% 80px}
+#mainnav{padding:16px 5%}
+.logo{font-size:24px}
+.nav-cta{display:none}
+.prob-grid,.ben-grid,.test-grid{grid-template-columns:1fr}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:30px}
+.cta-btn{padding:16px 32px;font-size:15px}
+}
 </style>
 </head>
 <body>
-<div id="sp" style="position:fixed;top:0;left:0;height:3px;width:0%;background:#E8FF4D;z-index:999"></div>
-<div>
-  <p class="tag">Tecnologia</p>
-  <h1>Voce precisa conhecer isso</h1>
-  <p>Curso de CFTV - Aprenda uma Nova Profissão — acesse agora e descubra como este programa pode transformar seus resultados.</p>
-  <a href="#" class="btn cta-btn">Descubra agora</a>
+
+<div id="sp"></div>
+
+<nav id="mainnav">
+  <div class="logo">Darwin</div>
+  <a href="#" class="cta-btn nav-cta">Descobrir Oportunidade</a>
+</nav>
+
+<section class="hero">
+  <h1 class="rv">O Mercado Escondido que Cresce 37% ao Ano</h1>
+  <p class="sub rv">Enquanto você lê isso, milhares de empresas estão desesperadas por profissionais qualificados nessa área</p>
+  <a href="#" class="cta-btn rv">Quero Descobrir Essa Área</a>
+  <div class="prova rv">
+    <strong>+12.400</strong>
+    pessoas já descobriram essa oportunidade
+  </div>
+</section>
+
+<section class="problems">
+  <h2 class="rv">A Verdade que Ninguém te Conta Sobre <span>Mudar de Carreira</span></h2>
+  <div class="prob-grid">
+    <div class="prob-card rv">
+      <div class="icon">⚠️</div>
+      <h3>Mercado Saturado e Competitivo</h3>
+      <p>Você estuda, se qualifica, mas descobre que existem mil pessoas competindo pela mesma vaga. O mercado tradicional está lotado e paga cada vez menos.</p>
+    </div>
+    <div class="prob-card rv">
+      <div class="icon">📉</div>
+      <h3>Profissões Sendo Substituídas</h3>
+      <p>Tecnologias novas substituem profissões antigas. Você investe tempo e dinheiro em algo que pode não ter futuro daqui 5 anos.</p>
+    </div>
+    <div class="prob-card rv">
+      <div class="icon">🚫</div>
+      <h3>Falta de Orientação Prática</h3>
+      <p>Cursos genéricos que ensinam teoria, mas na hora de trabalhar você não sabe por onde começar. Nenhuma experiência real para colocar no currículo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <h2 class="rv">Existe um Mercado <span>Escondido</span> em Plena Expansão</h2>
+  <div class="ben-grid">
+    <div class="ben-card rv">
+      <div class="num">01</div>
+      <h3>Demanda Crescendo Exponencialmente</h3>
+      <p>Cada empresa, condomínio, loja e residência precisa de sistemas de segurança. O mercado de CFTV cresce 37% ao ano e faltam profissionais qualificados.</p>
+    </div>
+    <div class="ben-card rv">
+      <div class="num">02</div>
+      <h3>Seja Seu Próprio Chefe</h3>
+      <p>Trabalhe com projetos freelance, monte sua própria empresa ou atue como consultor. Liberdade para escolher seus horários e clientes.</p>
+    </div>
+    <div class="ben-card rv">
+      <div class="num">03</div>
+      <h3>Ganhos Acima da Média</h3>
+      <p>Profissionais de CFTV faturam entre R$5 mil e R$15 mil mensais. Um único projeto de condomínio pode render R$8 mil em uma semana.</p>
+    </div>
+    <div class="ben-card rv">
+      <div class="num">04</div>
+      <h3>Não Precisa de Faculdade</h3>
+      <p>Diferente de outras áreas tech, CFTV valoriza conhecimento prático. Você pode começar a atender clientes em semanas, não em anos.</p>
+    </div>
+    <div class="ben-card rv">
+      <div class="num">05</div>
+      <h3>Tecnologia Acessível</h3>
+      <p>Equipamentos ficaram mais baratos e inteligentes. Você não precisa ser engenheiro para dominar sistemas modernos de câmeras e segurança eletrônica.</p>
+    </div>
+    <div class="ben-card rv">
+      <div class="num">06</div>
+      <h3>Mercado à Prova do Futuro</h3>
+      <p>Segurança é uma necessidade crescente. Quanto mais tecnologia avança, mais empresas e pessoas investem em proteção profissional.</p>
+    </div>
+  </div>
+</section>
+
+<div class="stats rv">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="number">37%</span>
+      <span class="label">Crescimento anual do setor</span>
+    </div>
+    <div class="stat-item">
+      <span class="number">R$8k</span>
+      <span class="label">Média por projeto</span>
+    </div>
+    <div class="stat-item">
+      <span class="number">92%</span>
+      <span class="label">Empresas precisam de CFTV</span>
+    </div>
+    <div class="stat-item">
+      <span class="number">15 dias</span>
+      <span class="label">Para primeiro projeto</span>
+    </div>
+  </div>
 </div>
-<div id="stickycta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:rgba(7,9,14,.95);border-top:1px solid rgba(255,255,255,.08)">
-  <a href="#" class="btn cta-btn" style="width:100%;justify-content:center">Descubra agora</a>
+
+<section class="testimonials social">
+  <h2 class="rv">Pessoas Comuns que Encontraram uma <span style="color:#F5C518">Nova Profissão</span></h2>
+  <div class="test-grid">
+    <div class="test-card rv">
+      <div class="test-header">
+        <div class="test-avatar">MR</div>
+        <div>
+          <div class="test-name">Marcelo Rodrigues</div>
+          <div class="test-role">Ex-motorista de app</div>
+        </div>
+      </div>
+      <p class="test-text">"Estava cansado de trabalhar 12h por dia no Uber. Comecei em CFTV sem saber nada de tecnologia. Hoje faço minha agenda e ganho muito melhor."</p>
+      <div class="test-result">💰 Faturou R$11.400 no segundo mês</div>
+    </div>
+    <div class="test-card rv">
+      <div class="test-header">
+        <div class="test-avatar">FS</div>
+        <div>
+          <div class="test-name">Fernanda Santos</div>
+          <div class="test-role">Ex-recepcionista</div>
+        </div>
+      </div>
+      <p class="test-text">"Nunca imaginei trabalhar com tecnologia. Hoje atendo lojas e condomínios, tenho minha carteira de clientes e triplicar minha renda foi só o começo."</p>
+      <div class="test-result">💰 Renda mensal de R$7.800</div>
+    </div>
+    <div class="test-card rv">
+      <div class="test-header">
+        <div class="test-avatar">CA</div>
+        <div>
+          <div class="test-name">Carlos Almeida</div>
+          <div class="test-role">Ex-auxiliar administrativo</div>
+        </div>
+      </div>
+      <p class="test-text">"Fiz meu primeiro projeto em um salão de beleza 18 dias depois de começar. Cobrei R$3.200 e a cliente ficou tão satisfeita que me indicou para outras 4 lojas."</p>
+      <div class="test-result">💰 Primeiro projeto: R$3.200</div>
+    </div>
+  </div>
+</section>
+
+<section class="guarantee">
+  <h2 class="rv">Uma Oportunidade Real de <span style="color:#F5C518">Transformação</span></h2>
+  <div class="guarantee-box rv">
+    <div class="guarantee-icon">🎯</div>
+    <h3>Aprendizado 100% Prático</h3>
+    <p>Não é teoria. Não é enrolação. É conhecimento real que você aplica desde o primeiro dia. Aprenda fazendo projetos reais que você pode mostrar para seus primeiros clientes.</p>
+  </div>
+</section>
+
+<section class="final-cta">
+  <h2 class="rv">Descubra se Essa Oportunidade é <span>Para Você</span></h2>
+  <ul class="checklist rv">
+    <li>Conheça o mercado que cresce 37% ao ano</li>
+    <li>Veja como profissionais iniciantes faturam R$5k-R$15k</li>
+    <li>Entenda como começar sem experiência prévia</li>
+    <li>Descubra o passo a passo do zero ao primeiro cliente</li>
+  </ul>
+  <a href="#" class="cta-btn rv">Quero Conhecer Essa Oportunidade</a>
+</section>
+
+<section class="faq">
+  <h2 class="rv">Perguntas Frequentes</h2>
+  <div class="faq-list">
+    <div class="fi rv">
+      <button class="fq" onclick="faq(this)">Preciso ter conhecimento técnico para trabalhar com CFTV?</button>
+      <div class="fa">Não. O mercado de CFTV valoriza conhecimento prático. Pessoas de todas as áreas estão entrando e prosperando. O que você precisa é aprender as técnicas certas e aplicar na prática.</div>
+    </div>
+    <div class="fi rv">
+      <button class="fq" onclick="faq(this)">Quanto tempo leva para começar a atender clientes?</button>
+      <div class="fa">Com o aprendizado prático correto, você pode fazer seu primeiro projeto em 2 a 3 semanas. O importante é começar com projetos menores e ir evoluindo conforme ganha experiência e confiança.</div>
+    </div>
+    <div class="fi rv">
+      <button class="fq" onclick="faq(this)">É realmente possível ganhar R$5 mil ou mais por mês?</button>
+      <div class="fa">Sim. Um projeto básico de CFTV para loja pequena pode render entre R$2.500 e R$4.000. Projetos maiores (condomínios, empresas) podem render R$8 mil a R$15 mil. Com 2-3 projetos por mês, você alcança facilmente essa faixa.</div>
+    </div>
+    <div class="fi rv">
+      <button class="fq" onclick="faq(this)">Preciso investir muito em equipamentos para começar?</button>
+      <div class="fa">Não. No início, você pode trabalhar revendendo equipamentos e fazendo a instalação. Conforme cresce, pode montar seu próprio estoque. O investimento inicial é muito menor do que abrir um negócio tradicional.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Darwin. Todos os direitos reservados.</p>
+  <p>Este site não faz parte do site do Facebook ou do Facebook Inc. Além disso, este site NÃO é endossado pelo Facebook de nenhuma maneira. FACEBOOK é uma marca comercial da FACEBOOK, Inc.</p>
+  <p>Os resultados apresentados não são garantidos. Seu sucesso depende de dedicação, estudo e aplicação prática do conhecimento.</p>
+</footer>
+
+<div id="stickycta">
+  <a href="#" class="cta-btn">Descobrir Essa Oportunidade</a>
 </div>
+
 <script>
 (function(){
   var T="https://cmykqkytjhiqarcginfs.supabase.co/functions/v1/track-click",K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteWtxa3l0amhpcWFyY2dpbmZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NDY0MTMsImV4cCI6MjA5MjAyMjQxM30.5navVvq_NuPAF-Xv8Pk39QdNE80JwEzpuHZ6hgU1gWU",PID="curso_de_cftv_aprenda_uma_nova_profissao__descoberta__dbbb9c",LNK="https://go.hotmart.com/M105499562M";
@@ -38,7 +290,9 @@ p{font-size:16px;color:#8A9090;margin-bottom:32px;max-width:480px;margin-left:au
     if(sb)sb.style.display=pct>25?'block':'none';
   });
   var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('in')},i*60)});
+    entries.forEach(function(e,i){
+      if(e.isIntersecting)setTimeout(function(){e.target.classList.add('in')},i*80);
+    });
   },{threshold:0.1});
   document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
   function faq(btn){
@@ -47,15 +301,16 @@ p{font-size:16px;color:#8A9090;margin-bottom:32px;max-width:480px;margin-left:au
     if(!open)item.classList.add('open');
   }
   window.faq=faq;
-  function cta(e){
+  function handleCTA(e){
     e.preventDefault();
     fetch(T,{method:'POST',keepalive:true,
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+K},
       body:JSON.stringify({page_id:PID})});
     setTimeout(function(){window.open(LNK,'_blank')},150);
   }
-  document.querySelectorAll('.cta-btn').forEach(function(b){b.addEventListener('click',cta)});
+  document.querySelectorAll('.cta-btn').forEach(function(b){b.addEventListener('click',handleCTA)});
 })();
 </script>
+
 </body>
 </html>

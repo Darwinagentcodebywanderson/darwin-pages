@@ -3,29 +3,247 @@
 <head>
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>50 Perguntas e Respostas Sobre DInheiro e Investimentos</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>50 Perguntas e Respostas Sobre Dinheiro e Investimentos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:#07090E;color:#F0F2F0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
-h1{font-size:clamp(28px,5vw,52px);font-weight:900;margin-bottom:16px;line-height:1.1}
-p{font-size:16px;color:#8A9090;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
-.btn{display:inline-flex;align-items:center;gap:8px;background:#E8FF4D;color:#07090E;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none}
-.tag{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#4DFFB4;margin-bottom:20px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#FFFFFF;color:#0D0D0D;line-height:1.6;overflow-x:hidden}
+#sp{position:fixed;top:0;left:0;height:3px;width:0%;background:#FF6B00;z-index:999;transition:width .1s}
+#mainnav{position:fixed;top:0;left:0;right:0;background:#FFFFFF;z-index:998;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;transition:box-shadow .3s}
+#mainnav.scrolled{box-shadow:0 2px 20px rgba(13,13,13,.1)}
+.logo{font-size:28px;font-weight:900;color:#0D0D0D}
+.nav-cta{background:#0D0D0D;color:#FFFFFF;padding:12px 28px;text-decoration:none;font-weight:900;font-size:14px;border-radius:4px;transition:all .3s}
+.nav-cta:hover{background:#FF6B00;transform:translateY(-2px)}
+section{padding:80px 5%;max-width:1200px;margin:0 auto}
+.hero{margin-top:80px;text-align:center;padding:100px 5% 80px}
+.hero h1{font-size:64px;font-weight:900;line-height:1.1;margin-bottom:24px;color:#0D0D0D}
+.hero h1 span{color:#FF6B00}
+.hero p{font-size:24px;margin-bottom:40px;color:#0D0D0D;font-weight:700}
+.cta-btn{display:inline-block;background:#0D0D0D;color:#FFFFFF;padding:20px 48px;text-decoration:none;font-weight:900;font-size:18px;border-radius:6px;transition:all .3s;cursor:pointer;border:none}
+.cta-btn:hover{background:#FF6B00;transform:scale(1.05)}
+.proof{margin-top:32px;font-size:16px;font-weight:700;color:#0D0D0D}
+.proof span{color:#FF6B00;font-size:20px}
+h2{font-size:48px;font-weight:900;text-align:center;margin-bottom:60px;color:#0D0D0D}
+h2 span{color:#FF6B00}
+.problems{background:#0D0D0D;color:#FFFFFF;padding:80px 5%}
+.problems h2{color:#FFFFFF}
+.problems h2 span{color:#FF6B00}
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;max-width:1200px;margin:0 auto}
+.problem-card{background:#FFFFFF;color:#0D0D0D;padding:32px;border-left:6px solid #FF6B00;border-radius:4px}
+.problem-card h3{font-size:24px;font-weight:900;margin-bottom:16px;color:#FF6B00}
+.benefits{background:#FFFFFF}
+.benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;max-width:1200px;margin:0 auto}
+.benefit-card{padding:32px;background:#FFFFFF;border:3px solid #0D0D0D;border-radius:8px;transition:all .3s}
+.benefit-card:hover{transform:translateY(-8px);border-color:#FF6B00}
+.benefit-card h3{font-size:22px;font-weight:900;margin-bottom:12px;color:#0D0D0D}
+.benefit-icon{font-size:48px;margin-bottom:16px}
+.stats{background:#FF6B00;color:#FFFFFF;padding:80px 5%}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;max-width:1200px;margin:0 auto;text-align:center}
+.stat-item h3{font-size:72px;font-weight:900;margin-bottom:8px}
+.stat-item p{font-size:18px;font-weight:700}
+.testimonials{background:#FFFFFF}
+.test-grid{display:grid;gap:32px;max-width:900px;margin:0 auto}
+.test-card{background:#FF6B00;color:#FFFFFF;padding:40px;border-radius:8px;position:relative}
+.test-card p{font-size:18px;margin-bottom:20px;line-height:1.8;font-weight:700}
+.test-author{font-weight:900;font-size:16px}
+.test-result{background:#0D0D0D;display:inline-block;padding:8px 16px;border-radius:4px;margin-top:12px;font-weight:900}
+.guarantee{background:#0D0D0D;color:#FFFFFF;padding:80px 5%;text-align:center}
+.guarantee h2{color:#FFFFFF}
+.guarantee-box{background:#FFFFFF;color:#0D0D0D;padding:48px;border-radius:8px;max-width:700px;margin:32px auto;border:4px solid #FF6B00}
+.guarantee-box h3{font-size:32px;font-weight:900;margin-bottom:16px;color:#FF6B00}
+.cta-final{background:#FFFFFF;text-align:center;padding:80px 5%}
+.checklist{text-align:left;max-width:600px;margin:32px auto 40px;background:#0D0D0D;color:#FFFFFF;padding:32px;border-radius:8px}
+.checklist li{margin-bottom:16px;font-weight:700;font-size:18px;padding-left:32px;position:relative}
+.checklist li:before{content:'✓';position:absolute;left:0;color:#FF6B00;font-weight:900;font-size:24px}
+.faq{background:#FFFFFF;padding:80px 5%;max-width:900px;margin:0 auto}
+.fi{background:#FFFFFF;border:3px solid #0D0D0D;margin-bottom:16px;border-radius:8px;overflow:hidden}
+.fq{padding:24px;cursor:pointer;font-weight:900;font-size:20px;display:flex;justify-content:space-between;align-items:center}
+.fq:after{content:'+';font-size:32px;color:#FF6B00;font-weight:900}
+.fi.open .fq:after{content:'−'}
+.fa{max-height:0;overflow:hidden;transition:max-height .3s}
+.fi.open .fa{max-height:500px}
+.fa p{padding:0 24px 24px;font-size:16px;line-height:1.8}
+footer{background:#0D0D0D;color:#FFFFFF;padding:40px 5%;text-align:center;font-size:14px}
+#stickycta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:#0D0D0D;text-align:center}
+#stickycta .cta-btn{width:100%;padding:16px;font-size:16px}
+.rv{opacity:0;transform:translateY(30px);transition:all .6s}
+.rv.in{opacity:1;transform:translateY(0)}
+@media(max-width:768px){
+.hero h1{font-size:36px}
+.hero p{font-size:18px}
+h2{font-size:32px}
+.problem-grid,.benefit-grid,.stats-grid{grid-template-columns:1fr}
+section{padding:60px 5%}
+.stat-item h3{font-size:56px}
+.nav-cta{font-size:12px;padding:10px 20px}
+}
 </style>
 </head>
 <body>
-<div id="sp" style="position:fixed;top:0;left:0;height:3px;width:0%;background:#E8FF4D;z-index:999"></div>
-<div>
-  <p class="tag">Finanças</p>
-  <h1>Chega de tentar sem resultado</h1>
-  <p>50 Perguntas e Respostas Sobre DInheiro e Investimentos — acesse agora e descubra como este programa pode transformar seus resultados.</p>
-  <a href="#" class="btn cta-btn">Quero a solucao</a>
+<div id="sp"></div>
+<nav id="mainnav">
+<div class="logo">Darwin</div>
+<a href="#" class="nav-cta cta-btn">QUERO APRENDER AGORA</a>
+</nav>
+
+<section class="hero">
+<h1 class="rv">Você está <span>perdendo dinheiro</span> porque ninguém te ensinou o básico</h1>
+<p class="rv">E enquanto você continua confuso sobre investimentos, sua grana está derretendo com a inflação</p>
+<a href="#" class="cta-btn rv">QUERO PARAR DE PERDER DINHEIRO</a>
+<div class="proof rv">🔥 <span>+12.847</span> pessoas já transformaram sua relação com dinheiro</div>
+</section>
+
+<section class="problems">
+<h2 class="rv">Você reconhece <span>esses erros?</span></h2>
+<div class="problem-grid">
+<div class="problem-card rv">
+<h3>❌ Deixa o dinheiro parado na poupança</h3>
+<p>Enquanto você acha que está "guardando", a inflação come 5% ao ano. Sua grana está derretendo e você nem percebe. É literalmente jogar dinheiro fora.</p>
 </div>
-<div id="stickycta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:rgba(7,9,14,.95);border-top:1px solid rgba(255,255,255,.08)">
-  <a href="#" class="btn cta-btn" style="width:100%;justify-content:center">Quero a solucao</a>
+<div class="problem-card rv">
+<h3>❌ Não entende nada de investimentos</h3>
+<p>CDB, Tesouro, ações, fundos... parece outro idioma. Você fica paralisado, com medo de fazer besteira e perder tudo. Enquanto isso, o tempo passa e você continua no zero.</p>
 </div>
+<div class="problem-card rv">
+<h3>❌ Acredita em promessas milagrosas</h3>
+<p>Já caiu em pirâmide disfarçada? Já acreditou em "ganhe 20% ao mês garantido"? O problema não é você, é a falta de educação financeira básica pra identificar furada.</p>
+</div>
+</div>
+</section>
+
+<section class="benefits">
+<h2 class="rv">O que você vai <span>dominar completamente</span></h2>
+<div class="benefit-grid">
+<div class="benefit-card rv">
+<div class="benefit-icon">💰</div>
+<h3>Entenda onde investir seu dinheiro</h3>
+<p>As 50 respostas diretas sobre os principais investimentos do Brasil. Sem enrolação, sem termos complexos. Você vai saber exatamente onde colocar sua grana.</p>
+</div>
+<div class="benefit-card rv">
+<div class="benefit-icon">📊</div>
+<h3>Compare rentabilidades de forma inteligente</h3>
+<p>Descubra qual investimento rende mais em cada cenário. Você vai comparar poupança, Tesouro Direto, CDB e fundos com clareza total.</p>
+</div>
+<div class="benefit-card rv">
+<div class="benefit-icon">🛡️</div>
+<h3>Identifique furadas e golpes na hora</h3>
+<p>Aprenda os sinais de alerta que todo investidor esperto conhece. Nunca mais você vai cair em promessa milagrosa ou pirâmide disfarçada.</p>
+</div>
+<div class="benefit-card rv">
+<div class="benefit-icon">⚡</div>
+<h3>Comece a investir em 48 horas</h3>
+<p>Passo a passo prático para abrir conta, transferir dinheiro e fazer seu primeiro investimento. Simples assim. Sem burocracia, sem complicação.</p>
+</div>
+<div class="benefit-card rv">
+<div class="benefit-icon">🎯</div>
+<h3>Monte sua estratégia personalizada</h3>
+<p>Entenda seu perfil de investidor e monte uma carteira que faz sentido pro SEU bolso e pros SEUS objetivos. Nada de receita de bolo genérica.</p>
+</div>
+<div class="benefit-card rv">
+<div class="benefit-icon">🚀</div>
+<h3>Faça seu dinheiro trabalhar por você</h3>
+<p>Transforme sua grana parada em uma máquina de gerar renda passiva. Enquanto você dorme, seu dinheiro está crescendo com juros compostos.</p>
+</div>
+</div>
+</section>
+
+<section class="stats">
+<div class="stats-grid">
+<div class="stat-item rv">
+<h3>12.847</h3>
+<p>Pessoas transformadas</p>
+</div>
+<div class="stat-item rv">
+<h3>4.9/5.0</h3>
+<p>Avaliação média</p>
+</div>
+<div class="stat-item rv">
+<h3>50</h3>
+<p>Perguntas essenciais</p>
+</div>
+<div class="stat-item rv">
+<h3>97%</h3>
+<p>Recomendam</p>
+</div>
+</div>
+</section>
+
+<section class="testimonials">
+<h2 class="rv">Quem aplicou <span>está colhendo resultados</span></h2>
+<div class="test-grid">
+<div class="test-card rv">
+<p>"Eu tinha R$ 8.000 parados na poupança há 3 anos. Depois das 50 respostas, migrei tudo pro Tesouro e CDB. Em 6 meses, já ganhei R$ 1.240 a mais do que ganharia na poupança. Parece pouco, mas é dinheiro que EU estava jogando fora."</p>
+<div class="test-author">— Mariana Souza, analista de RH</div>
+<div class="test-result">R$ 1.240 a mais em 6 meses</div>
+</div>
+<div class="test-card rv">
+<p>"Quase entrei numa dessas de ganhar 15% ao mês. Depois de ler as respostas sobre como identificar pirâmide, percebi que era furada. Salvei R$ 5.000 que ia colocar lá. Hoje esse dinheiro está rendendo de verdade no Tesouro Selic."</p>
+<div class="test-author">— Carlos Mendes, motorista de aplicativo</div>
+<div class="test-result">Salvou R$ 5.000 de uma furada</div>
+</div>
+<div class="test-card rv">
+<p>"Sempre achei que investir era coisa de rico. Com as 50 perguntas, entendi que posso começar com R$ 50. Hoje tenho uma carteira de R$ 3.200 e invisto R$ 300 por mês. Meu dinheiro finalmente está trabalhando por mim."</p>
+<div class="test-author">— Juliana Alves, professora</div>
+<div class="test-result">R$ 3.200 investidos em 8 meses</div>
+</div>
+</div>
+</section>
+
+<section class="guarantee">
+<h2 class="rv">Garantia <span>blindada</span></h2>
+<div class="guarantee-box rv">
+<h3>7 dias de garantia incondicional</h3>
+<p style="font-size:18px;line-height:1.8;font-weight:700;">Se você acessar as 50 perguntas e respostas e achar que não vale cada centavo, é só pedir reembolso em até 7 dias. Devolvemos 100% do seu dinheiro, sem perguntas, sem burocracia. O risco é todo nosso.</p>
+</div>
+</section>
+
+<section class="cta-final">
+<h2 class="rv">Pare de <span>perder dinheiro hoje</span></h2>
+<div class="checklist rv">
+<ul style="list-style:none">
+<li>Acesso imediato às 50 perguntas e respostas</li>
+<li>Clareza total sobre onde investir seu dinheiro</li>
+<li>Proteção contra furadas e golpes</li>
+<li>Estratégia personalizada pro seu perfil</li>
+<li>Suporte para tirar dúvidas</li>
+<li>Garantia de 7 dias sem perguntas</li>
+</ul>
+</div>
+<a href="#" class="cta-btn rv">QUERO TRANSFORMAR MINHA VIDA FINANCEIRA</a>
+</section>
+
+<section class="faq">
+<h2 class="rv">Perguntas <span>frequentes</span></h2>
+<div class="fi rv">
+<div class="fq" onclick="faq(this)">Preciso ter muito dinheiro pra começar?</div>
+<div class="fa"><p>Não! Uma das 50 respostas mostra exatamente como começar com apenas R$ 50. O importante é começar e aprender o básico. Depois você aumenta os aportes conforme sua realidade.</p></div>
+</div>
+<div class="fi rv">
+<div class="fq" onclick="faq(this)">Eu não entendo nada de investimentos, vai funcionar pra mim?</div>
+<div class="fa"><p>Esse é EXATAMENTE o público perfeito! As 50 perguntas foram feitas pensando em quem está começando do zero. Linguagem simples, direta e sem termos técnicos complicados. Se você sabe ler, você vai entender.</p></div>
+</div>
+<div class="fi rv">
+<div class="fq" onclick="faq(this)">Quanto tempo leva pra eu ver resultados?</div>
+<div class="fa"><p>Você pode fazer sua primeira aplicação em 48 horas depois de acessar o conteúdo. Os resultados financeiros dependem de quanto você investe e da estratégia escolhida, mas o conhecimento é imediato.</p></div>
+</div>
+<div class="fi rv">
+<div class="fq" onclick="faq(this)">Como recebo o acesso?</div>
+<div class="fa"><p>Assim que o pagamento for confirmado, você recebe no email os dados de acesso à plataforma com as 50 perguntas e respostas. É tudo digital, acessa de qualquer lugar.</p></div>
+</div>
+</section>
+
+<footer>
+<p>© 2025 Darwin. Todos os direitos reservados.</p>
+<p style="margin-top:16px;font-size:12px;opacity:0.8;">Este site não faz parte do Google, Facebook ou de qualquer outra empresa. Os resultados apresentados são individuais e podem variar. Investimentos envolvem riscos.</p>
+</footer>
+
+<div id="stickycta">
+<a href="#" class="cta-btn">QUERO APRENDER AGORA</a>
+</div>
+
 <script>
 (function(){
   var T="https://cmykqkytjhiqarcginfs.supabase.co/functions/v1/track-click",K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteWtxa3l0amhpcWFyY2dpbmZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NDY0MTMsImV4cCI6MjA5MjAyMjQxM30.5navVvq_NuPAF-Xv8Pk39QdNE80JwEzpuHZ6hgU1gWU",PID="50_perguntas_e_respostas_sobre_dinheiro_e_investim__erro__5fdae1",LNK="https://go.hotmart.com/T105500512R";
@@ -38,7 +256,9 @@ p{font-size:16px;color:#8A9090;margin-bottom:32px;max-width:480px;margin-left:au
     if(sb)sb.style.display=pct>25?'block':'none';
   });
   var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('in')},i*60)});
+    entries.forEach(function(e,i){
+      if(e.isIntersecting)setTimeout(function(){e.target.classList.add('in')},i*80);
+    });
   },{threshold:0.1});
   document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
   function faq(btn){
@@ -47,15 +267,16 @@ p{font-size:16px;color:#8A9090;margin-bottom:32px;max-width:480px;margin-left:au
     if(!open)item.classList.add('open');
   }
   window.faq=faq;
-  function cta(e){
+  function handleCTA(e){
     e.preventDefault();
     fetch(T,{method:'POST',keepalive:true,
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+K},
       body:JSON.stringify({page_id:PID})});
     setTimeout(function(){window.open(LNK,'_blank')},150);
   }
-  document.querySelectorAll('.cta-btn').forEach(function(b){b.addEventListener('click',cta)});
+  document.querySelectorAll('.cta-btn').forEach(function(b){b.addEventListener('click',handleCTA)});
 })();
 </script>
+
 </body>
 </html>

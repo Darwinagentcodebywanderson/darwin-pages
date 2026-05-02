@@ -3,29 +3,252 @@
 <head>
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Curso de CFTV - Aprenda uma Nova Profissão</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curso de CFTV - Saia do Desemprego Agora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:#07090E;color:#F0F2F0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
-h1{font-size:clamp(28px,5vw,52px);font-weight:900;margin-bottom:16px;line-height:1.1}
-p{font-size:16px;color:#8A9090;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
-.btn{display:inline-flex;align-items:center;gap:8px;background:#E8FF4D;color:#07090E;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none}
-.tag{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#4DFFB4;margin-bottom:20px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#FFFFFF;color:#0D0D0D;line-height:1.6;overflow-x:hidden}
+#sp{position:fixed;top:0;left:0;height:3px;background:#FF6B00;width:0%;z-index:999;transition:width .1s}
+#mainnav{position:fixed;top:0;left:0;right:0;background:#FFFFFF;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;z-index:100;transition:box-shadow .3s}
+#mainnav.scrolled{box-shadow:0 2px 20px rgba(13,13,13,.1)}
+.logo{font-size:28px;font-weight:900;color:#0D0D0D}
+.cta-btn{background:#0D0D0D;color:#FFFFFF;padding:14px 32px;text-decoration:none;font-weight:900;font-size:16px;border:none;cursor:pointer;transition:all .3s;display:inline-block;text-transform:uppercase;letter-spacing:1px}
+.cta-btn:hover{background:#FF6B00;transform:translateY(-2px)}
+#hero{padding:140px 5% 80px;text-align:center;background:#FFFFFF}
+h1{font-size:64px;font-weight:900;line-height:1.1;color:#0D0D0D;margin-bottom:24px;text-transform:uppercase}
+.sub{font-size:24px;color:#0D0D0D;margin-bottom:32px;font-weight:400}
+.proof{margin-top:40px;font-size:18px;font-weight:700;color:#0D0D0D}
+.proof span{color:#FF6B00;font-size:48px;font-weight:900;display:block;margin-top:8px}
+.section{padding:80px 5%}
+.section-title{font-size:48px;font-weight:900;text-align:center;margin-bottom:60px;color:#0D0D0D;text-transform:uppercase}
+.problems{background:#0D0D0D;color:#FFFFFF}
+.problems .section-title{color:#FFFFFF}
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;max-width:1200px;margin:0 auto}
+.problem-card{background:#FF6B00;padding:40px;border-radius:0}
+.problem-card h3{font-size:32px;font-weight:900;margin-bottom:16px;text-transform:uppercase}
+.problem-card p{font-size:18px;line-height:1.6}
+.benefits{background:#FFFFFF}
+.benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;max-width:1200px;margin:0 auto}
+.benefit-card{background:#FFFFFF;border:4px solid #0D0D0D;padding:40px}
+.benefit-card h3{font-size:28px;font-weight:900;margin-bottom:16px;color:#FF6B00;text-transform:uppercase}
+.benefit-card p{font-size:16px;color:#0D0D0D}
+.stats{background:#FF6B00;color:#FFFFFF}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:48px;max-width:1200px;margin:0 auto;text-align:center}
+.stat-item{padding:20px}
+.stat-number{font-size:72px;font-weight:900;display:block;margin-bottom:12px}
+.stat-label{font-size:20px;font-weight:700;text-transform:uppercase}
+.testimonials{background:#FFFFFF}
+.testimonial-grid{display:grid;gap:40px;max-width:1000px;margin:0 auto}
+.testimonial{background:#FF6B00;padding:48px;color:#FFFFFF;position:relative}
+.testimonial-text{font-size:20px;font-weight:700;margin-bottom:24px;line-height:1.6}
+.testimonial-author{font-size:18px;font-weight:900;text-transform:uppercase}
+.testimonial-result{font-size:16px;margin-top:8px;opacity:.9}
+.guarantee{background:#0D0D0D;color:#FFFFFF;text-align:center;padding:80px 5%}
+.guarantee h2{font-size:48px;font-weight:900;margin-bottom:24px;text-transform:uppercase}
+.guarantee p{font-size:20px;max-width:800px;margin:0 auto 32px;line-height:1.6}
+.guarantee-badge{background:#FF6B00;color:#FFFFFF;padding:40px;display:inline-block;font-size:28px;font-weight:900;margin-top:24px;text-transform:uppercase}
+.final-cta{background:#FFFFFF;padding:80px 5%;text-align:center}
+.final-cta h2{font-size:56px;font-weight:900;margin-bottom:32px;color:#0D0D0D;text-transform:uppercase}
+.checklist{text-align:left;max-width:600px;margin:40px auto;background:#0D0D0D;padding:40px;color:#FFFFFF}
+.checklist li{font-size:18px;margin-bottom:16px;padding-left:32px;position:relative;font-weight:700}
+.checklist li:before{content:'✓';position:absolute;left:0;color:#FF6B00;font-weight:900;font-size:24px}
+.faq{background:#FFFFFF;padding:80px 5%}
+.faq-container{max-width:900px;margin:0 auto}
+.fi{border:4px solid #0D0D0D;margin-bottom:16px;overflow:hidden}
+.fi button{width:100%;padding:24px;background:#0D0D0D;color:#FFFFFF;border:none;font-size:20px;font-weight:900;text-align:left;cursor:pointer;transition:all .3s;text-transform:uppercase}
+.fi button:hover{background:#FF6B00}
+.fa{max-height:0;overflow:hidden;transition:max-height .3s;background:#FFFFFF}
+.fi.open .fa{max-height:500px;padding:24px;border-top:4px solid #FF6B00}
+.fa p{font-size:16px;line-height:1.6}
+footer{background:#0D0D0D;color:#FFFFFF;padding:40px 5%;text-align:center;font-size:14px}
+#stickycta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:#0D0D0D;text-align:center}
+.rv{opacity:0;transform:translateY(30px);transition:all .6s}
+.rv.in{opacity:1;transform:translateY(0)}
+@media(max-width:768px){
+h1{font-size:36px}
+.section-title{font-size:32px}
+.sub{font-size:18px}
+.problem-grid,.benefit-grid,.stats-grid{grid-template-columns:1fr}
+.stat-number{font-size:56px}
+.final-cta h2{font-size:32px}
+.testimonial-text{font-size:18px}
+.logo{font-size:22px}
+.cta-btn{padding:12px 24px;font-size:14px}
+}
 </style>
 </head>
 <body>
-<div id="sp" style="position:fixed;top:0;left:0;height:3px;width:0%;background:#E8FF4D;z-index:999"></div>
-<div>
-  <p class="tag">Tecnologia</p>
-  <h1>Chega de tentar sem resultado</h1>
-  <p>Curso de CFTV - Aprenda uma Nova Profissão — acesse agora e descubra como este programa pode transformar seus resultados.</p>
-  <a href="#" class="btn cta-btn">Quero a solucao</a>
+<div id="sp"></div>
+<nav id="mainnav">
+<div class="logo">DARWIN</div>
+<a href="#" class="cta-btn">Quero Mudar Agora</a>
+</nav>
+
+<section id="hero">
+<h1 class="rv">VOCÊ ESTÁ PRESO EM UM EMPREGO QUE TE SUFOCA</h1>
+<p class="sub rv">Enquanto outros faturam instalando câmeras, você continua quebrando as costas por salário mínimo. Até quando?</p>
+<a href="#" class="cta-btn rv">Quero Sair Dessa Agora</a>
+<div class="proof rv">
+<strong>MAIS DE</strong>
+<span>8.347</span>
+<strong>PROFISSIONAIS JÁ MUDARAM DE VIDA</strong>
 </div>
-<div id="stickycta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:rgba(7,9,14,.95);border-top:1px solid rgba(255,255,255,.08)">
-  <a href="#" class="btn cta-btn" style="width:100%;justify-content:center">Quero a solucao</a>
+</section>
+
+<section class="section problems">
+<h2 class="section-title rv">RECONHECE ESSA REALIDADE?</h2>
+<div class="problem-grid">
+<div class="problem-card rv">
+<h3>SEM QUALIFICAÇÃO = SEM OPORTUNIDADE</h3>
+<p>Você manda currículo atrás de currículo e só recebe "não" ou nem resposta. O mercado exige especialização e você continua genérico demais.</p>
 </div>
+<div class="problem-card rv">
+<h3>SALÁRIO QUE NÃO PAGA AS CONTAS</h3>
+<p>Trabalha o mês todo e no dia 15 já está contando moedas. Empréstimo no banco, conta atrasada, vergonha de não poder comprar o básico pra família.</p>
+</div>
+<div class="problem-card rv">
+<h3>VENDO OUTROS CRESCEREM ENQUANTO VOCÊ PATINA</h3>
+<p>Aquele brother que começou do zero está faturando alto com CFTV. Você vê pelo Instagram e se pergunta: "por que eu não?"</p>
+</div>
+</div>
+</section>
+
+<section class="section benefits">
+<h2 class="section-title rv">O QUE VOCÊ VAI DOMINAR</h2>
+<div class="benefit-grid">
+<div class="benefit-card rv">
+<h3>INSTALAÇÃO PROFISSIONAL</h3>
+<p>Aprenda do zero como instalar sistemas de CFTV residenciais e comerciais. Cabeamento, posicionamento estratégico, configuração completa.</p>
+</div>
+<div class="benefit-card rv">
+<h3>CONFIGURAÇÃO DE GRAVADORES E CÂMERAS</h3>
+<p>Domine DVRs, NVRs, câmeras IP e analógicas. Ajustes de imagem, detecção de movimento, acesso remoto via celular.</p>
+</div>
+<div class="benefit-card rv">
+<h3>REDES E ACESSO REMOTO</h3>
+<p>Configure redes locais, roteadores, portas e IPs. Seus clientes vão poder ver as câmeras de qualquer lugar do mundo.</p>
+</div>
+<div class="benefit-card rv">
+<h3>ORÇAMENTO E PRECIFICAÇÃO</h3>
+<p>Calcule material, mão de obra e margem de lucro. Saiba exatamente quanto cobrar para ter lucro real em cada projeto.</p>
+</div>
+<div class="benefit-card rv">
+<h3>CAPTAÇÃO DE CLIENTES</h3>
+<p>Estratégias práticas para conseguir seus primeiros clientes. Abordagem, networking, parcerias com construtoras e empresas.</p>
+</div>
+<div class="benefit-card rv">
+<h3>MANUTENÇÃO E CONTRATOS MENSAIS</h3>
+<p>Crie renda recorrente com contratos de manutenção. Ganhe todo mês sem precisar buscar cliente novo.</p>
+</div>
+</div>
+</section>
+
+<section class="section stats">
+<h2 class="section-title rv">NÚMEROS QUE PROVAM</h2>
+<div class="stats-grid">
+<div class="stat-item rv">
+<span class="stat-number">8.347</span>
+<span class="stat-label">Alunos Formados</span>
+</div>
+<div class="stat-item rv">
+<span class="stat-number">94%</span>
+<span class="stat-label">Taxa de Empregabilidade</span>
+</div>
+<div class="stat-item rv">
+<span class="stat-number">R$ 4.800</span>
+<span class="stat-label">Média Salarial Após o Curso</span>
+</div>
+<div class="stat-item rv">
+<span class="stat-number">30 Dias</span>
+<span class="stat-label">Para o Primeiro Cliente</span>
+</div>
+</div>
+</section>
+
+<section class="section testimonials">
+<h2 class="section-title rv">QUEM FEZ ESTÁ FATURANDO</h2>
+<div class="testimonial-grid">
+<div class="testimonial rv">
+<p class="testimonial-text">"Eu estava desempregado há 8 meses. Fiz o curso, terminei em 45 dias e no primeiro mês como autônomo faturei R$ 3.200 com só 4 instalações. Hoje não paro mais."</p>
+<p class="testimonial-author">— RODRIGO SILVA</p>
+<p class="testimonial-result">Faturou R$ 3.200 no primeiro mês</p>
+</div>
+<div class="testimonial rv">
+<p class="testimonial-text">"Trabalhava de segurança ganhando R$ 1.800. Aprendi CFTV e consegui emprego em empresa de segurança eletrônica. Hoje ganho R$ 4.500 fixo + comissão. Minha vida virou."</p>
+<p class="testimonial-author">— BRUNO COSTA</p>
+<p class="testimonial-result">Aumentou salário em 150%</p>
+</div>
+<div class="testimonial rv">
+<p class="testimonial-text">"Montei minha empresa após o curso. Em 6 meses já tinha 12 contratos mensais de manutenção que me dão R$ 5.400 fixo por mês. Sem contar as instalações novas."</p>
+<p class="testimonial-author">— MARCOS ALMEIDA</p>
+<p class="testimonial-result">R$ 5.400 mensais recorrentes</p>
+</div>
+</div>
+</section>
+
+<section class="guarantee">
+<h2 class="rv">GARANTIA BLINDADA DE 30 DIAS</h2>
+<p class="rv">Comece o curso. Assista as aulas. Aplique o método. Se em 30 dias você achar que não valeu cada centavo, devolvemos 100% do seu investimento. Sem perguntas, sem burocracia.</p>
+<div class="guarantee-badge rv">RISCO ZERO PARA VOCÊ</div>
+</section>
+
+<section class="section final-cta">
+<h2 class="rv">CHEGOU A HORA DE DECIDIR</h2>
+<div class="checklist rv">
+<ul style="list-style:none">
+<li>Acesso imediato à plataforma completa</li>
+<li>Certificado reconhecido pelo mercado</li>
+<li>Suporte direto com instrutores</li>
+<li>Material didático para download</li>
+<li>Comunidade exclusiva de alunos</li>
+<li>Atualizações gratuitas vitalícias</li>
+</ul>
+</div>
+<a href="#" class="cta-btn rv">Sim, Quero Começar Hoje</a>
+</section>
+
+<section class="section faq">
+<h2 class="section-title rv">PERGUNTAS FREQUENTES</h2>
+<div class="faq-container">
+<div class="fi rv">
+<button onclick="faq(this)">PRECISO TER EXPERIÊNCIA PRÉVIA?</button>
+<div class="fa">
+<p>Não. O curso foi feito para quem está começando do ZERO. Explicamos desde o básico até técnicas avançadas. Se você sabe usar um celular, consegue aprender.</p>
+</div>
+</div>
+<div class="fi rv">
+<button onclick="faq(this)">QUANTO TEMPO PARA COMEÇAR A GANHAR DINHEIRO?</button>
+<div class="fa">
+<p>Nossos alunos conseguem o primeiro cliente entre 15 a 30 dias após concluírem o treinamento. Depende do seu ritmo de estudo e proatividade para buscar oportunidades.</p>
+</div>
+</div>
+<div class="fi rv">
+<button onclick="faq(this)">O CURSO TEM CERTIFICADO?</button>
+<div class="fa">
+<p>Sim! Você recebe certificado digital de conclusão reconhecido por empresas do setor. É um diferencial no currículo e comprova sua qualificação técnica.</p>
+</div>
+</div>
+<div class="fi rv">
+<button onclick="faq(this)">CONSIGO ASSISTIR NO MEU TEMPO?</button>
+<div class="fa">
+<p>Total flexibilidade. As aulas ficam disponíveis 24/7 na plataforma. Você assiste no seu ritmo, de qualquer dispositivo, quantas vezes quiser.</p>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<p>© 2025 Darwin. Todos os direitos reservados.</p>
+<p style="margin-top:16px;opacity:.7">Este site não faz parte do Google, Facebook ou Instagram. Os resultados podem variar de pessoa para pessoa.</p>
+</footer>
+
+<div id="stickycta">
+<a href="#" class="cta-btn" style="width:100%;display:block">Quero Começar Agora</a>
+</div>
+
 <script>
 (function(){
   var T="https://cmykqkytjhiqarcginfs.supabase.co/functions/v1/track-click",K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteWtxa3l0amhpcWFyY2dpbmZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NDY0MTMsImV4cCI6MjA5MjAyMjQxM30.5navVvq_NuPAF-Xv8Pk39QdNE80JwEzpuHZ6hgU1gWU",PID="curso_de_cftv_aprenda_uma_nova_profissao__erro__fabe3d",LNK="https://go.hotmart.com/M105499562M";
@@ -38,7 +261,9 @@ p{font-size:16px;color:#8A9090;margin-bottom:32px;max-width:480px;margin-left:au
     if(sb)sb.style.display=pct>25?'block':'none';
   });
   var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('in')},i*60)});
+    entries.forEach(function(e,i){
+      if(e.isIntersecting)setTimeout(function(){e.target.classList.add('in')},i*80);
+    });
   },{threshold:0.1});
   document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
   function faq(btn){
@@ -47,15 +272,16 @@ p{font-size:16px;color:#8A9090;margin-bottom:32px;max-width:480px;margin-left:au
     if(!open)item.classList.add('open');
   }
   window.faq=faq;
-  function cta(e){
+  function handleCTA(e){
     e.preventDefault();
     fetch(T,{method:'POST',keepalive:true,
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+K},
       body:JSON.stringify({page_id:PID})});
     setTimeout(function(){window.open(LNK,'_blank')},150);
   }
-  document.querySelectorAll('.cta-btn').forEach(function(b){b.addEventListener('click',cta)});
+  document.querySelectorAll('.cta-btn').forEach(function(b){b.addEventListener('click',handleCTA)});
 })();
 </script>
+
 </body>
 </html>
