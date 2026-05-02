@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fórmula Negócio Online - Sistema Completo de Marketing Digital</title>
+    <title>Fórmula Negócio Online - Construa Seu Império Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
@@ -14,513 +14,484 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        html {
-            scroll-behavior: smooth;
+        
+        html, body {
+            width: 100%;
+            height: 100%;
         }
-
+        
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
             color: #1a1a1a;
             background: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-
-        .rv {
-            opacity: 0;
-            transition: opacity 0.8s ease-out;
+        
+        #sp {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35 0%, #f7931e 100%);
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.1s ease-out;
         }
-
-        .rv.in {
-            opacity: 1;
-        }
-
-        /* NAV */
+        
         #mainnav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: 70px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            z-index: 998;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 40px;
-            z-index: 100;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
-
+        
         #mainnav.scrolled {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 12px 40px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
         }
-
+        
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 28px;
             font-weight: 800;
-            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -1px;
         }
-
-        .nav-cta {
-            padding: 10px 24px;
+        
+        .cta-btn {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
             border-radius: 6px;
-            background: #ff6b35;
-            color: white;
-            text-decoration: none;
             font-weight: 600;
             font-size: 14px;
+            cursor: pointer;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
         }
-
-        .nav-cta:hover {
-            background: #ff5520;
+        
+        .cta-btn:hover {
             transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 107, 53, 0.4);
         }
-
-        @media (max-width: 768px) {
-            #mainnav {
-                padding: 0 20px;
-                height: 60px;
-            }
-
-            .logo {
-                font-size: 22px;
-            }
-
-            .nav-cta {
-                padding: 8px 16px;
-                font-size: 12px;
-            }
+        
+        .cta-btn:active {
+            transform: translateY(0);
         }
-
-        /* BARRA DE PROGRESSO */
-        #sp {
-            background: linear-gradient(90deg, #ff6b35, #ff8c42);
-            box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
-        }
-
-        /* HERO */
+        
         .hero {
-            margin-top: 70px;
-            padding: 100px 40px;
+            padding-top: 160px;
+            padding-bottom: 60px;
             background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
+        
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
-
-        .hero h1 {
+        
+        .hero-content {
+            max-width: 700px;
+        }
+        
+        h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 64px;
+            font-size: 62px;
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 20px;
             color: #1a1a1a;
         }
-
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+        
+        h1 span {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
-        .hero p {
-            font-size: 20px;
-            color: #555;
+        
+        .subheadline {
+            font-size: 18px;
+            color: #666;
             margin-bottom: 30px;
-            line-height: 1.5;
+            line-height: 1.7;
         }
-
-        .hero-ctas {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-        }
-
-        .cta-btn {
-            padding: 16px 48px;
-            font-size: 16px;
-            font-weight: 700;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
+        
+        .cta-primary {
             display: inline-block;
+            margin-bottom: 40px;
+            font-size: 16px;
+            padding: 16px 40px;
         }
-
-        .cta-btn.primary {
-            background: linear-gradient(135deg, #ff6b35 0%, #ff5520 100%);
-            color: white;
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
-        }
-
-        .cta-btn.primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
-        }
-
-        .cta-btn.secondary {
-            background: white;
-            color: #ff6b35;
-            border: 2px solid #ff6b35;
-        }
-
-        .cta-btn.secondary:hover {
-            background: #ff6b35;
-            color: white;
-        }
-
-        .proof {
+        
+        .social-proof {
             display: flex;
-            gap: 40px;
-            justify-content: center;
             align-items: center;
+            gap: 30px;
             flex-wrap: wrap;
-            padding-top: 30px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
-
+        
         .proof-item {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
-
+        
         .proof-number {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 800;
-            color: #ff6b35;
-            line-height: 1;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        .proof-label {
+        
+        .proof-text {
             font-size: 14px;
-            color: #888;
-            margin-top: 8px;
+            color: #666;
         }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 80px 20px;
-                margin-top: 60px;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .cta-btn {
-                width: 100%;
-                padding: 14px 32px;
-            }
-
-            .proof {
-                gap: 20px;
-            }
-
-            .proof-item {
-                flex: 1;
-                min-width: 120px;
-            }
+        
+        section {
+            padding: 80px 20px;
         }
-
-        /* SEÇÃO DE DORES */
-        .section {
-            padding: 100px 40px;
-        }
-
-        .section-title {
+        
+        h2 {
             font-family: 'Playfair Display', serif;
             font-size: 48px;
             font-weight: 800;
+            margin-bottom: 50px;
             text-align: center;
-            margin-bottom: 60px;
             color: #1a1a1a;
         }
-
-        .section-title .highlight {
-            color: #ff6b35;
+        
+        h2 span {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        .dores {
-            max-width: 1200px;
-            margin: 0 auto;
+        
+        .dolor-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
         }
-
-        .dor-card {
-            background: linear-gradient(135deg, #fff5f0 0%, #fffaf8 100%);
+        
+        .dolor-card {
+            background: #fafafa;
             padding: 40px;
             border-radius: 12px;
             border-left: 4px solid #ff6b35;
             transition: all 0.3s ease;
         }
-
-        .dor-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        
+        .dolor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
-
-        .dor-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
-
-        .dor-card h3 {
+        
+        .dolor-title {
             font-size: 20px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             color: #1a1a1a;
         }
-
-        .dor-card p {
+        
+        .dolor-text {
             font-size: 15px;
             color: #666;
-            line-height: 1.6;
+            line-height: 1.8;
         }
-
-        /* SEÇÃO DE BENEFÍCIOS */
-        .beneficios {
-            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
-            color: white;
-        }
-
-        .beneficios .section-title {
-            color: white;
-        }
-
-        .beneficios .section-title .highlight {
-            color: #fff;
-            text-decoration: underline;
-            text-decoration-color: rgba(255, 255, 255, 0.3);
-        }
-
+        
         .beneficios-grid {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
         }
-
+        
         .beneficio-item {
             display: flex;
-            gap: 16px;
+            gap: 20px;
+            opacity: 0;
+            transition: opacity 0.6s ease;
         }
-
-        .beneficio-check {
-            font-size: 28px;
-            flex-shrink: 0;
-            line-height: 1;
+        
+        .beneficio-item.in {
+            opacity: 1;
         }
-
-        .beneficio-item h4 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .beneficio-item p {
-            font-size: 15px;
-            opacity: 0.95;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 768px) {
-            .section {
-                padding: 60px 20px;
-            }
-
-            .section-title {
-                font-size: 32px;
-                margin-bottom: 40px;
-            }
-
-            .dores {
-                gap: 20px;
-            }
-
-            .dor-card {
-                padding: 24px;
-            }
-
-            .beneficios-grid {
-                gap: 24px;
-            }
-        }
-
-        /* NÚMEROS */
-        .numeros {
-            background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
-        }
-
-        .numeros-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            text-align: center;
-        }
-
-        .numero-box {
-            padding: 40px 20px;
-        }
-
-        .numero-box .big {
-            font-family: 'Playfair Display', serif;
-            font-size: 56px;
-            font-weight: 800;
-            color: #ff6b35;
-            line-height: 1;
-            margin-bottom: 12px;
-        }
-
-        .numero-box .label {
-            font-size: 16px;
-            color: #666;
-            font-weight: 600;
-        }
-
-        /* DEPOIMENTOS */
-        .depoimentos {
-            background: white;
-        }
-
-        .depoimentos-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .depoimento-card {
-            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-            padding: 40px;
-            border-radius: 12px;
-            border-top: 4px solid #ff6b35;
-            transition: all 0.3s ease;
-        }
-
-        .depoimento-card:hover {
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .depoimento-stars {
-            color: #ff6b35;
-            font-size: 14px;
-            margin-bottom: 16px;
-        }
-
-        .depoimento-text {
-            font-size: 15px;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 24px;
-            font-style: italic;
-        }
-
-        .depoimento-resultado {
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 140, 66, 0.1) 100%);
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            border-left: 3px solid #ff6b35;
-        }
-
-        .depoimento-resultado strong {
-            color: #ff6b35;
-            font-weight: 700;
-        }
-
-        .depoimento-autor {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .depoimento-avatar {
+        
+        .beneficio-icon {
             width: 50px;
             height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
+            font-size: 24px;
+            flex-shrink: 0;
             font-weight: 700;
-            font-size: 20px;
         }
-
-        .depoimento-info h4 {
-            font-size: 16px;
+        
+        .beneficio-content h3 {
+            font-size: 18px;
             font-weight: 700;
+            margin-bottom: 8px;
             color: #1a1a1a;
         }
-
-        .depoimento-info p {
-            font-size: 13px;
-            color: #888;
+        
+        .beneficio-content p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
         }
-
-        /* GARANTIA */
-        .garantia {
-            background: linear-gradient(135deg, #ff6b35 0%, #ff5520 100%);
+        
+        .metrics {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
-            text-align: center;
-            padding: 80px 40px;
+            padding: 80px 20px;
         }
-
-        .garantia-content {
-            max-width: 800px;
+        
+        .metrics h2 {
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .metric-box {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        
+        .metric-box.in {
+            opacity: 1;
+        }
+        
+        .metric-number {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .metric-label {
+            font-size: 16px;
+            color: #ccc;
+        }
+        
+        .testimonials {
+            background: #fafafa;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            border-top: 4px solid #ff6b35;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        
+        .testimonial-card.in {
+            opacity: 1;
+        }
+        
+        .testimonial-stars {
+            color: #ff6b35;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-text {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+        
+        .testimonial-role {
+            font-size: 13px;
+            color: #999;
+        }
+        
+        .guarantee {
+            background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+            padding: 60px 20px;
+            border-radius: 16px;
+            border: 2px solid #ff6b35;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            margin-bottom: 80px;
+        }
+        
+        .guarantee.in {
+            opacity: 1;
+        }
+        
+        .guarantee h3 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+        
+        .guarantee-text {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .guarantee-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .cta-final {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .cta-final h2 {
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .cta-button-large {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 20px 50px;
+            font-size: 18px;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button-large:hover {
+            background: white;
+            color: #ff6b35;
+        }
+        
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            text-align: left;
+            margin-top: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        
+        .checklist-item.in {
+            opacity: 1;
+        }
+        
+        .check-icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .faq-section {
+            background: #fafafa;
+            padding: 80px 20px;
+        }
+        
+        .faq-container {
+            max-width: 700px;
             margin: 0 auto;
         }
-
-        .garantia-icon {
-            font-size: 80px;
-            margin-bottom: 20px;
+        
+        .fi {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
-
-        .garantia h2 {
-            font-family: 'Playfair Display', serif;
-            font-size:
+        
+        .fi:hover {
+            border-color: #ff6b35;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.1);
+        }
+        
+        .fi-btn {
+            width: 100%;
+            padding: 20px;
+            background: white;
+            border: none;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            cursor: pointer;
+            display: flex;
