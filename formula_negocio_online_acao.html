@@ -4,347 +4,298 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fórmula Negócio Online - Comece Agora</title>
+<title>Fórmula Negócio Online - Construa Seu Império Digital Agora</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Syne',sans-serif;background:#0A1628;color:#FFF;overflow-x:hidden;line-height:1.6}
-#sp{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#0EA5E9,#FFF);z-index:999;transition:width .1s}
-#mainnav{position:fixed;top:0;left:0;right:0;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);padding:16px 5%;z-index:500;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
-#mainnav.scrolled{box-shadow:0 4px 20px rgba(14,165,233,0.3)}
-.logo{font-size:24px;font-weight:800;color:#0EA5E9;letter-spacing:-1px}
-.cta-btn{background:linear-gradient(135deg,#0EA5E9,#0284C7);color:#FFF;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:800;font-size:16px;border:none;cursor:pointer;box-shadow:0 0 30px rgba(14,165,233,0.6);transition:all .3s;display:inline-block;text-transform:uppercase;letter-spacing:0.5px}
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(14,165,233,0.9)}
-#stickycta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:rgba(10,22,40,0.98);border-top:2px solid #0EA5E9;text-align:center}
-#stickycta .cta-btn{width:100%;max-width:500px;padding:18px;font-size:18px}
-.hero{padding:140px 5% 80px;text-align:center;background:radial-gradient(circle at top,rgba(14,165,233,0.15),transparent 70%)}
-.hero h1{font-size:56px;font-weight:800;line-height:1.1;margin-bottom:24px;color:#FFF;text-shadow:0 0 40px rgba(14,165,233,0.4)}
-.hero h1 span{color:#0EA5E9;display:block;margin-top:8px}
-.hero p{font-size:22px;margin-bottom:40px;color:#CBD5E1;max-width:800px;margin-left:auto;margin-right:auto}
-.proof{display:flex;justify-content:center;gap:48px;margin-top:48px;flex-wrap:wrap}
-.proof-item{text-align:center}
-.proof-num{font-size:48px;font-weight:800;color:#0EA5E9;display:block}
-.proof-label{font-size:14px;color:#94A3B8;text-transform:uppercase;letter-spacing:1px}
-section{padding:80px 5%}
-.container{max-width:1200px;margin:0 auto}
-h2{font-size:42px;font-weight:800;text-align:center;margin-bottom:48px;color:#FFF}
-h2 span{color:#0EA5E9}
-.problems{background:#050D1A}
-.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,380px));gap:24px}
-.problem-card{background:rgba(14,165,233,0.05);border:2px solid rgba(14,165,233,0.2);border-radius:12px;padding:32px;transition:all .3s}
-.problem-card:hover{border-color:#0EA5E9;box-shadow:0 0 30px rgba(14,165,233,0.2)}
-.problem-icon{font-size:40px;margin-bottom:16px}
-.problem-card h3{font-size:24px;margin-bottom:12px;color:#0EA5E9}
-.benefits{background:linear-gradient(180deg,#0A1628,#050D1A)}
-.benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,380px));gap:24px}
-.benefit-card{background:rgba(14,165,233,0.08);border-left:4px solid #0EA5E9;padding:28px;border-radius:8px;transition:all .3s}
-.benefit-card:hover{background:rgba(14,165,233,0.15);transform:translateX(8px)}
-.benefit-card h3{font-size:20px;margin-bottom:8px;color:#FFF;font-weight:800}
-.stats{background:#050D1A;text-align:center}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,260px));gap:32px;margin-top:48px}
-.stat-box{padding:32px;background:rgba(14,165,233,0.1);border-radius:12px;border:2px solid rgba(14,165,233,0.3)}
-.stat-num{font-size:52px;font-weight:800;color:#0EA5E9;display:block;margin-bottom:8px}
-.stat-label{font-size:16px;color:#CBD5E1}
-.testimonials{background:#0A1628}
-.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:32px;margin-top:48px}
-.test-card{background:linear-gradient(135deg,rgba(14,165,233,0.1),rgba(14,165,233,0.05));border:2px solid rgba(14,165,233,0.3);border-radius:16px;padding:32px;position:relative}
-.test-card::before{content:'"';position:absolute;top:16px;left:24px;font-size:80px;color:rgba(14,165,233,0.3);font-family:serif;line-height:1}
-.test-text{font-size:18px;margin-bottom:20px;font-style:italic;position:relative;z-index:1;color:#E2E8F0}
-.test-author{font-weight:800;color:#0EA5E9;margin-bottom:4px}
-.test-result{color:#10B981;font-weight:700;font-size:20px}
-.guarantee{background:#050D1A;text-align:center}
-.guarantee-box{max-width:700px;margin:0 auto;background:rgba(14,165,233,0.08);border:3px solid #F5C518;border-radius:16px;padding:48px;position:relative}
-.badge{position:absolute;top:-30px;left:50%;transform:translateX(-50%);background:#F5C518;color:#0A1628;padding:12px 32px;border-radius:50px;font-weight:800;font-size:18px;box-shadow:0 4px 20px rgba(245,197,24,0.4)}
-.guarantee-box h3{font-size:32px;margin:24px 0 16px;color:#FFF}
-.guarantee-box p{font-size:18px;color:#CBD5E1}
-.final-cta{background:linear-gradient(180deg,#0A1628,#050D1A);text-align:center;padding:100px 5%}
-.final-cta h2{margin-bottom:32px}
-.checklist{max-width:600px;margin:40px auto;text-align:left;background:rgba(14,165,233,0.05);border:2px solid rgba(14,165,233,0.2);border-radius:12px;padding:32px}
-.checklist li{list-style:none;padding:12px 0;font-size:18px;color:#FFF;position:relative;padding-left:36px}
-.checklist li::before{content:'✓';position:absolute;left:0;color:#10B981;font-weight:800;font-size:24px}
-.faq{background:#0A1628;padding:80px 5%}
+body{font-family:'DM Sans',sans-serif;background:#0A1628;color:#fff;overflow-x:hidden;line-height:1.6}
+.container{max-width:960px;margin:0 auto;padding:0 40px}
+section{width:100%;padding:80px 0}
+h1,h2,h3{font-family:'Syne',sans-serif;font-weight:800;line-height:1.1}
+h1{font-size:52px;margin-bottom:20px;color:#fff}
+h2{font-size:40px;margin-bottom:16px;color:#fff}
+h3{font-size:28px;margin-bottom:12px}
+p{font-size:18px;line-height:1.7;color:#e0e0e0}
+#sp{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#0EA5E9,#F5C518);z-index:999;transition:width .1s}
+#mainnav{position:fixed;top:0;width:100%;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:500;padding:16px 0;transition:all .3s}
+#mainnav.scrolled{box-shadow:0 4px 20px rgba(14,165,233,0.3);padding:12px 0}
+#mainnav .container{display:flex;justify-content:space-between;align-items:center}
+#mainnav .logo{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:#0EA5E9;text-decoration:none}
+#mainnav .cta-btn{padding:12px 32px;font-size:16px}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#0EA5E9,#0284c7);color:#fff;padding:20px 48px;font-size:20px;font-weight:800;text-decoration:none;border-radius:8px;transition:all .3s;box-shadow:0 0 30px rgba(14,165,233,0.6);font-family:'Syne',sans-serif;border:2px solid #0EA5E9;text-align:center}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 0 50px rgba(14,165,233,0.9);background:linear-gradient(135deg,#0284c7,#0EA5E9)}
+#hero{padding:140px 0 100px;text-align:center;background:linear-gradient(180deg,#0A1628 0%,#0f1f3d 100%)}
+#hero .rv{opacity:0;transform:translateY(30px);transition:all .6s}
+#hero .rv.in{opacity:1;transform:translateY(0)}
+#hero h1{margin-bottom:24px;text-shadow:0 0 40px rgba(14,165,233,0.4)}
+#hero .sub{font-size:22px;margin-bottom:40px;color:#0EA5E9;font-weight:700}
+#hero .proof{margin-top:48px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+#hero .proof-item{text-align:center}
+#hero .proof-num{font-size:48px;font-weight:800;color:#0EA5E9;font-family:'Syne',sans-serif;display:block}
+#hero .proof-label{font-size:14px;color:#b0b0b0;text-transform:uppercase;letter-spacing:1px}
+.problem-grid,.benefit-grid,.stat-grid,.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;max-width:960px;margin:0 auto}
+.problem-card,.benefit-card,.stat-card{background:rgba(14,165,233,0.08);border:2px solid rgba(14,165,233,0.3);border-radius:12px;padding:32px;transition:all .4s}
+.problem-card:hover,.benefit-card:hover,.stat-card:hover{transform:translateY(-8px);border-color:#0EA5E9;box-shadow:0 8px 30px rgba(14,165,233,0.3)}
+.problem-card h3,.benefit-card h3{color:#0EA5E9;margin-bottom:16px}
+.benefit-card:before{content:'✓';display:block;width:48px;height:48px;background:#10b981;color:#fff;border-radius:50%;text-align:center;line-height:48px;font-size:28px;font-weight:800;margin-bottom:20px}
+.stat-card{text-align:center}
+.stat-num{font-size:56px;font-weight:800;color:#0EA5E9;font-family:'Syne',sans-serif;display:block;margin-bottom:8px}
+.stat-label{font-size:18px;color:#e0e0e0}
+.testimonial-card{background:linear-gradient(135deg,rgba(14,165,233,0.15),rgba(14,165,233,0.05));border-left:4px solid #0EA5E9;border-radius:12px;padding:32px;margin-bottom:24px}
+.testimonial-text{font-size:18px;font-style:italic;margin-bottom:20px;line-height:1.8}
+.testimonial-author{display:flex;align-items:center;gap:16px}
+.testimonial-avatar{width:56px;height:56px;background:linear-gradient(135deg,#0EA5E9,#0284c7);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;font-family:'Syne',sans-serif}
+.testimonial-info strong{display:block;color:#0EA5E9;font-size:18px;margin-bottom:4px}
+.testimonial-info span{font-size:14px;color:#b0b0b0}
+.guarantee-box{background:linear-gradient(135deg,rgba(245,197,24,0.15),rgba(245,197,24,0.05));border:3px solid #F5C518;border-radius:16px;padding:48px;text-align:center;max-width:700px;margin:0 auto;position:relative}
+.guarantee-badge{width:100px;height:100px;background:#F5C518;color:#0A1628;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;text-align:center;margin:0 auto 24px;box-shadow:0 8px 30px rgba(245,197,24,0.5);line-height:1.2;padding:12px}
+.guarantee-box h2{color:#F5C518;margin-bottom:16px}
+.cta-final{background:linear-gradient(180deg,#0A1628 0%,#0f1f3d 100%);text-align:center;padding:100px 0}
+.cta-final h2{margin-bottom:32px;font-size:44px}
+.checklist{max-width:600px;margin:32px auto;text-align:left;background:rgba(14,165,233,0.08);border-radius:12px;padding:32px}
+.checklist li{list-style:none;padding:12px 0;font-size:18px;border-bottom:1px solid rgba(14,165,233,0.2);position:relative;padding-left:36px}
+.checklist li:before{content:'✓';position:absolute;left:0;color:#10b981;font-weight:800;font-size:22px}
+.checklist li:last-child{border-bottom:none}
+.faq-section{background:rgba(14,165,233,0.03);padding:80px 0}
 .faq-list{max-width:800px;margin:0 auto}
-.fi{background:rgba(14,165,233,0.05);border:2px solid rgba(14,165,233,0.2);border-radius:8px;margin-bottom:16px;overflow:hidden;transition:all .3s}
+.fi{background:rgba(14,165,233,0.08);border:2px solid rgba(14,165,233,0.2);border-radius:8px;margin-bottom:16px;overflow:hidden;transition:all .3s}
 .fi.open{border-color:#0EA5E9}
-.fq{width:100%;text-align:left;padding:20px 24px;background:none;border:none;color:#FFF;font-size:18px;font-weight:800;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Syne',sans-serif}
-.fq::after{content:'+';font-size:28px;color:#0EA5E9;transition:transform .3s}
-.fi.open .fq::after{transform:rotate(45deg)}
-.fa{max-height:0;overflow:hidden;transition:max-height .3s}
-.fi.open .fa{max-height:300px}
-.fa p{padding:0 24px 20px;color:#CBD5E1;font-size:16px;line-height:1.8}
-footer{background:#050D1A;padding:40px 5%;text-align:center;color:#64748B;font-size:14px;border-top:1px solid rgba(14,165,233,0.2)}
-.rv{opacity:0;transform:translateY(30px);transition:all .6s ease-out}
+.fq{width:100%;background:transparent;border:none;color:#fff;text-align:left;padding:24px 28px;font-size:19px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Syne',sans-serif}
+.fq:after{content:'+';font-size:28px;color:#0EA5E9;transition:transform .3s}
+.fi.open .fq:after{transform:rotate(45deg)}
+.fa{max-height:0;overflow:hidden;transition:max-height .4s}
+.fi.open .fa{max-height:500px}
+.fa p{padding:0 28px 24px;color:#e0e0e0}
+footer{background:#050d1a;padding:40px 0;text-align:center;font-size:14px;color:#7a7a7a}
+#stickycta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:rgba(10,22,40,0.98);backdrop-filter:blur(10px);border-top:2px solid #0EA5E9}
+#stickycta .cta-btn{width:100%;padding:16px;font-size:18px}
+.rv{opacity:0;transform:translateY(30px);transition:all .6s}
 .rv.in{opacity:1;transform:translateY(0)}
 @media(max-width:768px){
-#mainnav{padding:12px 5%}
-.logo{font-size:20px}
+.container{padding:0 24px}
+h1{font-size:36px!important}
+h2{font-size:32px!important}
+h3{font-size:24px}
+p{font-size:16px}
+section{padding:60px 0}
+#hero{padding:120px 0 80px}
+#hero .sub{font-size:18px}
+#hero .proof{gap:32px}
+#hero .proof-num{font-size:36px}
+.cta-btn{padding:16px 32px;font-size:18px}
 #mainnav .cta-btn{padding:10px 20px;font-size:14px}
-.hero{padding:100px 5% 60px}
-.hero h1{font-size:36px}
-.hero p{font-size:18px}
-.proof{gap:24px}
-.proof-num{font-size:36px}
-h2{font-size:32px;margin-bottom:32px}
-section{padding:60px 5%}
-.problem-grid,.benefit-grid,.test-grid{grid-template-columns:1fr}
-.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}
-.stat-num{font-size:40px}
-.checklist{padding:24px}
-.checklist li{font-size:16px}
+.problem-grid,.benefit-grid,.stat-grid,.testimonial-grid{grid-template-columns:1fr;gap:24px}
+.stat-num{font-size:42px}
+.guarantee-box{padding:32px 24px}
+.cta-final h2{font-size:32px}
 }
 </style>
-
-<style>
-.container, section > div, main > div {
-  max-width: 1100px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 40px !important;
-  padding-right: 40px !important;
-}
-body { overflow-x: hidden !important; }
-</style>
-<style>
-*{box-sizing:border-box}
-body{overflow-x:hidden}
-section,header,nav,footer{width:100%}
-section>div,header>div,nav>div,footer>div,.hero-content,.section-content{
-  max-width:900px;
-  margin-left:auto;
-  margin-right:auto;
-  padding-left:24px;
-  padding-right:24px;
-  width:100%
-}
-h1{font-size:clamp(32px,4vw,56px) !important}
-h2{font-size:clamp(24px,3vw,42px) !important}
-</style><style>
-.container,.section-inner,.hero-inner{max-width:1000px;margin:0 auto;padding:0 32px;width:100%}
-.problem-grid,.benefit-grid,.stats-grid{justify-content:center}
-section{padding-left:0;padding-right:0}
-</style><style>
-*{box-sizing:border-box}
-body{overflow-x:hidden;max-width:100vw}
-section,header,nav,footer,.hero,.problems,.benefits,.stats,.testimonials,.guarantee,.cta-final,.faq{
-  width:100%;
-  padding-left:0;
-  padding-right:0;
-}
-section>*:not(style):not(script),
-header>*:not(style):not(script),
-nav>*:not(style):not(script),
-footer>*:not(style):not(script),
-.hero>*:not(style):not(script),
-.problems>*:not(style):not(script),
-.benefits>*:not(style):not(script),
-.stats>*:not(style):not(script),
-.testimonials>*:not(style):not(script),
-.guarantee>*:not(style):not(script),
-.cta-final>*:not(style):not(script),
-.faq>*:not(style):not(script){
-  max-width:960px !important;
-  margin-left:auto !important;
-  margin-right:auto !important;
-  padding-left:32px !important;
-  padding-right:32px !important;
-  width:100% !important;
-}
-h1{font-size:clamp(28px,3.5vw,52px) !important;line-height:1.15 !important}
-h2{font-size:clamp(22px,2.8vw,40px) !important}
-</style></head>
+</head>
 <body>
-
 <div id="sp"></div>
 
 <nav id="mainnav">
-  <div class="logo">Darwin</div>
-  <a href="#" class="cta-btn">Quero Começar</a>
+  <div class="container">
+    <a href="#" class="logo">Darwin</a>
+    <a href="#" class="cta-btn">Quero Começar Agora</a>
+  </div>
 </nav>
 
-<div id="stickycta">
-  <a href="#" class="cta-btn">Garantir Minha Vaga Agora</a>
-</div>
-
-<section class="hero">
+<section id="hero">
   <div class="container">
-    <h1 class="rv">Transforme Sua Vida com um Negócio Online <span>Que Funciona de Verdade</span></h1>
-    <p class="rv">O método completo para você construir um negócio digital lucrativo do zero, mesmo sem experiência técnica ou grande investimento</p>
-    <a href="#" class="cta-btn rv">Começar Agora Meu Negócio Online</a>
-    <div class="proof">
-      <div class="proof-item rv">
+    <h1 class="rv">Construa Seu Império Digital Do Zero Mesmo Sem Experiência</h1>
+    <p class="sub rv">O método completo para você criar, lançar e escalar seu negócio online lucrativo em 2024</p>
+    <a href="#" class="cta-btn rv">Garantir Minha Vaga Agora</a>
+    <div class="proof rv">
+      <div class="proof-item">
         <span class="proof-num">12.847</span>
         <span class="proof-label">Alunos Ativos</span>
       </div>
-      <div class="proof-item rv">
+      <div class="proof-item">
+        <span class="proof-num">R$ 8,4M</span>
+        <span class="proof-label">Faturados</span>
+      </div>
+      <div class="proof-item">
         <span class="proof-num">4.9/5.0</span>
         <span class="proof-label">Avaliação</span>
       </div>
-      <div class="proof-item rv">
-        <span class="proof-num">R$2.8M</span>
-        <span class="proof-label">Faturados por Alunos</span>
-      </div>
     </div>
   </div>
 </section>
 
-<section class="problems">
+<section style="background:rgba(14,165,233,0.03)">
   <div class="container">
-    <h2 class="rv">Você Está <span>Travado</span> Por Esses Obstáculos?</h2>
+    <h2 class="rv" style="text-align:center;margin-bottom:48px">Você Está Cansado Desses Problemas?</h2>
     <div class="problem-grid">
       <div class="problem-card rv">
-        <div class="problem-icon">⚠️</div>
-        <h3>Não Sabe Por Onde Começar</h3>
-        <p>Tem vontade de empreender online mas fica perdido entre mil estratégias diferentes, sem entender qual caminho seguir primeiro</p>
+        <h3>Começar Do Zero Parece Impossível</h3>
+        <p>Você vê todo mundo lucrando online mas não sabe por onde começar. Já tentou várias coisas mas nunca saiu do lugar.</p>
       </div>
       <div class="problem-card rv">
-        <div class="problem-icon">💸</div>
-        <h3>Medo de Perder Dinheiro</h3>
-        <p>Já investiu em cursos que não deram resultado e tem receio de gastar mais sem ter certeza de que vai funcionar dessa vez</p>
+        <h3>Informação Demais, Ação De Menos</h3>
+        <p>Já comprou 10 cursos mas continua travado. Falta um método claro, passo a passo, que realmente funcione na prática.</p>
       </div>
       <div class="problem-card rv">
-        <div class="problem-icon">⏰</div>
-        <h3>Falta de Tempo e Recursos</h3>
-        <p>Trabalha o dia inteiro, não tem equipe nem orçamento alto para contratar freelancers e precisa de algo que funcione com pouco tempo</p>
+        <h3>Medo De Investir E Não Ter Retorno</h3>
+        <p>Já perdeu dinheiro com promessas vazias. Precisa de algo real, validado, com resultados comprovados por milhares de pessoas.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="benefits">
+<section>
   <div class="container">
-    <h2 class="rv">O Que Você Ganha Com a <span>Fórmula Negócio Online</span></h2>
+    <h2 class="rv" style="text-align:center;margin-bottom:16px">A Fórmula Negócio Online Entrega Tudo Que Você Precisa</h2>
+    <p class="rv" style="text-align:center;margin-bottom:48px;font-size:20px;color:#0EA5E9">O sistema completo para você sair do zero e construir um negócio digital lucrativo</p>
     <div class="benefit-grid">
       <div class="benefit-card rv">
-        <h3>🎯 Método Passo a Passo Validado</h3>
-        <p>Sistema completo e testado por milhares de alunos, mostrando exatamente o que fazer desde o primeiro dia até as primeiras vendas</p>
+        <h3>Método Validado Por Mais De 12 Mil Pessoas</h3>
+        <p>Não é teoria. É o passo a passo exato que já gerou mais de R$ 8,4 milhões em faturamento para nossos alunos.</p>
       </div>
       <div class="benefit-card rv">
-        <h3>🚀 Estratégias de Tráfego Orgânico</h3>
-        <p>Aprenda a atrair clientes qualificados sem gastar fortunas em anúncios, usando técnicas de conteúdo e SEO que funcionam</p>
+        <h3>Do Zero Ao Primeiro Faturamento Em 30 Dias</h3>
+        <p>Sistema estruturado para você validar sua ideia, criar sua oferta e fazer suas primeiras vendas em até 30 dias.</p>
       </div>
       <div class="benefit-card rv">
-        <h3>💰 Monetização Inteligente</h3>
-        <p>Descubra as melhores formas de transformar audiência em dinheiro: produtos digitais, afiliados, serviços e infoprodutos</p>
+        <h3>Funciona Para Qualquer Nicho</h3>
+        <p>Seja infoproduto, consultoria, serviço ou afiliados. A fórmula se adapta ao seu negócio e sua realidade.</p>
       </div>
       <div class="benefit-card rv">
-        <h3>🛠️ Ferramentas e Templates Prontos</h3>
-        <p>Acesse páginas de vendas, scripts de e-mail, funis completos e checklist para implementar tudo rapidamente</p>
+        <h3>Suporte E Comunidade Ativa</h3>
+        <p>Você nunca estará sozinho. Comunidade exclusiva com mais de 12 mil empreendedores e suporte direto da equipe.</p>
       </div>
       <div class="benefit-card rv">
-        <h3>👥 Comunidade Exclusiva de Empreendedores</h3>
-        <p>Faça networking com outros alunos, troque experiências e encontre parceiros para acelerar seu crescimento</p>
+        <h3>Atualizações Constantes E Vitalícias</h3>
+        <p>O mercado muda, e nós também. Você recebe todas as atualizações e novos módulos sem pagar nada a mais.</p>
       </div>
       <div class="benefit-card rv">
-        <h3>📈 Suporte e Mentorias ao Vivo</h3>
-        <p>Tire dúvidas diretamente com especialistas em calls semanais e tenha feedback personalizado sobre seu projeto</p>
+        <h3>Ferramentas E Templates Prontos</h3>
+        <p>Páginas de vendas, e-mails, scripts, planilhas. Tudo pronto para você copiar, colar e adaptar ao seu negócio.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="stats">
+<section style="background:rgba(14,165,233,0.03)">
   <div class="container">
-    <h2 class="rv">Resultados Que <span>Comprovam</span></h2>
-    <div class="stats-grid">
-      <div class="stat-box rv">
-        <span class="stat-num">87%</span>
-        <span class="stat-label">Dos Alunos Fazem a 1ª Venda em 30 Dias</span>
+    <h2 class="rv" style="text-align:center;margin-bottom:48px">Resultados Reais, Pessoas Reais</h2>
+    <div class="stat-grid">
+      <div class="stat-card rv">
+        <span class="stat-num">12.847</span>
+        <span class="stat-label">Alunos Transformados</span>
       </div>
-      <div class="stat-box rv">
-        <span class="stat-num">+340</span>
-        <span class="stat-label">Horas de Conteúdo Prático</span>
+      <div class="stat-card rv">
+        <span class="stat-num">R$ 8,4M</span>
+        <span class="stat-label">Gerados Em Vendas</span>
       </div>
-      <div class="stat-box rv">
-        <span class="stat-num">4.352</span>
-        <span class="stat-label">Negócios Criados</span>
+      <div class="stat-card rv">
+        <span class="stat-num">4.9/5.0</span>
+        <span class="stat-label">Avaliação Média</span>
       </div>
-      <div class="stat-box rv">
-        <span class="stat-num">98%</span>
-        <span class="stat-label">Taxa de Satisfação</span>
+      <div class="stat-card rv">
+        <span class="stat-num">93%</span>
+        <span class="stat-label">Taxa De Satisfação</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="testimonials">
+<section>
   <div class="container">
-    <h2 class="rv">Quem Já Está <span>Faturando</span></h2>
-    <div class="test-grid">
-      <div class="test-card rv">
-        <p class="test-text">Comecei do zero absoluto, sem saber nada de marketing digital. Em 45 dias já fiz minha primeira venda e hoje estou faturando consistente todo mês!</p>
-        <div class="test-author">Mariana Costa</div>
-        <div class="test-result">R$ 8.400 no segundo mês</div>
+    <h2 class="rv" style="text-align:center;margin-bottom:48px">Veja O Que Nossos Alunos Estão Conquistando</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card rv">
+        <p class="testimonial-text">"Eu estava completamente perdida, sem saber por onde começar. Em 45 dias aplicando a Fórmula eu fiz meus primeiros R$ 3.200 com consultoria online. Hoje já faturei mais de R$ 28 mil!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MC</div>
+          <div class="testimonial-info">
+            <strong>Mariana Costa</strong>
+            <span>Consultora de Nutrição</span>
+          </div>
+        </div>
       </div>
-      <div class="test-card rv">
-        <p class="test-text">A Fórmula Negócio Online me deu clareza total. Parei de ficar pulando de estratégia em estratégia e foquei no que realmente traz resultado. Melhor investimento que fiz.</p>
-        <div class="test-author">Roberto Mendes</div>
-        <div class="test-result">R$ 15.200 em 3 meses</div>
+      <div class="testimonial-card rv">
+        <p class="testimonial-text">"Trabalhava como CLT e queria uma renda extra. Comecei vendendo como afiliado e no segundo mês já fiz R$ 5.800. Hoje larguei o emprego e fecho R$ 40 mil por mês consistentemente."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RS</div>
+          <div class="testimonial-info">
+            <strong>Rodrigo Silva</strong>
+            <span>Afiliado Profissional</span>
+          </div>
+        </div>
       </div>
-      <div class="test-card rv">
-        <p class="test-text">Trabalho durante o dia e consegui aplicar tudo nos finais de semana. Em menos de 2 meses tinha um negócio funcionando e gerando renda extra pra minha família.</p>
-        <div class="test-author">Juliana Ribeiro</div>
-        <div class="test-result">R$ 5.800 no primeiro mês</div>
+      <div class="testimonial-card rv">
+        <p class="testimonial-text">"Já tinha uma habilidade mas não sabia como vender online. A Fórmula me deu o passo a passo exato. Primeiro mês: R$ 4.100. Terceiro mês: R$ 19 mil. Mudou minha vida completamente!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">PA</div>
+          <div class="testimonial-info">
+            <strong>Paula Andrade</strong>
+            <span>Designer Freelancer</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="guarantee">
+<section style="background:rgba(14,165,233,0.03)">
   <div class="container">
+    <h2 class="rv" style="text-align:center;margin-bottom:48px">Garantia Blindada De 30 Dias</h2>
     <div class="guarantee-box rv">
-      <div class="badge">GARANTIA TOTAL</div>
-      <h3>Risco Zero Para Você</h3>
-      <p>Teste a Fórmula Negócio Online por 30 dias completos. Se você aplicar o método, seguir o passo a passo e ainda assim achar que não vale cada centavo, devolvemos 100% do seu investimento sem burocracia.</p>
+      <div class="guarantee-badge">GARANTIA 30 DIAS</div>
+      <h2>Risco Zero Para Você</h2>
+      <p style="font-size:19px;line-height:1.8;margin-top:16px">Você tem 30 dias completos para testar a Fórmula Negócio Online. Se não gostar, não se adaptar ou simplesmente mudar de ideia, devolvemos 100% do seu investimento. Sem perguntas, sem burocracia, sem letras miúdas.</p>
     </div>
   </div>
 </section>
 
-<section class="final-cta">
+<section class="cta-final">
   <div class="container">
-    <h2 class="rv">Está na Hora de <span>Tomar a Decisão</span></h2>
-    <p class="rv" style="font-size:20px;max-width:700px;margin:0 auto 32px;color:#CBD5E1">Você pode continuar adiando seu sonho de ter um negócio próprio, ou pode começar hoje mesmo com um método validado por milhares de pessoas</p>
+    <h2 class="rv">Chegou A Hora De Você Tomar A Decisão Que Vai Mudar Tudo</h2>
+    <p class="rv" style="font-size:20px;margin-bottom:32px;color:#0EA5E9">Garanta seu acesso completo e comece sua transformação hoje mesmo</p>
     <div class="checklist rv">
       <ul>
-        <li>Acesso imediato a todo conteúdo da Fórmula</li>
-        <li>Bônus exclusivos e templates prontos</li>
-        <li>Entrada na comunidade privada</li>
-        <li>Suporte direto com especialistas</li>
+        <li>Acesso imediato e vitalício ao método completo</li>
+        <li>Comunidade exclusiva com mais de 12 mil empreendedores</li>
+        <li>Todas as atualizações e novos conteúdos inclusos</li>
+        <li>Suporte direto da equipe para suas dúvidas</li>
         <li>Garantia incondicional de 30 dias</li>
-        <li>Atualizações gratuitas para sempre</li>
+        <li>Bônus exclusivos no valor de R$ 2.497</li>
       </ul>
     </div>
-    <a href="#" class="cta-btn rv" style="font-size:22px;padding:24px 64px">Quero Começar Meu Negócio Agora</a>
+    <a href="#" class="cta-btn rv" style="margin-top:32px">Sim, Quero Começar Minha Transformação Agora</a>
+    <p class="rv" style="margin-top:24px;font-size:14px;color:#7a7a7a">🔒 Ambiente 100% seguro. Seus dados estão protegidos.</p>
   </div>
 </section>
 
-<section class="faq">
+<section class="faq-section">
   <div class="container">
-    <h2 class="rv">Perguntas <span>Frequentes</span></h2>
+    <h2 class="rv" style="text-align:center;margin-bottom:48px">Perguntas Frequentes</h2>
     <div class="faq-list">
       <div class="fi rv">
-        <button class="fq" onclick="faq(this)">Preciso ter conhecimento técnico?<span></span></button>
+        <button class="fq" onclick="faq(this)">Preciso ter experiência ou conhecimento técnico?<span></span></button>
         <div class="fa">
-          <p>Não! A Fórmula Negócio Online foi criada pensando em quem está começando do zero. Tudo é explicado de forma simples e prática, sem necessidade de conhecimentos avançados em programação ou design.</p>
+          <p>Não! A Fórmula Negócio Online foi criada exatamente para quem está começando do zero. Tudo é explicado passo a passo, desde o básico até as estratégias avançadas. Mais de 70% dos nossos alunos nunca tinham feito nada online antes.</p>
         </div>
       </div>
       <div class="fi rv">
-        <button class="fq" onclick="faq(this)">Quanto tempo leva para ver resultados?<span></span></button>
+        <button class="fq" onclick="faq(this)">Quanto tempo leva para ver os primeiros resultados?<span></span></button>
         <div class="fa">
-          <p>A maioria dos nossos alunos faz a primeira venda entre 30 e 45 dias. Claro que depende da sua dedicação e aplicação do método, mas o sistema é desenhado para gerar resultados rápidos.</p>
+          <p>A maioria dos nossos alunos consegue fazer as primeiras vendas entre 30 e 60 dias. Claro que depende da sua dedicação e aplicação do método, mas o sistema é estruturado para você ter resultados rápidos quando seguir o passo a passo.</p>
         </div>
       </div>
       <div class="fi rv">
-        <button class="fq" onclick="faq(this)">Preciso investir em anúncios pagos?<span></span></button>
+        <button class="fq" onclick="faq(this)">Funciona para qualquer tipo de negócio online?<span></span></button>
         <div class="fa">
-          <p>Não necessariamente. Ensinamos estratégias de tráfego orgânico que funcionam muito bem. Se você quiser acelerar com anúncios depois, mostramos como fazer, mas não é obrigatório para começar.</p>
+          <p>Sim! A Fórmula funciona para infoprodutos, consultoria, serviços digitais, e-commerce, afiliados e qualquer modelo de negócio online. O método é flexível e se adapta à sua realidade e ao seu nicho.</p>
         </div>
       </div>
       <div class="fi rv">
-        <button class="fq" onclick="faq(this)">A garantia funciona mesmo?<span></span></button>
+        <button class="fq" onclick="faq(this)">E se eu não gostar ou não funcionar para mim?<span></span></button>
         <div class="fa">
-          <p>Sim, 100%! Se dentro de 30 dias você não estiver satisfeito por qualquer motivo, é só enviar um e-mail e devolvemos todo seu dinheiro. Sem perguntas, sem burocracia.</p>
+          <p>Você tem 30 dias de garantia incondicional. Se por qualquer motivo você não ficar satisfeito, basta solicitar o reembolso e devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
         </div>
       </div>
     </div>
@@ -353,10 +304,14 @@ h2{font-size:clamp(22px,2.8vw,40px) !important}
 
 <footer>
   <div class="container">
-    <p>© 2025 Darwin. Todos os direitos reservados.</p>
-    <p style="margin-top:16px;font-size:12px;line-height:1.8">Este site não faz parte do Google, Facebook ou de suas empresas. Os resultados apresentados podem variar de acordo com dedicação individual. Não garantimos resultados financeiros específicos.</p>
+    <p style="margin-bottom:12px">© 2024 Darwin. Todos os direitos reservados.</p>
+    <p style="font-size:12px;line-height:1.6;max-width:800px;margin:0 auto">Este site não faz parte do site do Facebook ou Facebook Inc. Além disso, este site NÃO é endossado pelo Facebook de forma alguma. FACEBOOK é uma marca registrada da FACEBOOK, Inc. Os resultados apresentados são individuais e não representam garantia de ganhos. Os resultados podem variar de acordo com o esforço e dedicação de cada pessoa.</p>
   </div>
 </footer>
+
+<div id="stickycta">
+  <a href="#" class="cta-btn">Garantir Minha Vaga Agora</a>
+</div>
 
 <script>
 (function(){

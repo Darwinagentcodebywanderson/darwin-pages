@@ -7,304 +7,297 @@
 <title>50 Perguntas e Respostas Sobre Dinheiro e Investimentos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Syne',sans-serif;background:#0A1628;color:#fff;line-height:1.6;overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:#0A1628;color:#fff;line-height:1.6;overflow-x:hidden}
+.container{max-width:960px;margin:0 auto;padding:0 40px}
 #sp{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#0EA5E9,#F5C518);z-index:999;transition:width .1s}
-#mainnav{position:fixed;top:0;left:0;right:0;background:rgba(10,22,40,.95);backdrop-filter:blur(10px);padding:16px 5%;z-index:998;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
-#mainnav.scrolled{box-shadow:0 4px 20px rgba(14,165,233,.3)}
-.logo{font-size:26px;font-weight:800;color:#0EA5E9}
-.cta-btn{background:linear-gradient(135deg,#0EA5E9,#0284c7);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:800;font-size:16px;display:inline-block;box-shadow:0 0 30px rgba(14,165,233,.6);transition:all .3s;border:2px solid #0EA5E9}
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(14,165,233,.9)}
-.hero{padding:140px 5% 80px;text-align:center;background:radial-gradient(circle at top,rgba(14,165,233,.15),transparent 70%)}
-.hero h1{font-size:56px;font-weight:800;line-height:1.1;margin-bottom:24px;background:linear-gradient(135deg,#fff,#0EA5E9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{font-size:22px;margin-bottom:32px;color:#e2e8f0;max-width:700px;margin-left:auto;margin-right:auto}
-.proof{font-size:16px;color:#0EA5E9;font-weight:600;margin-top:24px}
-.section{padding:80px 5%;max-width:1200px;margin:0 auto}
-.rv{opacity:0;transform:translateY(30px);transition:all .6s cubic-bezier(.16,1,.3,1)}
-.rv.in{opacity:1;transform:translateY(0)}
-h2{font-size:42px;font-weight:800;text-align:center;margin-bottom:48px;color:#fff}
-.problems{background:rgba(14,165,233,.05);border-radius:16px;padding:48px;margin-bottom:60px}
-.problem{display:flex;gap:20px;margin-bottom:32px;align-items:flex-start}
-.problem:last-child{margin-bottom:0}
-.problem-icon{font-size:32px;flex-shrink:0}
-.problem h3{font-size:24px;color:#0EA5E9;margin-bottom:8px}
-.problem p{color:#cbd5e1;font-size:17px}
-.benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,380px));gap:24px;margin-bottom:60px}
-.benefit{background:linear-gradient(135deg,rgba(14,165,233,.1),rgba(14,165,233,.05));border:1px solid rgba(14,165,233,.3);border-radius:12px;padding:32px;transition:all .3s}
-.benefit:hover{transform:translateY(-4px);box-shadow:0 8px 40px rgba(14,165,233,.3)}
-.benefit-icon{font-size:40px;margin-bottom:16px}
-.benefit h3{font-size:22px;margin-bottom:12px;color:#0EA5E9}
-.benefit p{color:#cbd5e1;font-size:16px}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,260px));gap:32px;text-align:center;margin-bottom:60px}
-.stat{background:rgba(14,165,233,.08);padding:32px;border-radius:12px;border:2px solid rgba(14,165,233,.2)}
-.stat-num{font-size:48px;font-weight:800;color:#0EA5E9;display:block;margin-bottom:8px}
-.stat-label{font-size:16px;color:#e2e8f0}
-.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,380px));gap:24px;margin-bottom:60px}
-.testimonial{background:linear-gradient(135deg,rgba(14,165,233,.15),rgba(14,165,233,.05));border-left:4px solid #0EA5E9;padding:32px;border-radius:12px}
-.testimonial-text{font-size:17px;margin-bottom:16px;color:#e2e8f0;line-height:1.7}
-.testimonial-author{font-weight:800;color:#0EA5E9;font-size:18px}
-.testimonial-result{color:#10b981;font-weight:600;margin-top:8px;font-size:16px}
-.guarantee{background:linear-gradient(135deg,rgba(245,197,24,.15),rgba(245,197,24,.05));border:2px solid #F5C518;border-radius:16px;padding:48px;text-align:center;margin-bottom:60px;position:relative}
-.guarantee:before{content:'🏆';font-size:64px;display:block;margin-bottom:16px}
-.guarantee h3{font-size:32px;color:#F5C518;margin-bottom:16px}
-.guarantee p{font-size:18px;color:#e2e8f0;max-width:600px;margin:0 auto}
-.final-cta{background:linear-gradient(135deg,rgba(14,165,233,.2),rgba(14,165,233,.05));border-radius:16px;padding:60px 40px;text-align:center}
-.final-cta h2{margin-bottom:24px}
-.final-cta .cta-btn{font-size:20px;padding:20px 48px;margin-bottom:32px}
-.checklist{text-align:left;max-width:500px;margin:0 auto 32px;background:rgba(10,22,40,.6);padding:32px;border-radius:12px}
+#mainnav{position:fixed;top:0;left:0;right:0;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);z-index:500;padding:16px 0;transition:all .3s}
+#mainnav.scrolled{padding:12px 0;box-shadow:0 4px 20px rgba(14,165,233,0.3)}
+#mainnav .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:26px;color:#0EA5E9}
+.nav-cta{background:linear-gradient(135deg,#0EA5E9,#0284c7);color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:800;font-size:14px;box-shadow:0 0 20px rgba(14,165,233,0.5);transition:all .3s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(14,165,233,0.8)}
+section{width:100%;padding:80px 0}
+h1{font-family:'Syne',sans-serif;font-weight:800;font-size:52px;line-height:1.1;margin-bottom:24px;color:#fff}
+h2{font-family:'Syne',sans-serif;font-weight:800;font-size:40px;line-height:1.2;margin-bottom:20px;color:#fff}
+h3{font-family:'Syne',sans-serif;font-weight:800;font-size:26px;margin-bottom:16px;color:#0EA5E9}
+p{font-size:18px;margin-bottom:16px;color:rgba(255,255,255,0.9)}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#0EA5E9,#0284c7);color:#fff;padding:20px 48px;border-radius:12px;text-decoration:none;font-weight:800;font-size:20px;font-family:'Syne',sans-serif;box-shadow:0 0 40px rgba(14,165,233,0.6);transition:all .3s;border:2px solid #0EA5E9;cursor:pointer}
+.cta-btn:hover{transform:scale(1.05);box-shadow:0 0 60px rgba(14,165,233,0.9)}
+.hero{padding:140px 0 80px;text-align:center;background:linear-gradient(180deg,rgba(14,165,233,0.1) 0%,transparent 100%)}
+.hero .highlight{color:#0EA5E9}
+.hero-sub{font-size:22px;margin-bottom:40px;color:rgba(255,255,255,0.85)}
+.social-proof{display:flex;justify-content:center;gap:40px;margin-top:40px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:42px;color:#0EA5E9;display:block}
+.stat-label{font-size:14px;color:rgba(255,255,255,0.7)}
+.problems{background:rgba(14,165,233,0.05)}
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px}
+.problem-card{background:rgba(255,255,255,0.05);padding:32px;border-radius:12px;border-left:4px solid #0EA5E9}
+.problem-card h3{color:#fff;margin-bottom:12px}
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px}
+.benefit-card{background:linear-gradient(135deg,rgba(14,165,233,0.1),rgba(14,165,233,0.05));padding:32px;border-radius:12px;border:1px solid rgba(14,165,233,0.3);transition:all .3s}
+.benefit-card:hover{transform:translateY(-4px);border-color:#0EA5E9;box-shadow:0 8px 30px rgba(14,165,233,0.3)}
+.check{color:#10b981;font-size:28px;margin-bottom:12px}
+.credibility{text-align:center;background:rgba(14,165,233,0.05)}
+.cred-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-top:40px}
+.cred-item{padding:24px}
+.cred-num{font-family:'Syne',sans-serif;font-weight:800;font-size:48px;color:#0EA5E9;display:block;margin-bottom:8px}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px}
+.testimonial{background:rgba(14,165,233,0.1);padding:32px;border-radius:12px;border:1px solid rgba(14,165,233,0.3)}
+.testimonial-text{font-style:italic;margin-bottom:20px;font-size:17px}
+.testimonial-author{font-weight:700;color:#0EA5E9;margin-bottom:4px}
+.testimonial-result{font-size:15px;color:rgba(255,255,255,0.7)}
+.guarantee{text-align:center;background:linear-gradient(135deg,rgba(245,197,24,0.1),rgba(14,165,233,0.1));padding:60px 40px;border-radius:16px;border:2px solid #F5C518;margin-top:40px}
+.badge{display:inline-block;background:#F5C518;color:#0A1628;padding:12px 24px;border-radius:50px;font-weight:800;font-size:18px;margin-bottom:20px}
+.final-cta{text-align:center;padding:100px 0;background:linear-gradient(180deg,transparent,rgba(14,165,233,0.1))}
+.checklist{text-align:left;max-width:500px;margin:32px auto 40px;background:rgba(10,22,40,0.8);padding:32px;border-radius:12px;border:1px solid rgba(14,165,233,0.3)}
 .checklist-item{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:17px}
-.checklist-item:before{content:'✓';color:#10b981;font-size:24px;font-weight:800}
-.faq{max-width:800px;margin:0 auto}
-.fi{background:rgba(14,165,233,.08);border-radius:12px;margin-bottom:16px;overflow:hidden;border:1px solid rgba(14,165,233,.2)}
-.fq{padding:24px;cursor:pointer;font-size:19px;font-weight:600;color:#fff;display:flex;justify-content:space-between;align-items:center}
-.fq:after{content:'+';font-size:28px;color:#0EA5E9;transition:transform .3s}
-.fi.open .fq:after{transform:rotate(45deg)}
+.checklist-item::before{content:'✓';color:#10b981;font-size:24px;font-weight:800}
+.faq{background:rgba(14,165,233,0.05)}
+.faq-list{margin-top:40px}
+.fi{background:rgba(255,255,255,0.05);margin-bottom:16px;border-radius:8px;overflow:hidden;border:1px solid rgba(14,165,233,0.2)}
+.fq{width:100%;background:none;border:none;color:#fff;padding:20px 24px;text-align:left;font-size:18px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.fq:hover{background:rgba(14,165,233,0.1)}
+.fq::after{content:'+';font-size:28px;color:#0EA5E9;transition:transform .3s}
+.fi.open .fq::after{transform:rotate(45deg)}
 .fa{max-height:0;overflow:hidden;transition:max-height .3s}
 .fi.open .fa{max-height:500px}
-.fa-inner{padding:0 24px 24px;color:#cbd5e1;font-size:16px;line-height:1.7}
-footer{background:rgba(0,0,0,.3);padding:40px 5%;text-align:center;font-size:14px;color:#94a3b8;border-top:1px solid rgba(14,165,233,.2)}
-#stickycta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:rgba(10,22,40,.98);backdrop-filter:blur(10px);box-shadow:0 -4px 20px rgba(14,165,233,.3)}
-#stickycta .cta-btn{width:100%;text-align:center;padding:16px}
+.fa-content{padding:0 24px 20px;color:rgba(255,255,255,0.8)}
+footer{background:rgba(0,0,0,0.3);padding:40px 0;text-align:center;font-size:14px;color:rgba(255,255,255,0.6)}
+#stickycta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:rgba(10,22,40,0.98);border-top:2px solid #0EA5E9;box-shadow:0 -4px 20px rgba(0,0,0,0.5)}
+#stickycta .cta-btn{width:100%;text-align:center;padding:16px;font-size:18px}
+.rv{opacity:0;transform:translateY(30px);transition:all .6s}
+.rv.in{opacity:1;transform:translateY(0)}
 @media(max-width:768px){
-.hero h1{font-size:36px}
-.hero p{font-size:18px}
-h2{font-size:32px}
-.problems,.guarantee,.final-cta{padding:32px 24px}
-.benefit,.testimonial{padding:24px}
-.stats{grid-template-columns:1fr 1fr}
-#mainnav .cta-btn{padding:10px 20px;font-size:14px}
+.container{padding:0 20px}
+h1{font-size:36px}
+h2{font-size:28px}
+h3{font-size:22px}
+p{font-size:16px}
+.cta-btn{padding:16px 32px;font-size:18px}
+section{padding:60px 0}
+.hero{padding:120px 0 60px}
+.social-proof{gap:24px}
+.stat-num{font-size:32px}
+.problem-grid,.benefits-grid,.testimonials-grid,.cred-grid{grid-template-columns:1fr;gap:20px}
+.logo{font-size:22px}
+.nav-cta{padding:10px 20px;font-size:13px}
 }
 </style>
-
-<style>
-.container, section > div, main > div {
-  max-width: 1100px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 40px !important;
-  padding-right: 40px !important;
-}
-body { overflow-x: hidden !important; }
-</style>
-<style>
-*{box-sizing:border-box}
-body{overflow-x:hidden}
-section,header,nav,footer{width:100%}
-section>div,header>div,nav>div,footer>div,.hero-content,.section-content{
-  max-width:900px;
-  margin-left:auto;
-  margin-right:auto;
-  padding-left:24px;
-  padding-right:24px;
-  width:100%
-}
-h1{font-size:clamp(32px,4vw,56px) !important}
-h2{font-size:clamp(24px,3vw,42px) !important}
-</style><style>
-.container,.section-inner,.hero-inner{max-width:1000px;margin:0 auto;padding:0 32px;width:100%}
-.problem-grid,.benefit-grid,.stats-grid{justify-content:center}
-section{padding-left:0;padding-right:0}
-</style><style>
-*{box-sizing:border-box}
-body{overflow-x:hidden;max-width:100vw}
-section,header,nav,footer,.hero,.problems,.benefits,.stats,.testimonials,.guarantee,.cta-final,.faq{
-  width:100%;
-  padding-left:0;
-  padding-right:0;
-}
-section>*:not(style):not(script),
-header>*:not(style):not(script),
-nav>*:not(style):not(script),
-footer>*:not(style):not(script),
-.hero>*:not(style):not(script),
-.problems>*:not(style):not(script),
-.benefits>*:not(style):not(script),
-.stats>*:not(style):not(script),
-.testimonials>*:not(style):not(script),
-.guarantee>*:not(style):not(script),
-.cta-final>*:not(style):not(script),
-.faq>*:not(style):not(script){
-  max-width:960px !important;
-  margin-left:auto !important;
-  margin-right:auto !important;
-  padding-left:32px !important;
-  padding-right:32px !important;
-  width:100% !important;
-}
-h1{font-size:clamp(28px,3.5vw,52px) !important;line-height:1.15 !important}
-h2{font-size:clamp(22px,2.8vw,40px) !important}
-</style></head>
+</head>
 <body>
 <div id="sp"></div>
+
 <nav id="mainnav">
+<div class="container">
 <div class="logo">Darwin</div>
-<a href="#" class="cta-btn">QUERO ACESSO AGORA</a>
+<a href="#" class="nav-cta cta-btn">GARANTIR ACESSO</a>
+</div>
 </nav>
 
 <section class="hero">
-<h1 class="rv">Domine o Jogo do Dinheiro em 50 Respostas Diretas</h1>
-<p class="rv">As perguntas que ninguém te ensinou na escola, respondidas de forma clara e prática para você finalmente entender investimentos e multiplicar seu patrimônio</p>
-<a href="#" class="cta-btn rv">GARANTIR MEU ACESSO AGORA</a>
-<div class="proof rv">✓ Mais de 12.847 pessoas já transformaram sua relação com dinheiro</div>
-</section>
-
-<section class="section">
-<div class="problems rv">
-<h2>Você Está Cansado de...</h2>
-<div class="problem">
-<div class="problem-icon">😰</div>
-<div>
-<h3>Não entender para onde seu dinheiro vai todo mês</h3>
-<p>Você trabalha duro, ganha bem, mas no final do mês parece que o dinheiro evapora. Não sabe investir, tem medo de perder tudo e fica refém de "especialistas" que falam difícil de propósito.</p>
-</div>
-</div>
-<div class="problem">
-<div class="problem-icon">📉</div>
-<div>
-<h3>Ver seu dinheiro parado perdendo valor na poupança</h3>
-<p>Enquanto isso, a inflação corrói seu poder de compra e você vê outras pessoas crescendo financeiramente com estratégias que parecem um mistério impossível de decifrar.</p>
-</div>
-</div>
-<div class="problem">
-<div class="problem-icon">🤯</div>
-<div>
-<h3>Ficar perdido com tantas informações confusas sobre investimentos</h3>
-<p>YouTube, podcasts, "gurus" financeiros... cada um fala uma coisa diferente. Você não sabe em quem confiar e acaba não fazendo nada, enquanto o tempo passa e as oportunidades escapam.</p>
-</div>
-</div>
-</div>
-
-<h2 class="rv">O Que Você Vai Dominar</h2>
-<div class="benefits">
-<div class="benefit rv">
-<div class="benefit-icon">💰</div>
-<h3>Fundamentos do Dinheiro</h3>
-<p>As 10 perguntas essenciais que revelam como o dinheiro realmente funciona e como os ricos pensam diferente de você</p>
-</div>
-<div class="benefit rv">
-<div class="benefit-icon">📊</div>
-<h3>Investimentos Descomplicados</h3>
-<p>12 respostas diretas sobre ações, fundos, renda fixa e variável - sem enrolação, sem jargão técnico, só o que importa</p>
-</div>
-<div class="benefit rv">
-<div class="benefit-icon">🎯</div>
-<h3>Estratégias Práticas</h3>
-<p>8 perguntas sobre como montar sua carteira, diversificar corretamente e proteger seu patrimônio de verdade</p>
-</div>
-<div class="benefit rv">
-<div class="benefit-icon">🚀</div>
-<h3>Mentalidade Vencedora</h3>
-<p>7 respostas que vão reprogramar sua relação com dinheiro e eliminar crenças limitantes que te mantêm pobre</p>
-</div>
-<div class="benefit rv">
-<div class="benefit-icon">⚡</div>
-<h3>Erros Fatais a Evitar</h3>
-<p>8 perguntas sobre os maiores erros que destroem patrimônio - e como você pode evitar cada um deles</p>
-</div>
-<div class="benefit rv">
-<div class="benefit-icon">🔥</div>
-<h3>Ação Imediata</h3>
-<p>5 perguntas sobre os primeiros passos práticos para começar a investir ainda esta semana, mesmo com pouco dinheiro</p>
-</div>
-</div>
-
-<h2 class="rv">Resultados Reais</h2>
-<div class="stats rv">
+<div class="container">
+<h1 class="rv">Domine Seu Dinheiro Com <span class="highlight">50 Respostas Diretas</span> Que Ninguém Te Conta</h1>
+<p class="hero-sub rv">As perguntas mais importantes sobre dinheiro e investimentos respondidas de forma clara, prática e sem enrolação. Chegou a hora de você tomar controle da sua vida financeira.</p>
+<a href="#" class="cta-btn rv">QUERO DOMINAR MEUS INVESTIMENTOS AGORA</a>
+<div class="social-proof rv">
 <div class="stat">
-<span class="stat-num">12.847+</span>
-<span class="stat-label">Pessoas Transformadas</span>
+<span class="stat-num">12.847</span>
+<span class="stat-label">pessoas já acessaram</span>
 </div>
 <div class="stat">
 <span class="stat-num">4.9/5</span>
-<span class="stat-label">Avaliação Média</span>
+<span class="stat-label">avaliação média</span>
 </div>
 <div class="stat">
 <span class="stat-num">50</span>
-<span class="stat-label">Respostas Definitivas</span>
-</div>
-<div class="stat">
-<span class="stat-num">100%</span>
-<span class="stat-label">Aplicável Hoje</span>
+<span class="stat-label">respostas práticas</span>
 </div>
 </div>
-
-<h2 class="rv">Quem Aplicou, Viu o Resultado</h2>
-<div class="testimonials">
-<div class="testimonial rv">
-<p class="testimonial-text">"Finalmente entendi onde estava errando. Em 45 dias organizei minhas finanças e fiz meu primeiro investimento de R$ 5 mil em renda fixa. Me sinto no controle pela primeira vez."</p>
-<div class="testimonial-author">— Camila Santos, 34 anos</div>
-<div class="testimonial-result">✓ Organizou finanças em 45 dias</div>
-</div>
-<div class="testimonial rv">
-<p class="testimonial-text">"As respostas são diretas e sem enrolação. Apliquei 3 estratégias e consegui render R$ 2.800 em dividendos nos últimos 4 meses. Valeu cada centavo."</p>
-<div class="testimonial-author">— Ricardo Mendes, 41 anos</div>
-<div class="testimonial-result">✓ R$ 2.800 em dividendos em 4 meses</div>
-</div>
-<div class="testimonial rv">
-<p class="testimonial-text">"Eu tinha pavor de investir. Com as 50 respostas perdi o medo e montei minha carteira diversificada. Já tive 18% de rentabilidade em 6 meses."</p>
-<div class="testimonial-author">— Juliana Oliveira, 29 anos</div>
-<div class="testimonial-result">✓ 18% de rentabilidade em 6 meses</div>
-</div>
-</div>
-
-<div class="guarantee rv">
-<h3>Garantia Blindada de 7 Dias</h3>
-<p>Acesse todo o conteúdo, leia as 50 respostas, aplique na sua vida. Se em 7 dias você não sentir que valeu cada centavo, devolvemos 100% do seu investimento. Sem perguntas. Sem enrolação.</p>
-</div>
-
-<div class="final-cta rv">
-<h2>Sua Decisão Define Seu Futuro Financeiro</h2>
-<a href="#" class="cta-btn">SIM, QUERO DOMINAR MEU DINHEIRO</a>
-<div class="checklist">
-<div class="checklist-item">Acesso imediato a todas as 50 perguntas e respostas</div>
-<div class="checklist-item">Conteúdo 100% prático e aplicável hoje mesmo</div>
-<div class="checklist-item">Linguagem clara, sem jargões complicados</div>
-<div class="checklist-item">Garantia incondicional de 7 dias</div>
-<div class="checklist-item">Suporte dedicado para suas dúvidas</div>
-</div>
-<a href="#" class="cta-btn">GARANTIR ACESSO AGORA</a>
 </div>
 </section>
 
-<section class="section faq">
+<section class="problems">
+<div class="container">
+<h2 class="rv">Você Está Cansado De...</h2>
+<div class="problem-grid">
+<div class="problem-card rv">
+<h3>📉 Perder Dinheiro Por Falta de Conhecimento</h3>
+<p>Você investe achando que está fazendo certo, mas no fundo não sabe se está tomando as decisões certas. O resultado? Dinheiro parado ou aplicado nos lugares errados.</p>
+</div>
+<div class="problem-card rv">
+<h3>🤯 Conteúdos Complexos e Confusos</h3>
+<p>Todo mundo fala de investimentos, mas usa termos técnicos impossíveis. Você fica perdido em meio a tantas informações contraditórias e não sabe em quem confiar.</p>
+</div>
+<div class="problem-card rv">
+<h3>⏰ Não Ter Tempo Para Estudar Finanças</h3>
+<p>Você sabe que precisa aprender, mas quem tem tempo pra ler livros enormes ou fazer cursos de 40 horas? Você quer respostas diretas, rápidas e que funcionam.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2 class="rv">O Que Você Vai Descobrir Com As 50 Perguntas e Respostas</h2>
+<div class="benefits-grid">
+<div class="benefit-card rv">
+<div class="check">✓</div>
+<h3>Respostas Diretas e Sem Enrolação</h3>
+<p>Nada de teoria complicada. Cada resposta é objetiva, prática e feita para você aplicar imediatamente na sua vida financeira.</p>
+</div>
+<div class="benefit-card rv">
+<div class="check">✓</div>
+<h3>Economize Anos de Aprendizado</h3>
+<p>As 50 perguntas mais importantes já filtradas e respondidas. Você pula toda a parte chata e vai direto ao que importa para multiplicar seu dinheiro.</p>
+</div>
+<div class="benefit-card rv">
+<div class="check">✓</div>
+<h3>Linguagem Clara e Acessível</h3>
+<p>Zero termos técnicos desnecessários. Tudo explicado como se fosse uma conversa com um amigo que entende de investimentos.</p>
+</div>
+<div class="benefit-card rv">
+<div class="check">✓</div>
+<h3>Evite Erros Que Custam Caro</h3>
+<p>Descubra os erros mais comuns que fazem as pessoas perderem dinheiro e como evitá-los. Economize milhares de reais em decisões erradas.</p>
+</div>
+<div class="benefit-card rv">
+<div class="check">✓</div>
+<h3>Conteúdo Consultável Para Sempre</h3>
+<p>Dúvida pontual? Consulte rapidamente a resposta que você precisa. É como ter um consultor financeiro no bolso disponível 24/7.</p>
+</div>
+<div class="benefit-card rv">
+<div class="check">✓</div>
+<h3>Do Zero ao Investidor Confiante</h3>
+<p>Não importa seu nível atual. As respostas cobrem desde o básico até estratégias mais avançadas para você crescer no seu ritmo.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="credibility">
+<div class="container">
+<h2 class="rv">Números Que Comprovam o Impacto</h2>
+<div class="cred-grid">
+<div class="cred-item rv">
+<span class="cred-num">12.8k+</span>
+<p>Pessoas já transformaram sua relação com dinheiro</p>
+</div>
+<div class="cred-item rv">
+<span class="cred-num">R$2.4M+</span>
+<p>Em economias e ganhos reportados por usuários</p>
+</div>
+<div class="cred-item rv">
+<span class="cred-num">50</span>
+<p>Perguntas estratégicas respondidas com clareza</p>
+</div>
+<div class="cred-item rv">
+<span class="cred-num">98%</span>
+<p>Recomendam para amigos e familiares</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2 class="rv">O Que Quem Já Tem Está Falando</h2>
+<div class="testimonials-grid">
+<div class="testimonial rv">
+<p class="testimonial-text">"Eu tinha R$8 mil parados na poupança. Depois de ler as respostas sobre investimentos seguros, migrei para opções melhores e em 6 meses já tinha rendido R$720 a mais do que teria na poupança. Valeu cada centavo!"</p>
+<div class="testimonial-author">Mariana Costa</div>
+<div class="testimonial-result">Rendeu R$720 a mais em 6 meses</div>
+</div>
+<div class="testimonial rv">
+<p class="testimonial-text">"Sempre tive medo de investir porque não entendia nada. As respostas são tão claras que em 1 semana eu já tinha montado minha primeira carteira. Hoje tenho R$15 mil investidos e crescendo todo mês."</p>
+<div class="testimonial-author">Roberto Almeida</div>
+<div class="testimonial-result">Saiu do zero para R$15 mil investidos</div>
+</div>
+<div class="testimonial rv">
+<p class="testimonial-text">"Economizei R$2.400 no primeiro ano só aplicando as dicas de redução de custos e investimentos inteligentes. É impressionante como pequenas mudanças fazem diferença quando você sabe o que fazer."</p>
+<div class="testimonial-author">Juliana Ribeiro</div>
+<div class="testimonial-result">Economizou R$2.400 no primeiro ano</div>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="guarantee rv">
+<span class="badge">🏆 GARANTIA TOTAL</span>
+<h2>Risco Zero Para Você</h2>
+<p>Acesse as 50 Perguntas e Respostas agora. Se por qualquer motivo você não gostar, tem 7 dias de garantia incondicional. Devolvemos 100% do seu dinheiro sem perguntas. O risco é todo nosso.</p>
+</div>
+</div>
+</section>
+
+<section class="final-cta">
+<div class="container">
+<h2 class="rv">Chegou a Hora de Transformar Sua Vida Financeira</h2>
+<p class="rv" style="font-size:20px;margin-bottom:32px;max-width:700px;margin-left:auto;margin-right:auto">Não deixe mais um dia passar sem ter clareza sobre seu dinheiro. As respostas que você precisa estão aqui, esperando por você.</p>
+<div class="checklist rv">
+<div class="checklist-item">Acesso imediato às 50 respostas</div>
+<div class="checklist-item">Conteúdo prático e direto ao ponto</div>
+<div class="checklist-item">Garantia de 7 dias sem risco</div>
+<div class="checklist-item">Consulte quando quiser para sempre</div>
+</div>
+<a href="#" class="cta-btn rv">SIM, QUERO DOMINAR MEU DINHEIRO AGORA</a>
+</div>
+</section>
+
+<section class="faq">
+<div class="container">
 <h2 class="rv">Perguntas Frequentes</h2>
+<div class="faq-list">
 <div class="fi rv">
-<div class="fq" onclick="faq(this)">
-Para quem é esse material?
-</div>
+<button class="fq" onclick="faq(this)">
+<span>Para quem é esse material?</span>
+</button>
 <div class="fa">
-<div class="fa-inner">Para qualquer pessoa que quer entender dinheiro e investimentos de verdade, desde iniciantes completos até quem já investe mas quer organizar melhor seus conhecimentos. Se você tem dúvidas sobre finanças, este material é para você.</div>
-</div>
-</div>
-<div class="fi rv">
-<div class="fq" onclick="faq(this)">Preciso ter muito dinheiro para começar?</div>
-<div class="fa">
-<div class="fa-inner">Não! O conhecimento vem primeiro. As respostas ensinam estratégias para qualquer nível de patrimônio, inclusive como começar com pouco dinheiro e ir crescendo de forma inteligente.</div>
+<div class="fa-content">Para qualquer pessoa que quer ter controle sobre seu dinheiro e investimentos. Não importa se você está começando do zero ou se já tem algum conhecimento - as respostas cobrem desde o básico até estratégias mais avançadas.</div>
 </div>
 </div>
 <div class="fi rv">
-<div class="fq" onclick="faq(this)">É muito técnico ou complicado?</div>
+<button class="fq" onclick="faq(this)">
+<span>Preciso de muito tempo para ler?</span>
+</button>
 <div class="fa">
-<div class="fa-inner">Pelo contrário. Todo o conteúdo foi criado para ser direto, claro e em linguagem simples. Nada de economês ou jargões desnecessários. Você vai entender tudo de primeira.</div>
+<div class="fa-content">Não! O formato de perguntas e respostas permite que você consulte apenas o que precisa no momento. Você pode ler tudo de uma vez ou consultar pontualmente quando tiver uma dúvida específica.</div>
 </div>
 </div>
 <div class="fi rv">
-<div class="fq" onclick="faq(this)">Como funciona a garantia?</div>
+<button class="fq" onclick="faq(this)">
+<span>Como funciona a garantia?</span>
+</button>
 <div class="fa">
-<div class="fa-inner">Você tem 7 dias para acessar todo o conteúdo. Se não ficar satisfeito por qualquer motivo, basta solicitar o reembolso e devolvemos 100% do valor investido, sem burocracia.</div>
+<div class="fa-content">Você tem 7 dias de garantia incondicional. Se por qualquer motivo não gostar, basta solicitar o reembolso e devolvemos 100% do valor investido, sem perguntas ou burocracias.</div>
+</div>
+</div>
+<div class="fi rv">
+<button class="fq" onclick="faq(this)">
+<span>Vou receber o acesso imediatamente?</span>
+</button>
+<div class="fa">
+<div class="fa-content">Sim! Assim que a compra for confirmada, você recebe o acesso completo na hora. Pode começar a consultar as respostas em menos de 2 minutos.</div>
+</div>
+</div>
 </div>
 </div>
 </section>
 
 <footer>
+<div class="container">
 <p>© 2025 Darwin. Todos os direitos reservados.</p>
-<p style="margin-top:12px;font-size:13px">Este site não faz parte do site do Facebook ou do Facebook Inc. Além disso, este site NÃO é endossado pelo Facebook de nenhuma forma. FACEBOOK é uma marca registrada da FACEBOOK, Inc. Os resultados podem variar de pessoa para pessoa.</p>
+<p style="margin-top:12px">Este site não faz parte do Google, Facebook ou Instagram. Este produto é oferecido com garantia de satisfação de 7 dias. Resultados podem variar de pessoa para pessoa.</p>
+</div>
 </footer>
 
 <div id="stickycta">
-<a href="#" class="cta-btn">QUERO ACESSO AGORA</a>
+<a href="#" class="cta-btn">GARANTIR ACESSO AGORA</a>
 </div>
 
 <script>
@@ -340,5 +333,6 @@ Para quem é esse material?
   document.querySelectorAll('.cta-btn').forEach(function(b){b.addEventListener('click',handleCTA)});
 })();
 </script>
+
 </body>
 </html>
