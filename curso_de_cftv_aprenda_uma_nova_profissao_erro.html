@@ -2,508 +2,60 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso de CFTV - Aprenda uma Nova Profissão</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #1a1a1a;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        #sp {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            width: 0%;
-            background: linear-gradient(90deg, #0066ff, #00d4ff);
-            z-index: 9999;
-            transition: width 0.1s ease-out;
-        }
-
-        nav#mainnav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        nav#mainnav.scrolled {
-            box-shadow: 0 4px 20px rgba(0, 102, 255, 0.1);
-        }
-
-        .nav-logo {
-            font-size: 24px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
-        }
-
-        .nav-logo span {
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-left: 4px;
-        }
-
-        .cta-btn {
-            background: linear-gradient(135deg, #0066ff, #0052cc);
-            color: white;
-            padding: 10px 24px;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
-        }
-
-        .cta-btn:active {
-            transform: translateY(0);
-        }
-
-        section {
-            padding: 80px 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .hero {
-            padding-top: 120px;
-            text-align: center;
-            background: linear-gradient(135deg, #f0f4ff 0%, #fff9f0 100%);
-        }
-
-        .hero h1 {
-            font-size: clamp(32px, 8vw, 56px);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: clamp(16px, 4vw, 20px);
-            color: #666;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .cta-btn.primary {
-            padding: 14px 32px;
-            font-size: 16px;
-        }
-
-        .proof {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .proof-item {
-            text-align: center;
-        }
-
-        .proof-number {
-            font-size: 28px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .proof-label {
-            font-size: 12px;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 0.5rem;
-        }
-
-        .dores {
-            background: white;
-        }
-
-        .dores h2 {
-            font-size: clamp(28px, 6vw, 40px);
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #1a1a1a;
-        }
-
-        .dores-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .dor-card {
-            background: #f8f9ff;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid #ff4444;
-            opacity: 0;
-            transition: all 0.6s ease;
-        }
-
-        .dor-card.in {
-            opacity: 1;
-        }
-
-        .dor-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        }
-
-        .dor-icon {
-            font-size: 32px;
-            margin-bottom: 1rem;
-        }
-
-        .dor-card h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
-        }
-
-        .dor-card p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        .transformacao {
-            background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
-            color: white;
-        }
-
-        .transformacao h2 {
-            font-size: clamp(28px, 6vw, 40px);
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .beneficios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .beneficio {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            opacity: 0;
-            transition: all 0.6s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .beneficio.in {
-            opacity: 1;
-        }
-
-        .beneficio:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-4px);
-        }
-
-        .beneficio-icon {
-            font-size: 28px;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        .beneficio h3 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .beneficio p {
-            font-size: 14px;
-            line-height: 1.5;
-            opacity: 0.95;
-        }
-
-        .numeros {
-            background: white;
-        }
-
-        .numeros h2 {
-            font-size: clamp(28px, 6vw, 40px);
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #1a1a1a;
-        }
-
-        .numeros-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .numero-card {
-            background: linear-gradient(135deg, #f0f4ff 0%, #fff9f0 100%);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            opacity: 0;
-            transition: all 0.6s ease;
-        }
-
-        .numero-card.in {
-            opacity: 1;
-        }
-
-        .numero-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 24px rgba(0, 102, 255, 0.15);
-        }
-
-        .numero-grande {
-            font-size: 36px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .numero-texto {
-            font-size: 14px;
-            color: #666;
-            font-weight: 600;
-        }
-
-        .depoimentos {
-            background: linear-gradient(135deg, #f0f4ff 0%, #fff9f0 100%);
-        }
-
-        .depoimentos h2 {
-            font-size: clamp(28px, 6vw, 40px);
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #1a1a1a;
-        }
-
-        .depoimentos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .depoimento {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            opacity: 0;
-            transition: all 0.6s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .depoimento.in {
-            opacity: 1;
-        }
-
-        .depoimento:hover {
-            box-shadow: 0 8px 24px rgba(0, 102, 255, 0.1);
-            transform: translateY(-4px);
-        }
-
-        .depoimento-texto {
-            font-size: 15px;
-            color: #333;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-            font-style: italic;
-        }
-
-        .depoimento-autor {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .depoimento-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .depoimento-info h4 {
-            font-size: 14px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 0.2rem;
-        }
-
-        .depoimento-info p {
-            font-size: 12px;
-            color: #999;
-        }
-
-        .garantia {
-            background: white;
-        }
-
-        .garantia-container {
-            background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 16px;
-            text-align: center;
-            opacity: 0;
-            transition: all 0.6s ease;
-        }
-
-        .garantia-container.in {
-            opacity: 1;
-        }
-
-        .garantia-icon {
-            font-size: 48px;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        .garantia-container h2 {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .garantia-container p {
-            font-size: 16px;
-            opacity: 0.95;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .cta-final {
-            background: linear-gradient(135deg, #f0f4ff 0%, #fff9f0 100%);
-        }
-
-        .cta-final h2 {
-            font-size: clamp(28px, 6vw, 40px);
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #1a1a1a;
-        }
-
-        .cta-content {
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0;
-            transition: all 0.6s ease;
-        }
-
-        .cta-content.in {
-            opacity: 1;
-        }
-
-        .checklist {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .checklist-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .checklist-item:last-child {
-            border-bottom: none;
-        }
-
-        .checklist-check {
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, #0066ff, #00d4ff);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .checklist-text {
-            font-size: 15px;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .cta-final-btn {
-            display: block;
-            width
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Curso de CFTV - Aprenda uma Nova Profissão</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#07090E;color:#F0F2F0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
+h1{font-size:clamp(28px,5vw,52px);font-weight:900;margin-bottom:16px;line-height:1.1}
+p{font-size:16px;color:#8A9090;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#E8FF4D;color:#07090E;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none}
+.tag{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#4DFFB4;margin-bottom:20px}
+</style>
+</head>
+<body>
+<div id="sp" style="position:fixed;top:0;left:0;height:3px;width:0%;background:#E8FF4D;z-index:999"></div>
+<div>
+  <p class="tag">Tecnologia</p>
+  <h1>Chega de tentar sem resultado</h1>
+  <p>Curso de CFTV - Aprenda uma Nova Profissão — acesse agora e descubra como este programa pode transformar seus resultados.</p>
+  <a href="#" class="btn cta-btn">Quero a solucao</a>
+</div>
+<div id="stickycta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:rgba(7,9,14,.95);border-top:1px solid rgba(255,255,255,.08)">
+  <a href="#" class="btn cta-btn" style="width:100%;justify-content:center">Quero a solucao</a>
+</div>
+<script>
+(function(){
+  var T="https://cmykqkytjhiqarcginfs.supabase.co/functions/v1/track-click",K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteWtxa3l0amhpcWFyY2dpbmZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NDY0MTMsImV4cCI6MjA5MjAyMjQxM30.5navVvq_NuPAF-Xv8Pk39QdNE80JwEzpuHZ6hgU1gWU",PID="curso_de_cftv_aprenda_uma_nova_profissao__erro__fabe3d",LNK="https://go.hotmart.com/M105499562M";
+  window.addEventListener('scroll',function(){
+    var s=document.documentElement,pct=(s.scrollTop/(s.scrollHeight-s.clientHeight))*100;
+    var p=document.getElementById('sp');if(p)p.style.width=pct+'%';
+    var n=document.getElementById('mainnav');
+    if(n)n.classList.toggle('scrolled',window.scrollY>40);
+    var sb=document.getElementById('stickycta');
+    if(sb)sb.style.display=pct>25?'block':'none';
+  });
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('in')},i*60)});
+  },{threshold:0.1});
+  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
+  function faq(btn){
+    var item=btn.closest('.fi'),open=item.classList.contains('open');
+    document.querySelectorAll('.fi').forEach(function(i){i.classList.remove('open')});
+    if(!open)item.classList.add('open');
+  }
+  window.faq=faq;
+  function cta(e){
+    e.preventDefault();
+    fetch(T,{method:'POST',keepalive:true,
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+K},
+      body:JSON.stringify({page_id:PID})});
+    setTimeout(function(){window.open(LNK,'_blank')},150);
+  }
+  document.querySelectorAll('.cta-btn').forEach(function(b){b.addEventListener('click',cta)});
+})();
+</script>
+</body>
+</html>

@@ -2,496 +2,60 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fórmula Negócio Online - Construa Seu Império Digital</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html, body {
-            width: 100%;
-            height: 100%;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #1a1a1a;
-            background: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        #sp {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #ff6b35 0%, #f7931e 100%);
-            width: 0%;
-            z-index: 9999;
-            transition: width 0.1s ease-out;
-        }
-        
-        #mainnav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 998;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-        
-        #mainnav.scrolled {
-            padding: 12px 40px;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .cta-btn {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            color: #ffffff;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-        }
-        
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(255, 107, 53, 0.4);
-        }
-        
-        .cta-btn:active {
-            transform: translateY(0);
-        }
-        
-        .hero {
-            padding-top: 160px;
-            padding-bottom: 60px;
-            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .hero-content {
-            max-width: 700px;
-        }
-        
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 62px;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-        
-        h1 span {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .subheadline {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.7;
-        }
-        
-        .cta-primary {
-            display: inline-block;
-            margin-bottom: 40px;
-            font-size: 16px;
-            padding: 16px 40px;
-        }
-        
-        .social-proof {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .proof-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .proof-number {
-            font-size: 24px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .proof-text {
-            font-size: 14px;
-            color: #666;
-        }
-        
-        section {
-            padding: 80px 20px;
-        }
-        
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 50px;
-            text-align: center;
-            color: #1a1a1a;
-        }
-        
-        h2 span {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .dolor-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        
-        .dolor-card {
-            background: #fafafa;
-            padding: 40px;
-            border-radius: 12px;
-            border-left: 4px solid #ff6b35;
-            transition: all 0.3s ease;
-        }
-        
-        .dolor-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .dolor-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #1a1a1a;
-        }
-        
-        .dolor-text {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.8;
-        }
-        
-        .beneficios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-        
-        .beneficio-item {
-            display: flex;
-            gap: 20px;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-        
-        .beneficio-item.in {
-            opacity: 1;
-        }
-        
-        .beneficio-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            flex-shrink: 0;
-            font-weight: 700;
-        }
-        
-        .beneficio-content h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #1a1a1a;
-        }
-        
-        .beneficio-content p {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        .metrics {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: white;
-            padding: 80px 20px;
-        }
-        
-        .metrics h2 {
-            color: white;
-            margin-bottom: 60px;
-        }
-        
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            text-align: center;
-        }
-        
-        .metric-box {
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-        
-        .metric-box.in {
-            opacity: 1;
-        }
-        
-        .metric-number {
-            font-size: 52px;
-            font-weight: 800;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .metric-label {
-            font-size: 16px;
-            color: #ccc;
-        }
-        
-        .testimonials {
-            background: #fafafa;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background: white;
-            padding: 35px;
-            border-radius: 12px;
-            border-top: 4px solid #ff6b35;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-        
-        .testimonial-card.in {
-            opacity: 1;
-        }
-        
-        .testimonial-stars {
-            color: #ff6b35;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        
-        .testimonial-text {
-            font-size: 15px;
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-style: italic;
-        }
-        
-        .testimonial-author {
-            font-weight: 700;
-            color: #1a1a1a;
-            font-size: 14px;
-        }
-        
-        .testimonial-role {
-            font-size: 13px;
-            color: #999;
-        }
-        
-        .guarantee {
-            background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
-            padding: 60px 20px;
-            border-radius: 16px;
-            border: 2px solid #ff6b35;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-            margin-bottom: 80px;
-        }
-        
-        .guarantee.in {
-            opacity: 1;
-        }
-        
-        .guarantee h3 {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-        
-        .guarantee-text {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 20px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .guarantee-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 14px;
-        }
-        
-        .cta-final {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        
-        .cta-final h2 {
-            color: white;
-            margin-bottom: 40px;
-        }
-        
-        .cta-button-large {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid white;
-            padding: 20px 50px;
-            font-size: 18px;
-            margin-bottom: 40px;
-            transition: all 0.3s ease;
-        }
-        
-        .cta-button-large:hover {
-            background: white;
-            color: #ff6b35;
-        }
-        
-        .checklist {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            text-align: left;
-            margin-top: 50px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .checklist-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 16px;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-        
-        .checklist-item.in {
-            opacity: 1;
-        }
-        
-        .check-icon {
-            width: 28px;
-            height: 28px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-        
-        .faq-section {
-            background: #fafafa;
-            padding: 80px 20px;
-        }
-        
-        .faq-container {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .fi {
-            background: white;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            border: 1px solid #e0e0e0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .fi:hover {
-            border-color: #ff6b35;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.1);
-        }
-        
-        .fi-btn {
-            width: 100%;
-            padding: 20px;
-            background: white;
-            border: none;
-            text-align: left;
-            font-size: 16px;
-            font-weight: 600;
-            color: #1a1a1a;
-            cursor: pointer;
-            display: flex;
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fórmula Negócio Online</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#07090E;color:#F0F2F0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
+h1{font-size:clamp(28px,5vw,52px);font-weight:900;margin-bottom:16px;line-height:1.1}
+p{font-size:16px;color:#8A9090;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#E8FF4D;color:#07090E;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none}
+.tag{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#4DFFB4;margin-bottom:20px}
+</style>
+</head>
+<body>
+<div id="sp" style="position:fixed;top:0;left:0;height:3px;width:0%;background:#E8FF4D;z-index:999"></div>
+<div>
+  <p class="tag">Marketing</p>
+  <h1>Sua chance de mudar comeca aqui</h1>
+  <p>Fórmula Negócio Online — acesse agora e descubra como este programa pode transformar seus resultados.</p>
+  <a href="#" class="btn cta-btn">Comecar agora</a>
+</div>
+<div id="stickycta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:rgba(7,9,14,.95);border-top:1px solid rgba(255,255,255,.08)">
+  <a href="#" class="btn cta-btn" style="width:100%;justify-content:center">Comecar agora</a>
+</div>
+<script>
+(function(){
+  var T="https://cmykqkytjhiqarcginfs.supabase.co/functions/v1/track-click",K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteWtxa3l0amhpcWFyY2dpbmZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NDY0MTMsImV4cCI6MjA5MjAyMjQxM30.5navVvq_NuPAF-Xv8Pk39QdNE80JwEzpuHZ6hgU1gWU",PID="formula_negocio_online__acao__8eac36",LNK="https://go.hotmart.com/V70904803B";
+  window.addEventListener('scroll',function(){
+    var s=document.documentElement,pct=(s.scrollTop/(s.scrollHeight-s.clientHeight))*100;
+    var p=document.getElementById('sp');if(p)p.style.width=pct+'%';
+    var n=document.getElementById('mainnav');
+    if(n)n.classList.toggle('scrolled',window.scrollY>40);
+    var sb=document.getElementById('stickycta');
+    if(sb)sb.style.display=pct>25?'block':'none';
+  });
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('in')},i*60)});
+  },{threshold:0.1});
+  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
+  function faq(btn){
+    var item=btn.closest('.fi'),open=item.classList.contains('open');
+    document.querySelectorAll('.fi').forEach(function(i){i.classList.remove('open')});
+    if(!open)item.classList.add('open');
+  }
+  window.faq=faq;
+  function cta(e){
+    e.preventDefault();
+    fetch(T,{method:'POST',keepalive:true,
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+K},
+      body:JSON.stringify({page_id:PID})});
+    setTimeout(function(){window.open(LNK,'_blank')},150);
+  }
+  document.querySelectorAll('.cta-btn').forEach(function(b){b.addEventListener('click',cta)});
+})();
+</script>
+</body>
+</html>

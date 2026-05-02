@@ -2,511 +2,60 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curso de CFTV - Aprenda uma Nova Profissão | Darwin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: #1a1a1a;
-      background: #ffffff;
-      line-height: 1.6;
-    }
-
-    #sp {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #00d4ff, #0099ff);
-      z-index: 999;
-      width: 0;
-      box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
-    }
-
-    nav#mainnav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 998;
-      border-bottom: 1px solid transparent;
-      transition: all 0.3s ease;
-    }
-
-    nav#mainnav.scrolled {
-      border-bottom: 1px solid #f0f0f0;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-size: 24px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #00d4ff, #0099ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .cta-btn {
-      padding: 12px 28px;
-      background: linear-gradient(135deg, #00d4ff, #0099ff);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: 0 8px 24px rgba(0, 153, 255, 0.3);
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(0, 153, 255, 0.4);
-    }
-
-    .cta-btn:active {
-      transform: translateY(0);
-    }
-
-    .rv {
-      opacity: 0;
-      transition: opacity 0.6s ease, transform 0.6s ease;
-      transform: translateY(30px);
-    }
-
-    .rv.in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Hero Section */
-    .hero {
-      margin-top: 64px;
-      padding: 80px 24px;
-      background: linear-gradient(135deg, #f8f9ff 0%, #f0f7ff 100%);
-      text-align: center;
-    }
-
-    .hero-content {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: 56px;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      color: #0a0a0a;
-    }
-
-    .hero h1 .highlight {
-      background: linear-gradient(135deg, #00d4ff, #0099ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #4a4a4a;
-      margin-bottom: 40px;
-      line-height: 1.6;
-    }
-
-    .hero-cta {
-      display: inline-block;
-      margin-bottom: 40px;
-      padding: 16px 48px;
-      font-size: 18px;
-      box-shadow: 0 12px 40px rgba(0, 153, 255, 0.35);
-    }
-
-    .hero-social {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 50px;
-      flex-wrap: wrap;
-    }
-
-    .social-item {
-      text-align: center;
-    }
-
-    .social-number {
-      font-family: 'Syne', sans-serif;
-      font-size: 32px;
-      font-weight: 800;
-      color: #00d4ff;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .social-text {
-      font-size: 14px;
-      color: #666;
-      font-weight: 500;
-    }
-
-    /* Pains Section */
-    .pains {
-      padding: 80px 24px;
-      background: #ffffff;
-    }
-
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 44px;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 60px;
-      color: #0a0a0a;
-    }
-
-    .section-title .highlight {
-      color: #00d4ff;
-    }
-
-    .pains-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .pain-card {
-      padding: 40px 32px;
-      background: linear-gradient(135deg, #fff5f8 0%, #fff0f5 100%);
-      border-radius: 12px;
-      border-left: 4px solid #ff4757;
-    }
-
-    .pain-card h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: #ff4757;
-    }
-
-    .pain-card p {
-      font-size: 16px;
-      color: #555;
-      line-height: 1.7;
-    }
-
-    /* Benefits Section */
-    .benefits {
-      padding: 80px 24px;
-      background: linear-gradient(135deg, #f8f9ff 0%, #f0f7ff 100%);
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .benefit-card {
-      padding: 40px;
-      background: white;
-      border-radius: 12px;
-      border-top: 4px solid #00d4ff;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-    }
-
-    .benefit-icon {
-      font-size: 40px;
-      margin-bottom: 16px;
-      display: inline-block;
-    }
-
-    .benefit-card h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #0a0a0a;
-    }
-
-    .benefit-card p {
-      font-size: 15px;
-      color: #666;
-      line-height: 1.7;
-    }
-
-    /* Numbers Section */
-    .numbers {
-      padding: 80px 24px;
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-      color: white;
-    }
-
-    .numbers-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .number-item {
-      text-align: center;
-      padding: 40px;
-    }
-
-    .number-value {
-      font-family: 'Syne', sans-serif;
-      font-size: 56px;
-      font-weight: 800;
-      color: #00d4ff;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .number-label {
-      font-size: 16px;
-      color: #e0e0e0;
-      font-weight: 500;
-    }
-
-    /* Testimonials Section */
-    .testimonials {
-      padding: 80px 24px;
-      background: white;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .testimonial-card {
-      padding: 40px;
-      background: #f8f9ff;
-      border-radius: 12px;
-      border-left: 4px solid #00d4ff;
-    }
-
-    .testimonial-text {
-      font-size: 16px;
-      color: #333;
-      margin-bottom: 24px;
-      line-height: 1.8;
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      color: #0a0a0a;
-      margin-bottom: 4px;
-    }
-
-    .testimonial-role {
-      font-size: 13px;
-      color: #999;
-      margin-bottom: 8px;
-    }
-
-    .testimonial-result {
-      font-size: 14px;
-      color: #00d4ff;
-      font-weight: 600;
-    }
-
-    .stars {
-      color: #ffc107;
-      margin-bottom: 16px;
-      font-size: 14px;
-    }
-
-    /* Guarantee Section */
-    .guarantee {
-      padding: 80px 24px;
-      background: linear-gradient(135deg, #f8f9ff 0%, #f0f7ff 100%);
-    }
-
-    .guarantee-container {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 60px 40px;
-      background: white;
-      border-radius: 12px;
-      border: 2px solid #00d4ff;
-      box-shadow: 0 12px 40px rgba(0, 153, 255, 0.15);
-    }
-
-    .guarantee-icon {
-      font-size: 56px;
-      margin-bottom: 24px;
-      display: inline-block;
-    }
-
-    .guarantee-container h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 32px;
-      font-weight: 800;
-      margin-bottom: 16px;
-      color: #0a0a0a;
-    }
-
-    .guarantee-container p {
-      font-size: 16px;
-      color: #666;
-      line-height: 1.8;
-    }
-
-    /* Final CTA Section */
-    .final-cta {
-      padding: 80px 24px;
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-      color: white;
-      text-align: center;
-    }
-
-    .final-cta-content {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .final-cta h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: 48px;
-      font-weight: 800;
-      margin-bottom: 24px;
-      line-height: 1.2;
-    }
-
-    .final-cta p {
-      font-size: 18px;
-      margin-bottom: 48px;
-      color: #e0e0e0;
-      line-height: 1.7;
-    }
-
-    .final-cta-btn {
-      padding: 18px 56px;
-      font-size: 20px;
-      margin-bottom: 48px;
-    }
-
-    .checklist {
-      text-align: left;
-      background: rgba(0, 212, 255, 0.1);
-      padding: 40px;
-      border-radius: 12px;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .checklist-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 16px;
-      font-size: 16px;
-    }
-
-    .checklist-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .checklist-item span {
-      color: #00d4ff;
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    /* FAQ Section */
-    .faq {
-      padding: 80px 24px;
-      background: white;
-    }
-
-    .faq-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .fi {
-      margin-bottom: 16px;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .fi-btn {
-      width: 100%;
-      padding: 24px;
-      background: white;
-      border: none;
-      text-align: left;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 600;
-      color: #0a0a0a;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: all 0.3s ease;
-    }
-
-    .fi-btn:hover {
-      background: #f8f9ff;
-    }
-
-    .fi.open .fi-btn {
-      background: linear-gradient(135deg, #f8f9ff 0%, #f0f7ff 100%);
-      color: #00d4ff;
-    }
-
-    .fi-arrow {
-      display: inline-block;
-      transition: transform 0.3s ease;
-      color: #00d4ff;
-      font-size: 18px;
-    }
-
-    .fi.open .fi-arrow {
-      transform: rotate(180deg);
-    }
-
-    .fi-content {
-      padding: 0 24px;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      background: #f8f9ff;
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Curso de CFTV - Aprenda uma Nova Profissão</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#07090E;color:#F0F2F0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
+h1{font-size:clamp(28px,5vw,52px);font-weight:900;margin-bottom:16px;line-height:1.1}
+p{font-size:16px;color:#8A9090;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#E8FF4D;color:#07090E;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none}
+.tag{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#4DFFB4;margin-bottom:20px}
+</style>
+</head>
+<body>
+<div id="sp" style="position:fixed;top:0;left:0;height:3px;width:0%;background:#E8FF4D;z-index:999"></div>
+<div>
+  <p class="tag">Tecnologia</p>
+  <h1>Sua chance de mudar comeca aqui</h1>
+  <p>Curso de CFTV - Aprenda uma Nova Profissão — acesse agora e descubra como este programa pode transformar seus resultados.</p>
+  <a href="#" class="btn cta-btn">Comecar agora</a>
+</div>
+<div id="stickycta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:rgba(7,9,14,.95);border-top:1px solid rgba(255,255,255,.08)">
+  <a href="#" class="btn cta-btn" style="width:100%;justify-content:center">Comecar agora</a>
+</div>
+<script>
+(function(){
+  var T="https://cmykqkytjhiqarcginfs.supabase.co/functions/v1/track-click",K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNteWtxa3l0amhpcWFyY2dpbmZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NDY0MTMsImV4cCI6MjA5MjAyMjQxM30.5navVvq_NuPAF-Xv8Pk39QdNE80JwEzpuHZ6hgU1gWU",PID="curso_de_cftv_aprenda_uma_nova_profissao__acao__b488a1",LNK="https://go.hotmart.com/M105499562M";
+  window.addEventListener('scroll',function(){
+    var s=document.documentElement,pct=(s.scrollTop/(s.scrollHeight-s.clientHeight))*100;
+    var p=document.getElementById('sp');if(p)p.style.width=pct+'%';
+    var n=document.getElementById('mainnav');
+    if(n)n.classList.toggle('scrolled',window.scrollY>40);
+    var sb=document.getElementById('stickycta');
+    if(sb)sb.style.display=pct>25?'block':'none';
+  });
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('in')},i*60)});
+  },{threshold:0.1});
+  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
+  function faq(btn){
+    var item=btn.closest('.fi'),open=item.classList.contains('open');
+    document.querySelectorAll('.fi').forEach(function(i){i.classList.remove('open')});
+    if(!open)item.classList.add('open');
+  }
+  window.faq=faq;
+  function cta(e){
+    e.preventDefault();
+    fetch(T,{method:'POST',keepalive:true,
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+K},
+      body:JSON.stringify({page_id:PID})});
+    setTimeout(function(){window.open(LNK,'_blank')},150);
+  }
+  document.querySelectorAll('.cta-btn').forEach(function(b){b.addEventListener('click',cta)});
+})();
+</script>
+</body>
+</html>
