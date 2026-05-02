@@ -32,18 +32,18 @@ section{padding:80px 5%}
 h2{font-size:42px;font-weight:800;text-align:center;margin-bottom:48px;color:#FFF}
 h2 span{color:#0EA5E9}
 .problems{background:#050D1A}
-.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,380px));gap:24px}
 .problem-card{background:rgba(14,165,233,0.05);border:2px solid rgba(14,165,233,0.2);border-radius:12px;padding:32px;transition:all .3s}
 .problem-card:hover{border-color:#0EA5E9;box-shadow:0 0 30px rgba(14,165,233,0.2)}
 .problem-icon{font-size:40px;margin-bottom:16px}
 .problem-card h3{font-size:24px;margin-bottom:12px;color:#0EA5E9}
 .benefits{background:linear-gradient(180deg,#0A1628,#050D1A)}
-.benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,380px));gap:24px}
 .benefit-card{background:rgba(14,165,233,0.08);border-left:4px solid #0EA5E9;padding:28px;border-radius:8px;transition:all .3s}
 .benefit-card:hover{background:rgba(14,165,233,0.15);transform:translateX(8px)}
 .benefit-card h3{font-size:20px;margin-bottom:8px;color:#FFF;font-weight:800}
 .stats{background:#050D1A;text-align:center}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-top:48px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,260px));gap:32px;margin-top:48px}
 .stat-box{padding:32px;background:rgba(14,165,233,0.1);border-radius:12px;border:2px solid rgba(14,165,233,0.3)}
 .stat-num{font-size:52px;font-weight:800;color:#0EA5E9;display:block;margin-bottom:8px}
 .stat-label{font-size:16px;color:#CBD5E1}
@@ -120,6 +120,10 @@ section>div,header>div,nav>div,footer>div,.hero-content,.section-content{
 }
 h1{font-size:clamp(32px,4vw,56px) !important}
 h2{font-size:clamp(24px,3vw,42px) !important}
+</style><style>
+.container,.section-inner,.hero-inner{max-width:1000px;margin:0 auto;padding:0 32px;width:100%}
+.problem-grid,.benefit-grid,.stats-grid{justify-content:center}
+section{padding-left:0;padding-right:0}
 </style></head>
 <body>
 
