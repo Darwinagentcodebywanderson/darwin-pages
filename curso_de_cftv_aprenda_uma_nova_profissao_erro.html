@@ -283,11 +283,16 @@ body { overflow-x: hidden !important; }
     if(!open)item.classList.add('open');
   }
   window.faq=faq;
+  
+  function getUTM(p){return new URLSearchParams(window.location.search).get(p)||"";}
   function handleCTA(e){
     e.preventDefault();
+    var src=getUTM('utm_source')||document.referrer.split('/')[2]||'direto';
+    var med=getUTM('utm_medium')||'organico';
+    var camp=getUTM('utm_campaign')||'';
     fetch(T,{method:'POST',keepalive:true,
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+K},
-      body:JSON.stringify({page_id:PID})});
+      body:JSON.stringify({page_id:PID,utm_source:src,utm_medium:med,utm_campaign:camp})});
     setTimeout(function(){window.open(LNK,'_blank')},150);
   }
   document.querySelectorAll('.cta-btn').forEach(function(b){b.addEventListener('click',handleCTA)});
